@@ -1,2 +1,1 @@
-David Dayan
-Mitchell LaRocque
+Project Team Members: Mitchell LaRocque
