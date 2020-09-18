@@ -1,5 +1,5 @@
 Project Team Members: 
 David Dayan
+Zoe Stewart
 Mitchell LaRocque
-
-David was here: Corrected Changes
+John Lee
