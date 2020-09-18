@@ -1,4 +1,5 @@
-Project Team Members:
+Project Team Members: 
 David Dayan
-
-zoe reviewed
+Zoe Stewart
+Mitchell LaRocque
+John Lee
