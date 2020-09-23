@@ -39,6 +39,9 @@ Run the command `pipenv uninstall flask`
 ### Running project in pipenv
 In (in pipenv shell) command line run `pipenv run python3 -m flask run`: this will run a flask project in pipenv
 
+### Deploying code and ensuring web server uses correct version:
+Make the server use the pipfile.lock to install the correct versions of packages. `pipenv lock` and then `pipenv install --ignore-pipfile`
+
 ### Other resources on virtual environments:
 [Youtube Video Tutorial for Pipenv and checking security/version vulnerabilities](https://www.youtube.com/watch?v=6Qmnh5C4Pmo)
 [Documentation for installing pipenv](https://docs.python-guide.org/dev/virtualenvs/)
