@@ -34,7 +34,7 @@ Within your directory/pipenv shell: we can now easily manage what versions/what 
 We can specify what versions we are using for this project and document that. These packages can be installed with a simple pip command: `pipenv install flask` or whatever package you want to install. If we want to install packages that are only used for development like test packages: `pipenv install nose --dev`. If you want to install packages from a requirements file: `pipenv install -r ./requirements.txt`
 
 ### Uninstalling python packages that were used in the pipenv
-Run the command `pipenv uninstall flask`
+Run the command `pipenv uninstall flask`. To uninstall an instance of pipenv virtual environment: `pipenv --rm`
 
 ### Running project in pipenv
 In (in pipenv shell) command line run `pipenv run python3 -m flask run`: this will run a flask project in pipenv
