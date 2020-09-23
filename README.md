@@ -5,7 +5,15 @@ Zoe Stewart
 Mitchell LaRocque
 John Lee
 Makayla Johnson
+---
 
+## Contributors 
+- David Dayan <david.dayan@colorado.edu>
+- Zoe Stewart <zost6915@colorado.edu>
+- Mitchell LaRocque <mila9009@colorado.edu>
+- John Lee <jule8198@colorado.edu>
+- Makayla Johnson <majo9858@colorado.edu>
+---
 # Development Process and Setup
 ## Setting up API calls to fetch data from Sports Reference
 To begin using the sports reference API:
