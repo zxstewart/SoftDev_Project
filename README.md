@@ -19,20 +19,22 @@ Makayla Johnson
 To begin using the sports reference API:
 
 ## Setting up virtual python environment for development
-We will be using virtual python environments (virtualenv) to separate python dev environment from other environments
-### ``pip3 install virtualenv``
-This installs virtualenv package used to create virtual python environments
+We will be using virtual python environments (pipenv) to separate python dev environment from other environments
+### Installing pipenv and setting up virtual environment
+Navigate to your directory that you will be using as a development environment then run: `pip3 install --user pipenv` to install pipenv package used to create virtual python environments
+
 ### ``pip3 list``
 See what version all of your python packages are at
-### ``virtualenv project1_env``
-Use this to create a new python virtual environment and you should create this on some local directory.
-### ``source project1_env/bin/activate``
-This will create a new virtual environment where we can now easily manage what versions/what packages we are using: numpy, flask, sports_referenceAPI, etc.
+
 ### Installing other python packages needed for the project development
-We can specify what versions we are using for this project and document that. These packages can be installed with a simple pip command: `pip install numpy` or whatever package you want to install. You can also run a text file filled with versions that will be provided so we can maintain the same versions on this site: `pip install -r requirements.txt`
-### Exporting VirtualEnvironment Package Version 
-`pip3 freeze --local > requirements.txt` to store all dependencies/package version into a text file
-### Exit Virtual environment
-`deactivate`
+Within your directory: we can now easily manage what versions/what packages we are using: numpy, flask, sports_referenceAPI, etc.
+We can specify what versions we are using for this project and document that. These packages can be installed with a simple pip command: `pipenv install flask` or whatever package you want to install.
+
+### Running project in pipenv
+In command line run `pipenv run python3 -m flask run`: this will run a flask project in pipenv
+
 ### Other resources on virtual environments:
 [Youtube Video Tutorial for Python Virtual Environments](https://www.youtube.com/watch?v=N5vscPTWKOk&list=PLVV11kd1LwZKub1q9KMC5FfQs8WPD_Aol&index=5&t=171s)
+[Documentation for installing virtualenvs](https://docs.python-guide.org/dev/virtualenvs/)
+
+NOTE: We don't need to keep track of our dependency and package version ourselves. Pipenv automatically takes care of that for us and stores it on Pipfile and Pipfile.lock
