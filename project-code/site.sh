@@ -7,5 +7,8 @@
 echo "enter application filename:"
 read applicationName
 
+#runs the flask application in debug mode so we can see live reload
+export FLASK_DEBUG=1
+
 export FLASK_APP=$applicationName
 flask run
