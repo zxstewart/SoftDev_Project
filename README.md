@@ -3,7 +3,6 @@ Project Team Members:
 David Dayan
 Zoe Stewart
 Mitchell LaRocque
-Quinn Stone
 John Lee
 Makayla Johnson
 ---
@@ -12,7 +11,6 @@ Makayla Johnson
 - David Dayan <david.dayan@colorado.edu>
 - Zoe Stewart <zost6915@colorado.edu>
 - Mitchell LaRocque <mila9009@colorado.edu>
-- Quinn Stone <qust3531@colorado.edu>
 - John Lee <jule8198@colorado.edu>
 - Makayla Johnson <majo9858@colorado.edu>
 ---
