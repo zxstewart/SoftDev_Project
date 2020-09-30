@@ -32,7 +32,7 @@ Navigate to your directory that you will be using as a development environment t
 `pipenv shell` You will install your packages from here. To quit the virtual environment pipenv: `exit` You can also run code in here too! (you should run code in here)
 
 ### Installing other python packages needed for the project development
-Within your directory/pipenv shell: we can now easily manage what versions/what packages we are using: numpy, flask, sports_referenceAPI, etc.
+Within your pipenv shell: we can now easily manage what versions/what packages we are using: numpy, flask, sports_referenceAPI, etc.
 We can specify what versions we are using for this project and document that. These packages can be installed with a simple pip command: `pipenv install flask` or whatever package you want to install. If we want to install packages that are only used for development like test packages: `pipenv install nose --dev`. If you want to install packages from a requirements file: `pipenv install -r ./requirements.txt`
 
 ### Uninstalling python packages that were used in the pipenv
