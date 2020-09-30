@@ -17,8 +17,11 @@ Makayla Johnson
 - Makayla Johnson <majo9858@colorado.edu>
 ---
 # Development Process and Setup
-## Setting up API calls to fetch data from Sports Reference
-To begin using the sports reference API:
+## Setting up Sports Reference API calls
+To begin using the sports reference API and fetch data from the sports reference site:
+
+### Installing ```sportsreference``` API through pipenv
+Navigate to your your project and start your `pipenv` shell with the command `pipenv shell`. Once you have done this you can install the packages easily. Install `sportsreference` by using pipenv: `pipenv install sportsreference`
 
 ## Setting up virtual python environment for development
 We will be using virtual python environments (pipenv) to separate python dev environment from other environments
