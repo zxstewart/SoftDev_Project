@@ -6,6 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+pandas = "*"
+sportsreference = "*"
 
 [requires]
 python_version = "3.8"
