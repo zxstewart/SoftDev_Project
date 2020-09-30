@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Welcome to Sports Stats Master</h1>
+    <!--Here is how to iterate through data that is passed to this html webpage: uses templating engine-->
+    {% for athlete in posts %}
+        <h1>{{ athlete.name }}</h1>
+        <p>{{ athlete.position }}</p>
+    {% endfor %}
+{% endblock content%}

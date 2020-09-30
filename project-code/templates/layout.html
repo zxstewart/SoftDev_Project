@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>Sports Stats Master: {{ title }}</title>
+    {% else %}
+        <title>Sports Stats Master</title>
+    {% endif %}
+</head>
+<body>
+    <!--Here is a block that will be over rode by the child html so that the headers/layouts are consistent between pages-->
+    {% block content %}{% endblock %}
+</body>
+</html>
