@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
 #using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
@@ -6,12 +6,14 @@ information = [
     {
         'name': 'Peyton Manning',
         'position': 'Quarterback',
-        'age': '44'
+        'age': '44',
+        'status': 'Old GOAT'
     },
     {
         'name': 'Jamal Murray',
         'position': 'Point Guard',
-        'age': '23'
+        'age': '23',
+        'status': 'Maple Jordan'
     }
 ]
 

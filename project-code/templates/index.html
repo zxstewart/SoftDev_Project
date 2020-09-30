@@ -3,7 +3,16 @@
     <h1>Welcome to Sports Stats Master</h1>
     <!--Here is how to iterate through data that is passed to this html webpage: uses templating engine-->
     {% for athlete in posts %}
-        <h1>{{ athlete.name }}</h1>
-        <p>{{ athlete.position }}</p>
+        <!--Unsure but the format for displaying recent graphs/stats can be changed to be cards?-->
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ athlete.name }}</a>
+                <small class="text-muted">{{ athlete.position }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ athlete.status }}</a></h2>
+            <p class="article-content">Age: {{ athlete.age }}</p>
+            </div>
+        </article>
     {% endfor %}
 {% endblock content%}
