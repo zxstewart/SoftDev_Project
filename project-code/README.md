@@ -13,7 +13,7 @@ A sports analytics application that allows the user to analyze sports statistics
  Development will generally be done in linux environments prescribed in class to simplify the development process and limit issues.
 
  ## Running Locally
-Instructions for running Sports Stats Master locally on your own machine.
+To run the flask application on you local machine, you must have `pipenv` installed so you can manage your installed packages. Once this is done you should start your virtual environment with `pipenv shell`. Then you can naviagate to the directory with `sportsApp.py` where you can launch the site with Flask: `python sportsApp.py`
 
  ## URL
  This will be update once an application is functioning and hosted
