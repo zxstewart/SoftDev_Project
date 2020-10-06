@@ -1,6 +1,4 @@
----
-Project Team Members:
----
+**Project Team Members:**
 
 David Dayan
 Zoe Stewart
