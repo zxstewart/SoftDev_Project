@@ -6,6 +6,7 @@ Mitchell LaRocque
 Quinn Stone
 John Lee
 Makayla Johnson
+
 ---
 
 ## Contributors 
