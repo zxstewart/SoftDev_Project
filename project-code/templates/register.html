@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+<title>Sign Up</title>
+{% block content %}
+    <!--registration form-->
+  <h1>Sign Up</h1>
+  <form>
+    <div class="form-row">
+      <div class="col">
+          <div class="form-group">
+            <label for="firstName" class="col-sm-2 col-form-label">Full Name</label>
+            <input type="text" id="firstName" placeholder="First Name">
+            <input type="text" id="lastName" placeholder="Last Name">
+            <br>
+            <label for="input_email" class="col-sm-2 col-form-label">Email Address:</label>
+            <input type="text" name="input_email" placeholder="johnsmith@email.com">
+          </div>
+      </div>
+      <div class="col">
+          <div class="form-group">
+              <label for="input_pw" class="col-sm-2 col-form-label">Password:</label>
+              <input type="password" name="input_pw"><br>
+              <label for="check_pw" class="col-sm-2 col-form-label">Confirm Password:</label>
+              <input type="password" name="check_pw">
+          </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+          <div class="form-group">
+              <label for="fileUpload">Upload Profile Picture</label>
+              <input type="file" class="form-control-file" id="fileUpload">
+          </div>
+      </div>
+      <div class="col">
+        <!--Checkboxes for sport preference-->
+        <div class="form-group">
+          <label for="sportOpt">What sports are you interested in?</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="opt1" id="opt1" value="option1">
+            <label class="form-check-label" for="opt1">
+            Football
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="opt2" id="opt2" value="option2">
+            <label class="form-check-label" for="opt2">
+                Basketball
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="opt3" id="opt3" value="option3">
+            <label class="form-check-label" for="opt3">
+                Hockey
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="opt4" id="opt4" value="option4">
+            <label class="form-check-label" for="opt4">
+                Soccer
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="opt5" id="opt5" value="option5">
+            <label class="form-check-label" for="opt5">
+                Baseball
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="opt6" id="opt6" value="option6">
+            <label class="form-check-label" for="opt6">
+                Other
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="" class="btn btn-secondary" role="button">Submit</a>
+  </form>
+{% endfor %}
+{% endblock content%}
