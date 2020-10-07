@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+<title>Browse Sports</title>
+{% block content %}
+  <!--Here is the browse page that should be linked-->
+  <!--Search bar-->
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search Players and Teams">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-secondary" type="submit">Search</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <!--end of col-->
+    </div>
+    <br><br>
+    <!--search icons (using bootstrap cards (?) to redirect to different sports pages-->
+    <div class="card-group">
+        <div class="row outerContainer">
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Football">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Football Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Basketball">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Basketball Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Hockey">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Hockey Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Soccer">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Soccer Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Baseball">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Baseball Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="etc">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Other</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+{% endblock content%}
