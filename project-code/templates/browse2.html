@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>Sports Stats Master: Browse</title>
+    {% else %}
+        <title>Sports Stats Master</title>
+    {% endif %}
+    <!--Adding support for Boostrap-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!--Linking to custom stylesheet by using flask url_for function (this function finds the given file in the specified folder-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <!--Adding a responsive navbar that will be available on all pages-->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+          <div class="container">
+            <a class="navbar-brand mr-4" href="/">Sports Stats Master</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="/">Home</a>
+                <a class="nav-item nav-link" href="/about">Sign up</a>
+                <a class="nav-item nav-link" href="/about">Stats Search</a>
+              </div>
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/login">Login</a>
+                <a class="nav-item nav-link" href="/register">Register</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <!--Here is a block that will be over rode by the child html so that the headers/layouts are consistent between pages-->
+    <main role="main" class="container">
+        <div class="row">
+          <div class="col-md-8">
+            {% block content %}{% endblock %}
+          </div>
+          <div class="col-md-4">
+            <div class="content-section">
+              <h3>Our Sidebar</h3>
+              <p class='text-muted'>You can put any information here you'd like.
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-light">Latest Posts</li>
+                  <li class="list-group-item list-group-item-light">Announcements</li>
+                  <li class="list-group-item list-group-item-light">Calendars</li>
+                  <li class="list-group-item list-group-item-light">etc</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    <!--Search bar-->
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search Players and Teams">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-secondary" type="submit">Search</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <!--end of col-->
+    </div>
+    <br><br>
+    <!--search icons (using bootstrap cards (?) to redirect to different sports pages-->
+    <div class="card-group">
+        <div class="row outerContainer">
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Football">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Football Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Basketball">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Basketball Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Hockey">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Hockey Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Soccer">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Soccer Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="Baseball">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Baseball Teams</a>
+                </div>
+            </div>
+            <div class="card col-md-4">
+                <img class="card-img-top" src="" alt="etc">
+                <div class="card-body">
+                    <a href="" class="btn btn-secondary" role="button">Other</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
