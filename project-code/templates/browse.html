@@ -25,37 +25,38 @@
     <div class="card-group">
       <div class="row outerContainer">
         <div class="card col-md-4">
-            <img class="card-img-top" src="project-code/img/browsePageImages/nflPlayerLogo.jpeg" alt="Football">
+          <!--Apparently have to use url_for function in flask to pass images through (located in static folder)-->
+            <img class="card-img-top" src="{{ url_for('static', filename='browsePageImages/nflPlayerLogo.jpeg') }}" alt="Football">
             <div class="card-body">
                 <a href="" class="btn btn-secondary" role="button">Football Teams</a>
             </div>
         </div>
         <div class="card col-md-4">
-            <img class="card-img-top" src="https://picsum.photos/" alt="Basketball">
+            <img class="card-img-top" src="{{ url_for('static', filename='browsePageImages/nbaImage.jpg') }}" alt="Basketball">
             <div class="card-body">
                 <a href="" class="btn btn-secondary" role="button">Basketball Teams</a>
             </div>
         </div>
         <div class="card col-md-4">
-            <img class="card-img-top" src="https://a.espncdn.com/photo/2019/0923/nhl_rank_16x9.jpg" alt="Hockey">
+            <img class="card-img-top" src="{{ url_for('static', filename='browsePageImages/nhlSportpic.jpg') }}" alt="Hockey">
             <div class="card-body">
                 <a href="" class="btn btn-secondary" role="button">Hockey Teams</a>
             </div>
         </div>
         <div class="card col-md-4">
-            <img class="card-img-top" src="" alt="Soccer">
+            <img class="card-img-top" src="{{ url_for('static', filename='browsePageImages/mlsSoccer.jpg') }}" alt="Soccer">
             <div class="card-body">
                 <a href="" class="btn btn-secondary" role="button">Soccer Teams</a>
             </div>
         </div>
         <div class="card col-md-4">
-            <img class="card-img-top" src="" alt="Baseball">
+            <img class="card-img-top" src="{{ url_for('static', filename='browsePageImages/baseball.jpeg') }}" alt="Baseball">
             <div class="card-body">
                 <a href="" class="btn btn-secondary" role="button">Baseball Teams</a>
             </div>
         </div>
         <div class="card col-md-4">
-            <img class="card-img-top" src="" alt="etc">
+            <img class="card-img-top" src="{{ url_for('static', filename='browsePageImages/otherSports.png') }}" alt="etc">
             <div class="card-body">
                 <a href="" class="btn btn-secondary" role="button">Other</a>
             </div>

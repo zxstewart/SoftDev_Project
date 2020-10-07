@@ -28,6 +28,12 @@ def home():
 def about():
     return render_template('browse.html')
 
+#adding routing backend for registration page
+@app.route('/register')
+def register():
+    #can also pass and recieve form info (this will be implemented later)
+    return render_template('register.html')
+
 #another way to run the application without using terminal
 #simply run in terminal with python: $python3 sportsApp.py
 if __name__ == '__main__':
