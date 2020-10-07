@@ -24,9 +24,9 @@ def home():
     return render_template('index.html', posts=information)
 
 #about page
-@app.route('/about')
+@app.route('/browse')
 def about():
-    return '<h1>About page</h1>'
+    return render_template('browse.html')
 
 #another way to run the application without using terminal
 #simply run in terminal with python: $python3 sportsApp.py
