@@ -1,4 +1,4 @@
-Project Team Members:
+**Project Team Members:**
 
 David Dayan
 Zoe Stewart
@@ -6,6 +6,7 @@ Mitchell LaRocque
 Quinn Stone
 John Lee
 Makayla Johnson
+
 ---
 
 ## Contributors 
