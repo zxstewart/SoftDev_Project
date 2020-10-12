@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+<title>About Page</title>
+{% block content %}
+    <!--Search bar-->
+  <div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>About</h1>
+            <p>Sports Stat Master is a web application that uses Sports statistic APIs to allow for easy browsing and sharing of statistics, as well as delivering efficient and beautiful visualizations of data.
+                This project was made by the Dumpster Devs for CU Boulder's CSCI 3308 Software Development Methods and Tools Class' Group 203-4.
+            </p>
+        </div>
+    </div>
+    <br><br>
+    <!--search icons (using bootstrap cards to redirect to different sports pages-->
+    <div class="card-group">
+      <div class="row outerContainer">
+        <div class="card col-md-4">
+          <!--Apparently have to use url_for function in flask to pass images through (located in static folder)-->
+            <div class="card-body">
+                <a href="https://github.com/davidtdayan" class="btn btn-secondary" role="button">David Dayan</a>
+            </div>
+        </div>
+        <div class="card col-md-4">
+            <div class="card-body">
+                <a href="https://github.com/majo9858" class="btn btn-secondary" role="button">Makayla Johnson</a>
+            </div>
+        </div>
+        <div class="card col-md-4">
+            <div class="card-body">
+                <a href="https://github.com/mitchelllarocque" class="btn btn-secondary" role="button">Mitch Larocque</a>
+            </div>
+        </div>
+        <div class="card col-md-4">
+            <div class="card-body">
+                <a href="https://github.com/jule8198" class="btn btn-secondary" role="button">John Lee</a>
+            </div>
+        </div>
+        <div class="card col-md-4">
+            <div class="card-body">
+                <a href="https://github.com/zxstewart" class="btn btn-secondary" role="button">Zoe Stewart</a>
+            </div>
+        </div>
+        <div class="card col-md-4">
+            <div class="card-body">
+                <a href="https://github.com/quinnstone" class="btn btn-secondary" role="button">Quinn Stone</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content%}
