@@ -1,5 +1,8 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
+from forms import RegistrationForm, LoginForm
 app = Flask(__name__)
+
+app.config['SECRET_KEY']=''
 
 #using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
 information = [
@@ -29,16 +32,21 @@ def browse():
     return render_template('browse.html')
 
 #adding routing backend for registration page
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('home'))
     #can also pass and recieve form info (this will be implemented later)
-    return render_template('register.html')
+    return render_template('register.html', form = form)
 
 #adding routing backend for login page
 @app.route('/login')
 def login():
+    form = LoginForm()
     #can also pass and recieve form info (this will be implemented later)
-    return render_template('login.html')
+    return render_template('login.html', form=form)
 
 #About page
 @app.route('/about')
