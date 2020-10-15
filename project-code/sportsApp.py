@@ -34,6 +34,12 @@ def register():
     #can also pass and recieve form info (this will be implemented later)
     return render_template('register.html')
 
+#adding routing backend for login page
+@app.route('/login')
+def login():
+    #can also pass and recieve form info (this will be implemented later)
+    return render_template('login.html')
+
 #About page
 @app.route('/about')
 def about():

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+<title>Profile</title>
+{% block content %}
+    <!--registration form-->
+  <h1>My Profile</h1>
+  
+<div class="container">
+    <br>
+    <div class="col-4">
+        <div class="card">
+            <img class="card-img-top" id="profile_pic" src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="user's profile picture">
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>ex. John Smith</th>
+                </tr>
+                <tr>
+                    <td>abcde@mail.com</td>
+                </tr>
+                <tr>
+                    <th>Favorite Sports:</th>
+                    <td>whatever sports they checked when signing up</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="#" class="btn btn-secondary" role="button">Edit Profile</a>
+</div>
+{% endblock content%}

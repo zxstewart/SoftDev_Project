@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+<title>Log In</title>
+{% block content %}
+    <!--registration form-->
+  <h1>Welcome Back!</h1>
+  <h5>Please provide your login credentials</h5>
+  <br>
+  <form>
+    <div class="form-row">
+      <div class="col">
+          <div class="form-row">
+            <label for="input_email" class="col-sm-2 col-form-label">Email Address:</label>
+            <input type="text" name="input_email" placeholder="johnsmith@email.com" required="required">
+          </div>
+          <div class="form-row">
+            <label for="input_pw" class="col-sm-2 col-form-label">Password:</label>
+            <input type="password" name="input_pw" id="pwd" required="required"><br>
+        </div>
+      </div>
+    </div>
+    <a href="/profile" class="btn btn-secondary" role="button" id="submit_button">Submit</a>
+  </form>
+{% endblock content%}
