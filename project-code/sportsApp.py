@@ -45,6 +45,11 @@ def login():
 def about():
     return render_template('about.html')
 
+#Profile page
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
 #another way to run the application without using terminal
 #simply run in terminal with python: $python3 sportsApp.py
 if __name__ == '__main__':
