@@ -58,6 +58,11 @@ def about():
 def profile():
     return render_template('profile.html')
 
+#video page
+@app.route('/video')
+def video():
+    return render_template('video.html')
+
 #another way to run the application without using terminal
 #simply run in terminal with python: $python3 sportsApp.py
 if __name__ == '__main__':

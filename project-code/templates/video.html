@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+<title>Browse Sports</title>
+{% block content %}
+    <!--cards for dif youtube embeds-- this is really ugly and def needs some fixing-->
+<div class="card-group">
+    <div class="container">
+        <div class="card">
+            <iframe width="600" height="340" src="https://www.youtube.com/embed?listType=user_uploads&list=NFL" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body">
+                Latest video from the NFL
+            </div>
+        </div>
+        <br><br>
+        <div class="card">
+              <iframe width="600" height="340" src="https://www.youtube.com/embed?listType=user_uploads&list=NBA" frameborder="0" allowfullscreen></iframe>
+              <div class="card-body">
+                Latest video from the NBA
+              </div>
+        </div>
+        <br><br>
+        <div class="card">
+            <iframe width="600" height="340" src="https://www.youtube.com/embed?listType=user_uploads&list=NHL" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body">
+                Latest video from the NHL
+            </div>
+        </div>
+        <br><br>
+        <div class="card">
+            <iframe width="600" height="340" src="https://www.youtube.com/embed?listType=user_uploads&list=ussoccerdotcom" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body">
+                Latest video from US Soccer
+            </div>
+        </div>
+        <br><br>
+        <div class="card">
+            <iframe width="600" height="340" src="https://www.youtube.com/embed?listType=user_uploads&list=MLB" frameborder="0" allowfullscreen></iframe>
+            <div class="card-body">
+                Latest videos from MLB
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}
