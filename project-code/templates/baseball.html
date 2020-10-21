@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+<title>Baseball Teams</title>
+{% block content %}
+<h1>Welcome to the Baseball Hub!</h1>
+<div class="container">
+    <h5> On this page you can find the latest statistics and news about the MLB.</h5>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png" alt="MLB Logo" style="float:right" height="150px" width="300px">
+    <div class="card">
+        <a> Link to MLB Homepage </a>
+        <br>
+        <a> Link to the lastest MLB scores </a>
+        <br>
+        <a> Link to MLB livestreams </a>
+        <br>
+        <a> Link to Draft Kings </a>
+        <br>
+        <a> Link to ESPN Fantasy Football </a>
+    </div>
+    <br>
+    <br>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <form class="example" action="action_page.php">
+        <input type="text" placeholder="Search for Player/Team Stats" name="search" style="padding: 10px;font-size: 17px;border: 1px solid grey;float: left;width: 80%;background: #f1f1f1;">
+        <button type="submit" style="background: #0b7dda;float: left;width: 20%;padding: 10px;background: #2196F3;color: white;font-size: 17px;border: 1px solid grey;border-left: none;"><i class="fa fa-search"></i></button>
+    </form>
+    <br>
+    <br>
+    <div class="row">
+        <div class="column" style="float: left;width: 50%;padding: 10px;height: 300px;background-color:#aaa;">
+            <h3>Top Players</h3>
+        </div>
+        <div class="column" style="float: left;width: 50%;padding: 10px;height: 300px;background-color:#bbb;">
+            <h3>Top Teams</h3>
+        </div>
+    </div>
+</div>
+
+{% endblock content%}
