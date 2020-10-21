@@ -34,12 +34,17 @@ def browse():
 #adding routing backend for registration page
 @app.route('/register')
 def register():
-    # form = RegistrationForm()
-    # if form.validate_on_submit():
-    #     flash(f'Account created for {form.username.data}!', 'success')
-    #     return redirect(url_for('home'))
-    # #can also pass and recieve form info (this will be implemented later)
     return render_template('register.html')
+
+@app.route('/registerNew')
+def registerNew():
+    form = RegistrationForm()
+    return render_template('registerNew.html', title='Register', form=form)
+
+@app.route('/registerNew')
+def registerNew():
+    form = RegistrationForm()
+    return render_template('registerNew.html', title='Register', form=form)
 
 #adding routing backend for login page
 @app.route('/login')
