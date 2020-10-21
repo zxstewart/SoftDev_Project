@@ -63,6 +63,26 @@ def profile():
 def video():
     return render_template('video.html')
 
+@app.route('/football')
+def football():
+    return render_template('football.html')
+
+@app.route('/basketball')
+def basketball():
+    return render_template('basketball.html')
+
+@app.route('/hockey')
+def hockey():
+    return render_template('hockey.html')
+
+@app.route('/soccer')
+def soccer():
+    return render_template('soccer.html')
+
+@app.route('/baseball')
+def baseball():
+    return render_template('baseball.html')
+
 #another way to run the application without using terminal
 #simply run in terminal with python: $python3 sportsApp.py
 if __name__ == '__main__':
