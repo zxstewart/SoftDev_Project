@@ -37,9 +37,11 @@ def browse():
 @app.route('/register', methods=['GET','POST'])
 def register():
     form = RegistrationForm()
-    # if form.validate_on_submit():
-    #     flash(f'Account created for {form.username.data}!', 'success')
-    #     return redirect(url_for('home'))
+    #this will check if the form validated on POST
+    if form.validate_on_submit():
+        #using f string because variable is passed in: 'success' is boostrap class 
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('home'))
     # #can also pass and recieve form info (this will be implemented later)
     return render_template('registerNew.html', title='Register', form=form)
 
