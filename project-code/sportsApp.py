@@ -34,7 +34,7 @@ def browse():
 
 #adding routing backend for registration page
 #NOTE: register.html is depracated and SHOULD NOT be used!
-@app.route('/register')
+@app.route('/register', methods=['GET','POST'])
 def register():
     form = RegistrationForm()
     # if form.validate_on_submit():
