@@ -1,8 +1,9 @@
 from flask import Flask, render_template, url_for, flash, redirect
-#from wtforms import RegistrationForm, LoginForm
+from forms import RegistrationForm, LoginForm
 app = Flask(__name__)
 
-app.config['SECRET_KEY']=''
+#some generated list of 16 hex values (used for passwords and validation)
+app.config['SECRET_KEY']='0819780287c1fe01cfb39284c1c55b7d'
 
 #using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
 information = [
@@ -32,21 +33,22 @@ def browse():
     return render_template('browse.html')
 
 #adding routing backend for registration page
+#NOTE: register.html is depracated and SHOULD NOT be used!
 @app.route('/register')
 def register():
-    # form = RegistrationForm()
+    form = RegistrationForm()
     # if form.validate_on_submit():
     #     flash(f'Account created for {form.username.data}!', 'success')
     #     return redirect(url_for('home'))
     # #can also pass and recieve form info (this will be implemented later)
-    return render_template('register.html')
+    return render_template('registerNew.html', title='Register', form=form)
 
 #adding routing backend for login page
 @app.route('/login')
 def login():
-    #form = LoginForm()
+    form = LoginForm()
     #can also pass and recieve form info (this will be implemented later)
-    return render_template('login.html')
+    return render_template('login.html', title='Login',form=form)
 
 #About page
 @app.route('/about')

@@ -2,10 +2,12 @@
 {% block content %}
     <div class="content-section">
         <form method="POST" action="">
+            <!--Used for site safety-->
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Join Today</legend>
                 <div class="form-group">
+                    <!--This is how fields from the form argument that is passed into this page is rendered: also add nice boostrap styling to each-->
                     {{ form.username.label(class="form-control-label") }}
 
                     {% if form.username.errors %}
