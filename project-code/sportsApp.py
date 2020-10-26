@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect
-#from forms import RegistrationForm, LoginForm
+#from wtforms import RegistrationForm, LoginForm
 app = Flask(__name__)
 
 app.config['SECRET_KEY']=''
@@ -32,21 +32,21 @@ def browse():
     return render_template('browse.html')
 
 #adding routing backend for registration page
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/register')
 def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
-    #can also pass and recieve form info (this will be implemented later)
-    return render_template('register.html', form = form)
+    # form = RegistrationForm()
+    # if form.validate_on_submit():
+    #     flash(f'Account created for {form.username.data}!', 'success')
+    #     return redirect(url_for('home'))
+    # #can also pass and recieve form info (this will be implemented later)
+    return render_template('register.html')
 
 #adding routing backend for login page
 @app.route('/login')
 def login():
-    form = LoginForm()
+    #form = LoginForm()
     #can also pass and recieve form info (this will be implemented later)
-    return render_template('login.html', form=form)
+    return render_template('login.html')
 
 #About page
 @app.route('/about')
