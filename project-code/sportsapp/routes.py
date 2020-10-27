@@ -40,11 +40,11 @@ def register():
     if form.validate_on_submit():
         #generate a hashed password that will be put in database and will by encrypted with bcrypt: also decode to store the hash as string in db
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
-        db.sessionadd(user)
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password, interest=form.interests.data)
+        db.session.add(user)
         db.session.commit()
         #using f string because variable is passed in: 'success' is boostrap class 
-        flash(f'Account created for {form.username.data} Your account has been created and you are now able to log in!', 'success')
+        flash('Your account has been created and you are now able to log in!', 'success')
         return redirect(url_for('login'))
     # #can also pass and recieve form info (this will be implemented later)
     return render_template('registerNew.html', title='Register', form=form)

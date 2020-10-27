@@ -8,8 +8,10 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
+    #currently only support a single interest
+    interest = db.Column(db.String(50), nullable=False)
 
-    #creating a one-to many relationship between users and their personal sports stats
+    #creating a one-to-many relationship between users and their personal sports stats
     #owner attribute can be used to get the user who created the sportsStats
     posts = db.relationship('sportsStats', backref='owner', lazy=True)
 
@@ -27,3 +29,6 @@ class sportsStats(db.Model):
 
     def __repr__(self):
         return f"sportsStats('{self.title}', '{self.date_queried}')"
+
+#create all the tables before returning to importing file: ALL TABLES SHOULD BE DEFINED ABOVE THIS
+db.create_all()
