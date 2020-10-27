@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect
-from sportsapp import app
+from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm
 #importing models for database
 from sportsapp.models import User, sportsStats
@@ -38,9 +38,14 @@ def register():
     form = RegistrationForm()
     #this will check if the form validated on POST
     if form.validate_on_submit():
+        #generate a hashed password that will be put in database and will by encrypted with bcrypt: also decode to store the hash as string in db
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.sessionadd(user)
+        db.session.commit()
         #using f string because variable is passed in: 'success' is boostrap class 
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
+        flash(f'Account created for {form.username.data} Your account has been created and you are now able to log in!', 'success')
+        return redirect(url_for('login'))
     # #can also pass and recieve form info (this will be implemented later)
     return render_template('registerNew.html', title='Register', form=form)
 
