@@ -3,6 +3,7 @@ from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm
 #importing models for database
 from sportsapp.models import User, sportsStats
+from flask_login import login_user
 
 #using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
 information = [
@@ -56,11 +57,15 @@ def login():
     #can also pass and recieve form info (this will be implemented later)
     #this will check if the form validated on POST
     if form.validate_on_submit():
-        #using dummy to test validation of login POST
-        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+        #check database for validation of login POST
+        user = User.query.filter_by(email=form.email.data).first()
+        #check that user exists and that password is correct
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            #login through the flask_login package that sets login state
+            login_user(user, remember=form.remember.data)
+            #also redirect the user
             flash('Successful Login Completed!', 'success')
             return redirect(url_for('home'))
-        #temp to call anything else besides hardcoded key to be failed login
         else:
             flash('Login Unsucessful', 'danger')
     return render_template('login.html', title='Login',form=form)

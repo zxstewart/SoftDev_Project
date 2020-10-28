@@ -1,7 +1,13 @@
 from datetime import datetime
-from sportsapp import db
+from sportsapp import db, login_manager
+from flask_login import UserMixin
 
-class User(db.Model):
+#a function used by login_manager to define what user is currently acting as "client"
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+class User(db.Model, UserMixin):
     #used for database
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
