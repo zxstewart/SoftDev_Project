@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm
 #importing models for database
@@ -70,9 +70,11 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             #login through the flask_login package that sets login state
             login_user(user, remember=form.remember.data)
-            #also redirect the user
+            #find what page the user was trying to access before being redirected to login page
+            next_page = request.args.get('next')
+            #redirect the user to that page if they were trying to access a different page that required login
             flash('Successful Login Completed!', 'success')
-            return redirect(url_for('home'))
+            return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login Unsucessful', 'danger')
     return render_template('login.html', title='Login',form=form)

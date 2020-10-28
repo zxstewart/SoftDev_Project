@@ -18,5 +18,7 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 #reroutes to login page if not logged in: called by login_required decorator
 login_manager.login_view = 'login'
+#make login messages use boostrap class
+login_manager.login_message_category = 'info'
 
 from sportsapp import routes
