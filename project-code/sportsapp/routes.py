@@ -117,7 +117,8 @@ def baseball():
 @app.route('/download_data', methods=['GET','POST'])
 def download_data():
     form = DownloadDataForm()
-    #if form.validate_on_submit():
+    if form.validate_on_submit():
+        print('Hello World')
         #return the sports data as a specified data type
 
     return render_template('download_data.html', title='Download Sports Data', form=form)

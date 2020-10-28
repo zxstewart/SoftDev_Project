@@ -35,6 +35,6 @@ class LoginForm(FlaskForm):
 class DownloadDataForm(FlaskForm):
     sport_type = SelectField(u'Sport Type', choices=[('team_sport', 'Team Sport'), ('individual_sport','Individual Sport')])
     sport = SelectField(u'Sport', choices=[('football','NFL Football'), ('baseball', 'MLB Baseball'), ('hockey', 'NHL Hockey'), ('basketball', 'NBA Basketball')])
-    team = StringField('Team Name Abreviation: (First 3 Letters)', validators=[DataRequired(), Length(min=3,max=6)])
-    season_year = StringField('Year of Season: XXXX', validators=[DataRequired(), Length(min=4,max=13)])
+    team = StringField('Team Name Abreviation: (First 3 Letters)', validators=[DataRequired(), Length(min=3,max=3)])
+    season_year = StringField('Year of Season: XXXX', validators=[DataRequired(), Length(min=4,max=4)])
     submit = SubmitField('Fetch and Download Data')
