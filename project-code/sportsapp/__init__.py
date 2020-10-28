@@ -16,5 +16,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
+#reroutes to login page if not logged in: called by login_required decorator
+login_manager.login_view = 'login'
 
 from sportsapp import routes

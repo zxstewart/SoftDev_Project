@@ -3,7 +3,7 @@ from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm
 #importing models for database
 from sportsapp.models import User, sportsStats
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 #using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
 information = [
@@ -37,7 +37,7 @@ def browse():
 @app.route('/register', methods=['GET','POST'])
 def register():
     if current_user.is_authenticated:
-        #maybe modify this below message to state the username of user that is already logged in? Later?
+        #This part of the code should be redundant because logout button replaces login and register buttons when user is logged in
         flash('You are already logged in!')
         return redirect(url_for('home'))
     form = RegistrationForm()
@@ -58,11 +58,10 @@ def register():
 @app.route('/login', methods=['GET','POST'])
 def login():
     if current_user.is_authenticated:
-        #maybe modify this below message to state the username of user that is already logged in? Later?
+        #This part of the code should be redundant because logout button replaces login and register buttons when user is logged in
         flash('You are already logged in!')
         return redirect(url_for('home'))
     form = LoginForm()
-    #can also pass and recieve form info (this will be implemented later)
     #this will check if the form validated on POST
     if form.validate_on_submit():
         #check database for validation of login POST
@@ -81,12 +80,12 @@ def login():
 #About page
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', title='About Page')
 
 #Profile page
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    return render_template('profile.html', title='Profile')
 
 #video page
 @app.route('/video')
@@ -118,3 +117,10 @@ def baseball():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+#a route for editing account info (can only access while logged in)
+#also uses @login_required decorator so /account page can only be accessed if logged in
+@app.route('/account')
+@login_required
+def account():
+    return render_template('account.html', title='Account')
