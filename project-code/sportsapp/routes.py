@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request
 from sportsapp import app, db, bcrypt
-from sportsapp.forms import RegistrationForm, LoginForm
+from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm
 #importing models for database
 from sportsapp.models import User, sportsStats
 from flask_login import login_user, current_user, logout_user, login_required
@@ -114,9 +114,13 @@ def soccer():
 def baseball():
     return render_template('baseball.html')
 
-@app.route('/download_data')
+@app.route('/download_data', methods=['GET','POST'])
 def download_data():
-    return render_template('download_data.html')
+    form = DownloadDataForm()
+    if form.validate_on_submit():
+        #return the sports data as a specified data type
+        
+    return render_template('download_data.html', title='Download Sports Data', form=form)
 
 #adding routing backend for logout button
 @app.route('/logout')
