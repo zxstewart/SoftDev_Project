@@ -114,6 +114,10 @@ def soccer():
 def baseball():
     return render_template('baseball.html')
 
+@app.route('/download_data')
+def download_data():
+    return render_template('download_data.html')
+
 #adding routing backend for logout button
 @app.route('/logout')
 def logout():
