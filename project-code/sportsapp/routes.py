@@ -3,7 +3,7 @@ from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm
 #importing models for database
 from sportsapp.models import User, sportsStats
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user
 
 #using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
 information = [
@@ -36,6 +36,10 @@ def browse():
 #NOTE: register.html is depracated and SHOULD NOT be used!
 @app.route('/register', methods=['GET','POST'])
 def register():
+    if current_user.is_authenticated:
+        #maybe modify this below message to state the username of user that is already logged in? Later?
+        flash('You are already logged in!')
+        return redirect(url_for('home'))
     form = RegistrationForm()
     #this will check if the form validated on POST
     if form.validate_on_submit():
@@ -53,6 +57,10 @@ def register():
 #adding routing backend for login page
 @app.route('/login', methods=['GET','POST'])
 def login():
+    if current_user.is_authenticated:
+        #maybe modify this below message to state the username of user that is already logged in? Later?
+        flash('You are already logged in!')
+        return redirect(url_for('home'))
     form = LoginForm()
     #can also pass and recieve form info (this will be implemented later)
     #this will check if the form validated on POST
@@ -104,3 +112,9 @@ def soccer():
 @app.route('/baseball')
 def baseball():
     return render_template('baseball.html')
+
+#adding routing backend for logout button
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
