@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+    <!--download data form: Uses GET and POST request and retrieves season statistics for team/individual-->
+    <div class="content-section">
+      <form method="POST" action="">
+          <!--Used for site safety: Don't worry about this part!-->
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Download Sports Data</legend>
+              <div class="form-group">
+                  {{ form.sport_type.label(class="form-control-label") }}
+                  {{ form.sport_type(class="form-control form-control-lg ") }}
+              </div>
+              <div class="form-group">
+                {{ form.sport.label(class="form-control-label") }}
+                {{ form.sport(class="form-control form-control-lg ") }}
+              </div>
+              <div class="form-group">
+                  {{ form.team.label(class="form-control-label") }}
+                  {% if form.team.errors %}
+                  {{ form.team(class="form-control form-control-lg is-invalid") }}
+                  <div class = "invalid-feedback">
+                      {% for error in form.team.errors %}
+                          <span> {{ error }} </span>
+                      {% endfor %}
+                  </div>
+                  {% else %}
+                      {{ form.team(class="form-control form-control-lg ") }}
+                  {% endif %}
+              </div>
+              <div class="form-group">
+                {{ form.season_year.label(class="form-control-label") }}
+                {% if form.season_year.errors %}
+                {{ form.season_year(class="form-control form-control-lg is-invalid") }}
+                <div class = "invalid-feedback">
+                    {% for error in form.season_year.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.season_year(class="form-control form-control-lg ") }}
+                {% endif %}
+            </div>
+          </fieldset>
+          <div class = "form-group">
+              {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+      </form>
+  </div>
+{% endblock content%}
