@@ -124,10 +124,22 @@ app.config["SPORTS_DATA"] = "/static/sportsStatsDownloads"
 @app.route('/download_data', methods=['GET','POST'])
 def download_data():
     form = DownloadDataForm()
+    #in each case I create a set of accepted team abbreviations for download_data (this is done dynamically b/c teams change over time)
     if form.validate_on_submit():
-        #print('Check select compare {}'.format(form.sport.data == 'football'))
         if(form.sport.data == 'football'):
+            #maybe later: create a drop down to select teams based on team name and abbreviations!
             from sportsreference.nfl.schedule import Schedule
+            #also validating the team abbreviations for given year
+            from sportsreference.nfl.teams import Teams
+            teams = Teams(year=form.season_year.data)
+            validAbbr = []
+            for team in teams:
+                validAbbr.append(team.abbreviation)
+            validAbbrSet = set(validAbbr)
+            #notify the user if an invalid abbreviation was inputted
+            if form.team.data not in validAbbrSet:
+                flash('Not a valid team abbreviation please try again', 'danger')
+                return redirect(url_for('download_data'))
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             #maybe add a check for invalid 3 letter ID for team when inputting form
@@ -140,6 +152,17 @@ def download_data():
                 abort(404)
         if(form.sport.data == 'baseball'):
             from sportsreference.mlb.schedule import Schedule
+            #also validating the team abbreviations for given year
+            from sportsreference.mlb.teams import Teams
+            teams = Teams(year=form.season_year.data)
+            validAbbr = []
+            for team in teams:
+                validAbbr.append(team.abbreviation)
+            validAbbrSet = set(validAbbr)
+            #notify the user if an invalid abbreviation was inputted
+            if form.team.data not in validAbbrSet:
+                flash('Not a valid team abbreviation please try again', 'danger')
+                return redirect(url_for('download_data'))
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
@@ -151,6 +174,17 @@ def download_data():
                 abort(404)
         if(form.sport.data == 'hockey'):
             from sportsreference.nhl.schedule import Schedule
+            #also validating the team abbreviations for given year
+            from sportsreference.nhl.teams import Teams
+            teams = Teams(year=form.season_year.data)
+            validAbbr = []
+            for team in teams:
+                validAbbr.append(team.abbreviation)
+            validAbbrSet = set(validAbbr)
+            #notify the user if an invalid abbreviation was inputted
+            if form.team.data not in validAbbrSet:
+                flash('Not a valid team abbreviation please try again', 'danger')
+                return redirect(url_for('download_data'))
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
@@ -162,6 +196,17 @@ def download_data():
                 abort(404)
         if(form.sport.data == 'baskeball'):
             from sportsreference.nba.schedule import Schedule
+            #also validating the team abbreviations for given year
+            from sportsreference.nba.teams import Teams
+            teams = Teams(year=form.season_year.data)
+            validAbbr = []
+            for team in teams:
+                validAbbr.append(team.abbreviation)
+            validAbbrSet = set(validAbbr)
+            #notify the user if an invalid abbreviation was inputted
+            if form.team.data not in validAbbrSet:
+                flash('Not a valid team abbreviation please try again', 'danger')
+                return redirect(url_for('download_data'))
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
