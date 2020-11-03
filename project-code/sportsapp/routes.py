@@ -1,9 +1,11 @@
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, send_from_directory, abort
 from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm
 #importing models for database
 from sportsapp.models import User, sportsStats
 from flask_login import login_user, current_user, logout_user, login_required
+import pandas as pd
+from pathlib import Path
 
 #using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
 information = [
@@ -114,13 +116,26 @@ def soccer():
 def baseball():
     return render_template('baseball.html')
 
+#adding an app config to the generated files
+app.config["SPORTS_DATA"] = "/static/sportsStatsDownloads"
+
 @app.route('/download_data', methods=['GET','POST'])
 def download_data():
     form = DownloadDataForm()
     if form.validate_on_submit():
-        print('Hello World')
-        #return the sports data as a specified data type
-
+        #print('Check select compare {}'.format(form.sport.data == 'football'))
+        if(form.sport.data == 'football'):
+            from sportsreference.nfl.schedule import Schedule
+            #team abbreviation shouldn't be case sensitive in API calls?
+            teamData = Schedule(form.team.data, year=form.season_year.data)
+            td = teamData.dataframe
+            p = Path("sportsapp").resolve()
+            p = str(p) + "/static/sportsStatsDownloads" + "/" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            td.to_csv(p, index=False)
+            #try:
+                #return send_from_directory(app.config["SPORTS_DATA"], filename=file_name, as_attachment=True)
+            #except FileNotFoundError:
+                #abort(404)
     return render_template('download_data.html', title='Download Sports Data', form=form)
 
 #adding routing backend for logout button
