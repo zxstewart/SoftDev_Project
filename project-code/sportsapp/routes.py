@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect, request, send_from_directory, abort
+from flask import render_template, url_for, flash, redirect, request, send_from_directory, abort, send_file
 from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm
 #importing models for database
@@ -126,16 +126,49 @@ def download_data():
         #print('Check select compare {}'.format(form.sport.data == 'football'))
         if(form.sport.data == 'football'):
             from sportsreference.nfl.schedule import Schedule
-            #team abbreviation shouldn't be case sensitive in API calls?
+            teamData = Schedule(form.team.data, year=form.season_year.data)
+            td = teamData.dataframe
+            #maybe add a check for invalid 3 letter ID for team when inputting form
+            p = Path("sportsapp").resolve()
+            p = str(p) + "/static/sportsStatsDownloads/NFLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            td.to_csv(p, index=False)
+            try:
+                return send_file(p, as_attachment=True)
+            except FileNotFoundError:
+                abort(404)
+        if(form.sport.data == 'baseball'):
+            from sportsreference.mlb.schedule import Schedule
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads" + "/" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/MLBSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
             td.to_csv(p, index=False)
-            #try:
-                #return send_from_directory(app.config["SPORTS_DATA"], filename=file_name, as_attachment=True)
-            #except FileNotFoundError:
-                #abort(404)
+            try:
+                return send_file(p, as_attachment=True)
+            except FileNotFoundError:
+                abort(404)
+        if(form.sport.data == 'hockey'):
+            from sportsreference.nhl.schedule import Schedule
+            teamData = Schedule(form.team.data, year=form.season_year.data)
+            td = teamData.dataframe
+            p = Path("sportsapp").resolve()
+            p = str(p) + "/static/sportsStatsDownloads/NHLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            td.to_csv(p, index=False)
+            try:
+                return send_file(p, as_attachment=True)
+            except FileNotFoundError:
+                abort(404)
+        if(form.sport.data == 'baskeball'):
+            from sportsreference.nba.schedule import Schedule
+            teamData = Schedule(form.team.data, year=form.season_year.data)
+            td = teamData.dataframe
+            p = Path("sportsapp").resolve()
+            p = str(p) + "/static/sportsStatsDownloads/NBASchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            td.to_csv(p, index=False)
+            try:
+                return send_file(p, as_attachment=True)
+            except FileNotFoundError:
+                abort(404)
     return render_template('download_data.html', title='Download Sports Data', form=form)
 
 #adding routing backend for logout button
