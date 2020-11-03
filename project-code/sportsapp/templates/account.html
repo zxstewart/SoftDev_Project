@@ -1,4 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>{{ current_user.username }}</h1>
+<div class="content-section">
+    <br>
+    <div class="col-4">
+        <div class="card">
+            <img class="card-img-top" id="profile_pic" src="{{ image_file }}" alt="user's profile picture">
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>{{ current_user.username }}</th>
+                </tr>
+                <tr>
+                    <td>{{ current_user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Interests:</th>
+                    <td>{{ current_user.interests }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="#" class="btn btn-secondary" role="button">Edit Profile</a>
+</div>
 {% endblock content%}
