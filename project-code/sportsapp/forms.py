@@ -1,4 +1,6 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed
+from flask_login import current_user
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, IntegerField
 #make sure to also install email_validator: 'pipenv install email_validator'
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
@@ -30,7 +32,7 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
-    remember = BooleanField('Remeber Me')
+    remember = BooleanField('Remember Me')
 
 class DownloadDataForm(FlaskForm):
     sport_type = SelectField(u'Sport Type', choices=[('team_sport', 'Team Sport'), ('individual_sport','Individual Sport')])
@@ -38,3 +40,24 @@ class DownloadDataForm(FlaskForm):
     team = StringField('Team Name Abreviation: (First 3 Letters)', validators=[DataRequired(), Length(min=3,max=3)])
     season_year = StringField('Year of Season: XXXX', validators=[DataRequired(), Length(min=4,max=4)])
     submit = SubmitField('Fetch and Download Data')
+
+#account update form using registration form
+class UpdateAccountForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(min=3, max=20)])   
+    #email automatically checks that the provided email is valid! 
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    interests = StringField('Interests')
+    picture = FileField('Update Profile Picture', validators = [FileAllowed(['jpg', 'png'])])
+    submit = SubmitField('Update')
+
+    def validate_username(self, username):
+        if username.data != current_user.username:
+            user = User.query.filter_by(username=username.data).first()
+            if user:
+                raise ValidationError('Username is taken! Please choose a different one.')
+    
+    def validate_email(self, email):
+        if username.data != current_user.email:
+            user = User.query.filter_by(email=email.data).first()
+            if user:
+                raise ValidationError('Email is taken or previously used! Please choose a different one.')

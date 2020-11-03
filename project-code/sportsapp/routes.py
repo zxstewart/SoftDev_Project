@@ -1,6 +1,8 @@
+import secrets
+import os
 from flask import render_template, url_for, flash, redirect, request, send_from_directory, abort
 from sportsapp import app, db, bcrypt
-from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm
+from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm
 #importing models for database
 from sportsapp.models import User, sportsStats
 from flask_login import login_user, current_user, logout_user, login_required
@@ -146,8 +148,32 @@ def logout():
 
 #a route for editing account info (can only access while logged in)
 #also uses @login_required decorator so /account page can only be accessed if logged in
-@app.route('/account')
+#save picture function used when user changes profile image
+def save_picture(form_picture):
+    rand_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = rand_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/profileImages', picture_fn)
+    form_picture.save(picture_path)
+    return picture_fn
+
+@app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        current_user.interests = form.interests.data
+        db.session.commit()
+        flash('Your account has been updated.', 'success')
+        return redirect(url_for('account'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+        form.interests.data = current_user.interests
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file = image_file)
+    return render_template('account.html', title='Account', image_file = image_file, form = form)
