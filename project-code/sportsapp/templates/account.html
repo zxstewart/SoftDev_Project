@@ -16,10 +16,10 @@
                 <tr>
                     <td>{{ current_user.email }}</td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <th>Interests:</th>
                     <td>{{ current_user.interests }}</td>
-                </tr>
+                </tr>-->
             </table>
         </div>
     </div>
@@ -58,19 +58,7 @@
                         {{ form.email(class="form-control form-control-lg ") }}
                     {% endif %}
                 </div>
-                <div class="form-group">
-                    {{ form.interests.label(class="form-control-label") }}
-                    {% if form.interests.errors %}
-                    {{ form.interests(class="form-control form-control-lg is-invalid") }}
-                    <div class = "invalid-feedback">
-                        {% for error in form.interests.errors %}
-                            <span> {{ error }} </span>
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                        {{ form.interests(class="form-control form-control-lg ") }}
-                    {% endif %}
-                </div>
+               <!--This is where user interests were but for some reason it wouldn't work unless i actually deleted instead of just commenting-->
                 <div class="form-group">
                     {{ form.picture.label() }}
                     {{ form.picture(class="form-control-file") }}

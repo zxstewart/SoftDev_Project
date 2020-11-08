@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default_profile.png')
     password = db.Column(db.String(60), nullable=False)
     #currently only support a single interest
-    interest = db.Column(db.String(50), nullable=False)
+    #interest = db.Column(db.String(50), nullable=False)
 
     #creating a one-to-many relationship between users and their personal sports stats
     #owner attribute can be used to get the user who created the sportsStats

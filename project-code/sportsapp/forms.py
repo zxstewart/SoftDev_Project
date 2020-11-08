@@ -12,7 +12,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    interests = StringField('Interests')
+    #interest = StringField('Interests')
     submit = SubmitField('Sign Up')
 
     #adding custom validation to prevent users with duplicate usernames from being created
@@ -46,7 +46,7 @@ class UpdateAccountForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=3, max=20)])   
     #email automatically checks that the provided email is valid! 
     email = StringField('Email', validators=[DataRequired(), Email()])
-    interests = StringField('Interests')
+    #interest = StringField('Interests')
     picture = FileField('Update Profile Picture', validators = [FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
 

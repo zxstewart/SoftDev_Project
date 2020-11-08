@@ -1,0 +1,17 @@
+Was trying to integrate interests into account modifications but it didn't like that even when it was commented out...
+so i'm putting it here to reference if we want to include interests or just get rid of completely...
+
+
+<div class="form-group">
+                    {{ form.interests.label(class="form-control-label") }}
+                    {% if form.interests.errors %}
+                    {{ form.interests(class="form-control form-control-lg is-invalid") }}
+                    <div class = "invalid-feedback">
+                        {% for error in form.interests.errors %}
+                            <span> {{ error }} </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.interests(class="form-control form-control-lg ") }}
+                    {% endif %}
+                </div>
