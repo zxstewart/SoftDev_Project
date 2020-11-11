@@ -2,41 +2,72 @@
 <title>Browse Sports</title>
 {% block content %}
     <!-- dif youtube embeds- maybe they don't need to be in cards?- really ugly and def needs some fixing-->
-    <div class="container">
-        <h1>Latest Sports Videos from Youtube</h1>
+    <style>
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          transition: 0.3s;
+          width: 40%;
+          margin: 0 auto; 
+          float: none; 
+          padding: 16px;
+          text-align: center;
+        }
+        
+        .card:hover {
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        
+        .container {
+          padding: 2px 16px;
+        }
+        
+        div, iframe {
+            margin: 0 auto;
+            background-color:ghostwhite;
+        }
+
+        iframe {
+            display: block;
+            border-style:none;
+        }
+        .column {
+            float: left;
+            width: 75%;
+        }
+        .row {margin: 0 -5px;}
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+    <div class="container" style="background-color: ghostwhite;" >
+        <h1 style="text-align: center;">Latest Sports Videos from Youtube</h1>
         <br><br>
         <div class="row">
             <div class="column">
                 <div class="card">
-                    <iframe width="336" height="189" src="https://www.youtube.com/embed?listType=user_uploads&list=NFL" frameborder="0" allowfullscreen></iframe>
-                    <div class="card-body">
-                        Latest video from the NFL
+                    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=NFL" width="336" height="189"  frameborder="0" allowfullscreen></iframe>
+                    <div class="container-fluid" style="align-content: center;" style="width: auto;" class="card-body">
+                        <h4 style="text-align: center;"><b>
+                            Lastest video from NFL
+                        </b>
+                        <br>
+                        <a href="https://www.youtube.com/user/NFL" style="text-align: center;">More Videos From The NFL</a> 
+                        </h4>
                     </div>
                 </div>
             </div>
             <div class="column">
                 <div class="card">
-                      <iframe width="336" height="189" src="https://www.youtube.com/embed?listType=user_uploads&list=NBA" frameborder="0" allowfullscreen></iframe>
-                      <div class="card-body">
-                        Latest video from the NBA
-                      </div>
-                </div>
-            </div>
-        </div><br><br>
-        <div class="row">
-            <div class="column">
-                <div class="card">
-                    <iframe width="336" height="189" src="https://www.youtube.com/embed?listType=user_uploads&list=NHLVideo" frameborder="0" allowfullscreen></iframe>
-                    <div class="card-body">
-                        Latest video from the NHL
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <iframe width="336" height="189" src="https://www.youtube.com/embed?listType=user_uploads&list=ussoccerdotcom" frameborder="0" allowfullscreen></iframe>
-                    <div class="card-body">
-                        Latest video from US Soccer
+                    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=NBA" width="336" height="189"  frameborder="0" allowfullscreen></iframe>
+                    <div class="container-fluid" style="align-content: center;" style="width: auto;" class="card-body">
+                        <h4 style="text-align: center;"><b>
+                            Lastest video from NBA
+                        </b>
+                        <br>
+                        <a href="https://www.youtube.com/user/NBA" style="text-align: center;">More Videos From The NBA</a> 
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -44,17 +75,55 @@
         <div class="row">
             <div class="column">
                 <div class="card">
-                    <iframe width="336" height="189" src="https://www.youtube.com/embed?listType=user_uploads&list=MLB" frameborder="0" allowfullscreen></iframe>
-                    <div class="card-body">
-                        Latest videos from MLB
+                    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=NHLVideo" width="336" height="189"  frameborder="0" allowfullscreen></iframe>
+                    <div class="container-fluid" style="align-content: center;" style="width: auto;" class="card-body">
+                        <h4 style="text-align: center;"><b>
+                            Lastest video from NHL
+                        </b>
+                        <br>
+                        <a href="https://www.youtube.com/user/NHLVideo" style="text-align: center;">More Videos From The NHL</a> 
+                        </h4>
                     </div>
                 </div>
             </div>
             <div class="column">
                 <div class="card">
-                    <iframe width="336" height="189" src="https://www.youtube.com/embed/videoseries?list=PL4Yp_5ExVAU0W71_e5qQmRiIHmE1rdQFu" frameborder="0" allowfullscreen></iframe>
-                    <div class="card-body">
-                        Top Stories from YouTube Sports
+                    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=ussoccerdotcom" width="336" height="189"  frameborder="0" allowfullscreen></iframe>
+                    <div class="container-fluid" style="align-content: center;" style="width: auto;" class="card-body">
+                        <h4 style="text-align: center;"><b>
+                            Lastest video from US Soccer
+                        </b>
+                        <br>
+                        <a href="https://www.youtube.com/user/ussoccerdotcom" style="text-align: center;">More Videos From US Soccer</a> 
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=MLB" width="336" height="189"  frameborder="0" allowfullscreen></iframe>
+                    <div class="container-fluid" style="align-content: center;" style="width: auto;" class="card-body">
+                        <h4 style="text-align: center;"><b>
+                            Lastest video from MLB
+                        </b>
+                        <br>
+                        <a href="https://www.youtube.com/user/MLB" style="text-align: center;">More Videos The MLB</a> 
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=PL4Yp_5ExVAU0W71_e5qQmRiIHmE1rdQFu" width="336" height="189"  frameborder="0" allowfullscreen></iframe>
+                    <div class="container-fluid" style="align-content: center;" style="width: auto;" class="card-body">
+                        <h4 style="text-align: center;"><b>
+                            Top Stories From Youtube Sports
+                        </b>
+                        <br>
+                        <a href="https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw" style="text-align: center;">More Youtube Sports Videos</a> 
+                        </h4>
                     </div>
                 </div>
             </div>
