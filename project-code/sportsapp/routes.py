@@ -98,6 +98,11 @@ def profile():
 def video():
     return render_template('video.html')
 
+#Compare page
+@app.route('/compare')
+def compare():
+    return render_template('Compare.html', title='Compare Stats')
+
 @app.route('/football')
 def football():
     return render_template('football.html')
@@ -256,7 +261,3 @@ def account():
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file = image_file, form = form)
 
-#Compare page
-@app.route('/compare')
-def about():
-    return render_template('Compare.html', title='Compare Stats')
