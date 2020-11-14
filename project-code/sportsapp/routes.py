@@ -108,7 +108,7 @@ def compare():
         player2 = form.player2.data
 
     
-    return render_template('Compare.html', title='Compare Stats')
+    return render_template('compare.html', title='Compare Stats')
 
 @app.route('/football')
 def football():
