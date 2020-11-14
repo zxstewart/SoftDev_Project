@@ -1,4 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
-    
+<h1>Compare stats of 2 athletes</h1>
+<form>
+    <div class="col">
+        <select class = "form-control" id="nums">
+            <option value="0">-- Select --</option>
+            <option value="MLB">Baseball</option>
+            <option value="NBA">Basketball</option>
+            <option value="NFL">Football</option>
+            <option value="NHL">Hockey</option>
+        </select>
+    </div>
+    <div class = "col">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-describedby="textHelp" id="searchinput">
+    </div>
+    <div class="col">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="makeApiCall()">Submit</button>
+    </div>
+</form>
+
+
 {% endblock content%}
