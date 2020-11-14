@@ -2,7 +2,7 @@ from flask import render_template, url_for, flash, redirect, request, send_from_
 import secrets
 import os
 from sportsapp import app, db, bcrypt
-from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm
+from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm
 #importing models for database
 from sportsapp.models import User, sportsStats
 from flask_login import login_user, current_user, logout_user, login_required
@@ -106,9 +106,10 @@ def compare():
         sport = form.sport.data
         player1 = form.player1.data
         player2 = form.player2.data
-
-    
-    return render_template('compare.html', title='Compare Stats')
+       
+    else:
+        flash('Invalid input')
+    return render_template('compare.html', title='Compare Stats', form=form)
 
 @app.route('/football')
 def football():
