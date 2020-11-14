@@ -61,3 +61,9 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('Email is taken or previously used! Please choose a different one.')
+
+class ComparePlayersForm(FlaskForm):
+    sport = SelectField(u'Sport', choices=[('football','NFL'), ('baseball', 'MLB'), ('hockey', 'NHL'), ('basketball', 'NBA')])
+    player1 = StringField('Name of player 1', validators=[DataRequired(), Length(min=3, max=50)])
+    player2 = StringField('Name of player 2', validators=[DataRequired(), Length(min=3, max=50)])
+    submit = SubmitField('Compare')

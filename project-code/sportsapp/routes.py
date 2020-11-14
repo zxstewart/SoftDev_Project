@@ -99,8 +99,15 @@ def video():
     return render_template('video.html')
 
 #Compare page
-@app.route('/compare')
+@app.route('/compare', methods=['GET','POST'])
 def compare():
+    form = ComparePlayersForm()
+    if form.validate_on_submit():
+        sport = form.sport.data
+        player1 = form.player1.data
+        player2 = form.player2.data
+
+    
     return render_template('Compare.html', title='Compare Stats')
 
 @app.route('/football')

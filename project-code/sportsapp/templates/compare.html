@@ -1,23 +1,51 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Compare stats of 2 athletes</h1>
-<form>
-    <div class="col">
-        <select class = "form-control" id="nums">
-            <option value="0">-- Select --</option>
-            <option value="MLB">Baseball</option>
-            <option value="NBA">Basketball</option>
-            <option value="NFL">Football</option>
-            <option value="NHL">Hockey</option>
-        </select>
-    </div>
-    <div class = "col">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-describedby="textHelp" id="searchinput">
-    </div>
-    <div class="col">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="makeApiCall()">Submit</button>
-    </div>
-</form>
-
+<!--download data form: Uses GET and POST request and retrieves season statistics for team/individual-->
+<div class="content-section">
+    <form method="POST" action="">
+        <!--Used for site safety: Don't worry about this part!-->
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Compare Stats of 2 Athletes</legend>
+            <!--Dropdown menu for sports-->
+            <div class="form-group">
+              {{ form.sport.label(class="form-control-label") }}
+              {{ form.sport(class="form-control form-control-lg ") }}
+            </div>
+            <!--Name of first player-->
+            <div class="form-group">
+                {{ form.player1.label(class="form-control-label") }}
+                {% if form.player1.errors %}
+                {{ form.player1(class="form-control form-control-lg is-invalid") }}
+                <div class = "invalid-feedback">
+                    {% for error in form.player1.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.player1(class="form-control form-control-lg ") }}
+                {% endif %}
+            </div>
+            <!--Name of second Player-->
+            <div class="form-group">
+                {{ form.player2.label(class="form-control-label") }}
+                {% if form.player2.errors %}
+                {{ form.player2(class="form-control form-control-lg is-invalid") }}
+                <div class = "invalid-feedback">
+                    {% for error in form.player2.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.player2(class="form-control form-control-lg ") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <!--Submit button-->
+        <div class = "form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
 
 {% endblock content%}
