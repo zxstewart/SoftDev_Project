@@ -1,44 +1,20 @@
 {% extends "layout.html" %}
 <title>Browse Sports</title>
 {% block content %}
-    <style>
-        .card {
-          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-          transition: 0.3s;
-          width: 380px;
-          margin: 0 auto; 
-          float: none; 
-          padding: 16px;
-          text-align: center;
-        }
-        
-        .card:hover {
-          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-        }
-        
-        .container {
-          padding: 2px 16px;
-        }
-        
-        div, iframe {
-            margin: 0 auto;
-        }
-
-        iframe {
-            display: block;
-            border-style:none;
-        }
-        .column {
-            float: left;
-            width: 75%;
-        }
-        .row {margin: 0 -5px;}
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
+<style>
+    .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 350px;
+    margin: 0 auto; 
+    align-items: center;
+    text-align: center;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+</style>
     <div class="container" style="background-color: ghostwhite;" >
         <h1 style="text-align: center;">Latest Sports Videos from Youtube</h1>
         <br><br>
@@ -123,7 +99,7 @@
                     <div class="container-fluid" style="align-content: center;" style="width: auto;" class="card-body">
                         <br>
                         <h4 style="text-align: center;"><b>
-                            Top Stories From Youtube Sports
+                            Top Stories: Youtube Sports
                         </b>
                         <br>
                         <a href="https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw" style="text-align: center; font-size: small;">More Youtube Sports Videos</a> 

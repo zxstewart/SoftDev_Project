@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+                <!-- <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a> -->
                 <a class="nav-item nav-link" href="{{ url_for('browse') }}">Stats Search</a>
               </div>
               <!-- Navbar Right Side -->
@@ -73,6 +73,11 @@
             </div>
           </div>
         </div>
+        <br><br>
+        <footer style="text-align:center; bottom:0;">
+            <a style="color:#5f788a;" href="{{ url_for('about') }}">About</a>
+        </footer>
+        <br>
       </main>
       
 

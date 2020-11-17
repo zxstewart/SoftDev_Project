@@ -84,3 +84,25 @@ body {
     height: 15vw;
     object-fit: cover;
   }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 0 auto; 
+    float: none; 
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  div, iframe {
+    margin: 0 auto;
+}
+
+iframe {
+    display: block;
+    border-style:none;
+}
