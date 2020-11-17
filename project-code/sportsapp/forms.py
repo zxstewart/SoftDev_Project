@@ -12,7 +12,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    #interest = StringField('Interests')
+    interests = StringField('Interests')
     submit = SubmitField('Sign Up')
 
     #adding custom validation to prevent users with duplicate usernames from being created

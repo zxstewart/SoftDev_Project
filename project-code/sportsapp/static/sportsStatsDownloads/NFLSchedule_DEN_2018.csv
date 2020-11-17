@@ -1,0 +1,17 @@
+boxscore_index,date,datetime,day,extra_points_attempted,extra_points_made,field_goals_attempted,field_goals_made,fourth_down_attempts,fourth_down_conversions,interceptions,location,opponent_abbr,opponent_name,overtime,pass_attempts,pass_completion_rate,pass_completions,pass_touchdowns,pass_yards,pass_yards_per_attempt,points_allowed,points_scored,punt_yards,punts,quarterback_rating,result,rush_attempts,rush_touchdowns,rush_yards,rush_yards_per_attempt,third_down_attempts,third_down_conversions,time_of_possession,times_sacked,type,week,yards_lost_from_sacks
+201809090den,September 9,2018-09-09,Sun,3,3,2,2,0,0,3,Home,SEA,Seattle Seahawks,False,39,64.1,25,3,324,8.4,24,27,267,6,83.7,Win,32,0,146,4.6,12,4,35:08,1,Reg,1,5
+201809160den,September 16,2018-09-16,Sun,2,2,2,2,1,1,1,Home,RAI,Oakland Raiders,False,35,54.3,19,0,217,6.3,19,20,204,4,61.3,Win,28,2,168,6.0,16,8,27:04,1,Reg,2,5
+201809230rav,September 23,2018-09-23,Sun,2,2,0,0,1,0,1,Away,RAV,Baltimore Ravens,False,34,64.7,22,0,173,5.6,27,14,287,7,65.0,Loss,24,2,120,5.0,14,6,29:46,3,Reg,3,19
+201810010den,October 1,2018-10-01,Mon,2,2,3,3,3,2,1,Home,KAN,Kansas City Chiefs,False,33,63.6,21,0,226,7.4,27,23,123,3,71.0,Loss,22,2,159,7.2,11,2,24:58,4,Reg,4,19
+201810070nyj,October 7,2018-10-07,Sun,1,1,1,1,1,0,1,Away,NYJ,New York Jets,False,51,68.6,35,2,344,7.4,34,16,329,8,92.3,Loss,17,0,92,5.4,14,4,31:06,4,Reg,5,33
+201810140den,October 14,2018-10-14,Sun,2,2,2,2,1,0,1,Home,RAM,Los Angeles Rams,False,41,61.0,25,2,297,7.9,23,20,169,4,89.2,Loss,17,0,60,3.5,10,3,24:50,2,Reg,6,25
+201810180crd,October 18,2018-10-18,Thu,6,6,1,1,0,0,1,Away,CRD,Arizona Cardinals,False,22,68.2,15,2,178,8.6,10,45,261,6,104.0,Win,31,2,131,4.2,13,5,30:49,2,Reg,7,11
+201810280kan,October 28,2018-10-28,Sun,2,2,2,1,1,1,1,Away,KAN,Kansas City Chiefs,False,34,67.6,23,2,222,7.7,30,23,175,4,93.0,Loss,30,1,189,6.3,12,4,32:41,5,Reg,8,40
+201811040den,November 4,2018-11-04,Sun,2,2,3,1,2,2,0,Home,HTX,Houston Texans,False,42,61.9,26,1,273,6.9,19,17,236,5,88.7,Loss,20,1,75,3.8,14,5,27:35,2,Reg,9,17
+201811180sdg,November 18,2018-11-18,Sun,2,2,1,1,2,1,0,Away,SDG,Los Angeles Chargers,False,33,60.6,20,0,217,6.6,22,23,224,5,80.0,Win,19,3,108,5.7,10,3,22:11,0,Reg,11,0
+201811250den,November 25,2018-11-25,Sun,3,3,1,1,0,0,0,Home,PIT,Pittsburgh Steelers,False,28,53.6,15,2,184,7.0,17,24,282,6,97.9,Win,23,1,124,5.4,11,3,25:00,2,Reg,12,13
+201812020cin,December 2,2018-12-02,Sun,3,3,2,1,0,0,0,Away,CIN,Cincinnati Bengals,False,21,57.1,12,1,143,7.2,10,24,260,6,93.9,Win,34,2,218,6.4,13,5,28:40,2,Reg,13,8
+201812090sfo,December 9,2018-12-09,Sun,2,2,0,0,7,5,0,Away,SFO,San Francisco 49ers,False,42,57.1,24,1,171,4.4,20,14,287,6,74.6,Loss,27,1,103,3.8,15,2,29:19,2,Reg,14,15
+201812150den,December 15,2018-12-15,Sat,1,1,3,3,2,1,2,Home,CLE,Cleveland Browns,False,48,64.6,31,0,238,5.4,17,16,124,3,59.2,Loss,20,1,32,1.6,14,5,32:42,2,Reg,15,19
+201812240rai,December 24,2018-12-24,Mon,2,2,1,0,2,1,2,Away,RAI,Oakland Raiders,False,37,62.2,23,2,200,5.5,27,14,306,6,71.9,Loss,24,0,100,4.2,14,6,29:52,1,Reg,16,2
+201812300den,December 30,2018-12-30,Sun,0,0,1,1,2,1,1,Home,SDG,Los Angeles Chargers,False,48,64.6,31,1,288,6.1,23,9,252,6,79.2,Loss,25,0,82,3.3,14,4,31:48,1,Reg,17,4
