@@ -218,8 +218,14 @@ def download_data():
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads/MLBSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            f_n = "MLBSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/" + f_n
             td.to_csv(p, index=False)
+            #adding code to associate the downloaded file with the user
+            nameDownload = "MLB Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+            db.session.add(post)
+            db.session.commit()
             try:
                 return send_file(p, as_attachment=True)
             except FileNotFoundError:
@@ -240,8 +246,14 @@ def download_data():
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads/NHLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            f_n = "NHLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/" + f_n
             td.to_csv(p, index=False)
+            #adding code to associate the downloaded file with the user
+            nameDownload = "NHL Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+            db.session.add(post)
+            db.session.commit()
             try:
                 return send_file(p, as_attachment=True)
             except FileNotFoundError:
@@ -262,8 +274,14 @@ def download_data():
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads/NBASchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            f_n = "NBASchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/" + f_n
             td.to_csv(p, index=False)
+            #adding code to associate the downloaded file with the user
+            nameDownload = "NBA Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+            db.session.add(post)
+            db.session.commit()
             try:
                 return send_file(p, as_attachment=True)
             except FileNotFoundError:
