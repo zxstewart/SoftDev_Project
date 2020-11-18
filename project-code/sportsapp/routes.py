@@ -9,27 +9,31 @@ from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 from pathlib import Path
 
-#using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
+#generic list of dictionaries to be used when user is not loggedin
 information = [
     {
-        'name': 'Peyton Manning',
-        'position': 'Quarterback',
-        'age': '44',
-        'status': 'Old GOAT'
-    },
-    {
-        'name': 'Jamal Murray',
-        'position': 'Point Guard',
-        'age': '23',
-        'status': 'Maple Jordan'
+        'title': 'See your generated files here!',
+        'date': '',
+        'fileName': 'Log in to see previously generated charts/downloaded data!'
     }
 ]
 
 @app.route('/')
 @app.route('/home')
 def home():
-    #can pass information (this would be from database calls eventually)
-    return render_template('index.html', posts=information)
+    #check if user is loggedin
+    if current_user.is_authenticated:
+        #implementing database calls to fill dictionary passed to home page
+        #home page will display previously generated data csv and charts
+        #list of dictionaries for generated csv data
+        csvList = []
+        query = sportsStats.query.filter_by(user_id=current_user.id)
+        for data in query:
+            thisdict = dict(title=data.title, date=data.date_queried, fileName=data.downloaded_file)
+            csvList.append(thisdict)
+        return render_template('index.html', posts=csvList)
+    else:
+        return render_template('index.html', posts=information)
 
 #browse page
 @app.route('/browse')

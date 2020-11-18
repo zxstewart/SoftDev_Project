@@ -7,11 +7,13 @@
         <article class="media content-section">
             <div class="media-body">
             <div class="article-metadata">
-                <a class="mr-2" href="#">{{ athlete.name }}</a>
-                <small class="text-muted">{{ athlete.position }}</small>
+                <a class="mr-2">{{ athlete.title }}</a>
+                <small class="text-muted">{{ athlete.date }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ athlete.status }}</a></h2>
-            <p class="article-content">Age: {{ athlete.age }}</p>
+            <h2>
+                <a class="article-title">Redownload Data CSV</a>
+                <a class="article-title" href="#">{{ athlete.fileName }}</a>
+            </h2>
             </div>
         </article>
     {% endfor %}
