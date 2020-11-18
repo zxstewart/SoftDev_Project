@@ -9,27 +9,31 @@ from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 from pathlib import Path
 
-#using a list of dictionaries on local to just POC of passing dynamic content that will be eventually tied to database
+#generic list of dictionaries to be used when user is not loggedin
 information = [
     {
-        'name': 'Peyton Manning',
-        'position': 'Quarterback',
-        'age': '44',
-        'status': 'Old GOAT'
-    },
-    {
-        'name': 'Jamal Murray',
-        'position': 'Point Guard',
-        'age': '23',
-        'status': 'Maple Jordan'
+        'title': 'See your generated files here!',
+        'date': '',
+        'fileName': 'Log in to see previously generated charts/downloaded data!'
     }
 ]
 
 @app.route('/')
 @app.route('/home')
 def home():
-    #can pass information (this would be from database calls eventually)
-    return render_template('index.html', posts=information)
+    #check if user is loggedin
+    if current_user.is_authenticated:
+        #implementing database calls to fill dictionary passed to home page
+        #home page will display previously generated data csv and charts
+        #list of dictionaries for generated csv data
+        csvList = []
+        query = sportsStats.query.filter_by(user_id=current_user.id)
+        for data in query:
+            thisdict = dict(title=data.title, date=data.date_queried, fileName=data.downloaded_file)
+            csvList.append(thisdict)
+        return render_template('index.html', posts=csvList)
+    else:
+        return render_template('index.html', posts=information)
 
 #browse page
 @app.route('/browse')
@@ -49,7 +53,7 @@ def register():
     if form.validate_on_submit():
         #generate a hashed password that will be put in database and will by encrypted with bcrypt: also decode to store the hash as string in db
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password, interest=form.interest.data)
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password, interests=form.interests.data)
         db.session.add(user)
         db.session.commit()
         #using f string because variable is passed in: 'success' is boostrap class 
@@ -167,6 +171,7 @@ def baseball():
 app.config["SPORTS_DATA"] = "/static/sportsStatsDownloads"
 
 @app.route('/download_data', methods=['GET','POST'])
+@login_required
 def download_data():
     form = DownloadDataForm()
     #in each case I create a set of accepted team abbreviations for download_data (this is done dynamically b/c teams change over time)
@@ -189,8 +194,14 @@ def download_data():
             td = teamData.dataframe
             #maybe add a check for invalid 3 letter ID for team when inputting form
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads/NFLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            f_n = "NFLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/" + f_n
             td.to_csv(p, index=False)
+            #adding code to associate the downloaded file with the user
+            nameDownload = "NFL Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+            db.session.add(post)
+            db.session.commit()
             try:
                 return send_file(p, as_attachment=True)
             except FileNotFoundError:
@@ -211,8 +222,14 @@ def download_data():
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads/MLBSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            f_n = "MLBSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/" + f_n
             td.to_csv(p, index=False)
+            #adding code to associate the downloaded file with the user
+            nameDownload = "MLB Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+            db.session.add(post)
+            db.session.commit()
             try:
                 return send_file(p, as_attachment=True)
             except FileNotFoundError:
@@ -233,8 +250,14 @@ def download_data():
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads/NHLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            f_n = "NHLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/" + f_n
             td.to_csv(p, index=False)
+            #adding code to associate the downloaded file with the user
+            nameDownload = "NHL Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+            db.session.add(post)
+            db.session.commit()
             try:
                 return send_file(p, as_attachment=True)
             except FileNotFoundError:
@@ -255,8 +278,14 @@ def download_data():
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads/NBASchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            f_n = "NBASchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/" + f_n
             td.to_csv(p, index=False)
+            #adding code to associate the downloaded file with the user
+            nameDownload = "NBA Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+            db.session.add(post)
+            db.session.commit()
             try:
                 return send_file(p, as_attachment=True)
             except FileNotFoundError:
