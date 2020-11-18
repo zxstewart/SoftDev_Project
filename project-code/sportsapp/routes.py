@@ -49,7 +49,7 @@ def register():
     if form.validate_on_submit():
         #generate a hashed password that will be put in database and will by encrypted with bcrypt: also decode to store the hash as string in db
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password, interest=form.interest.data)
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password, interests=form.interests.data)
         db.session.add(user)
         db.session.commit()
         #using f string because variable is passed in: 'success' is boostrap class 
@@ -167,6 +167,7 @@ def baseball():
 app.config["SPORTS_DATA"] = "/static/sportsStatsDownloads"
 
 @app.route('/download_data', methods=['GET','POST'])
+@login_required
 def download_data():
     form = DownloadDataForm()
     #in each case I create a set of accepted team abbreviations for download_data (this is done dynamically b/c teams change over time)
@@ -189,8 +190,14 @@ def download_data():
             td = teamData.dataframe
             #maybe add a check for invalid 3 letter ID for team when inputting form
             p = Path("sportsapp").resolve()
-            p = str(p) + "/static/sportsStatsDownloads/NFLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            f_n = "NFLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+            p = str(p) + "/static/sportsStatsDownloads/" + f_n
             td.to_csv(p, index=False)
+            #adding code to associate the downloaded file with the user
+            nameDownload = "NFL Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+            db.session.add(post)
+            db.session.commit()
             try:
                 return send_file(p, as_attachment=True)
             except FileNotFoundError:
