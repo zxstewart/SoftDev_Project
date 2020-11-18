@@ -46,7 +46,6 @@ class UpdateAccountForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=3, max=20)])   
     #email automatically checks that the provided email is valid! 
     email = StringField('Email', validators=[DataRequired(), Email()])
-    #interest = StringField('Interests')
     picture = FileField('Update Profile Picture', validators = [FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
 

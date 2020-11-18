@@ -3,10 +3,11 @@
 <div class="content-section">
     <br>
     <div class="col-4">
-        <div class="card">
-            <img class="card-img-top" id="profile_pic" src="{{ image_file }}" alt="user's profile picture">
+        <div class="card-img-top">
+            <img class="rounded-circle card-img-top" id="profile_pic" src="{{ image_file }}" alt="user's profile picture">
         </div>
     </div>
+    <br>
     <div class="col-8">
         <div class="table-responsive">
             <table class="table">
@@ -16,13 +17,29 @@
                 <tr>
                     <td>{{ current_user.email }}</td>
                 </tr>
-                <!--<tr>
-                    <th>Interests:</th>
-                    <td>{{ current_user.interests }}</td>
-                </tr>-->
             </table>
         </div>
     </div>
+    <br>
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>Favorite Players:</th>
+                </tr>
+                <tr>
+                    <td>Add Player Name</td>
+                    <td>Add Player Team</td>
+                    <td>Add Player Sport</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br><br>
+    <div class = "btn" style="background: none;">
+        <a href="{{ url_for('settings') }}">Edit Profile</a>
+    </div>
+    <br><br>
     <!--Account Update Form-->
     <div>
         <form method="POST" action="" enctype="multipart/form-data">
