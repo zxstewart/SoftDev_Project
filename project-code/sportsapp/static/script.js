@@ -4,5 +4,9 @@ function callGetFile(){
     //window.location.href += filename;
     //using jquery to get data
     var filename_data = $('#fN').data("name");
-    window.location.href += filename_data;
+    let str = window.location.href;
+    str = str.slice(0,-4);
+    str += filename_data;
+    //window.location.href = str;
+    location.replace(str);
 }
