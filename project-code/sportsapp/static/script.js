@@ -5,8 +5,8 @@ function callGetFile(){
     //using jquery to get data
     var filename_data = $('#fN').data("name");
     let str = window.location.href;
+    //handles home page download data when the url is "/home"
     str = str.slice(0,-4);
     str += filename_data;
-    //window.location.href = str;
     location.replace(str);
 }
