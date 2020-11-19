@@ -12,7 +12,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    #interest = StringField('Interests')
+    interests = StringField('Interests')
     submit = SubmitField('Sign Up')
 
     #adding custom validation to prevent users with duplicate usernames from being created
@@ -44,9 +44,8 @@ class DownloadDataForm(FlaskForm):
 #account update form using registration form
 class UpdateAccountForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=3, max=20)])   
-    #email automatically checks that the provided email is valid! 
+    #email automatically checks that the provided email is valid
     email = StringField('Email', validators=[DataRequired(), Email()])
-    #interest = StringField('Interests')
     picture = FileField('Update Profile Picture', validators = [FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
 
@@ -57,7 +56,7 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError('Username is taken! Please choose a different one.')
     
     def validate_email(self, email):
-        if username.data != current_user.email:
+        if email.data != current_user.email:
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('Email is taken or previously used! Please choose a different one.')

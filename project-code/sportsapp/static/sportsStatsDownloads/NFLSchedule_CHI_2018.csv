@@ -1,0 +1,18 @@
+boxscore_index,date,datetime,day,extra_points_attempted,extra_points_made,field_goals_attempted,field_goals_made,fourth_down_attempts,fourth_down_conversions,interceptions,location,opponent_abbr,opponent_name,overtime,pass_attempts,pass_completion_rate,pass_completions,pass_touchdowns,pass_yards,pass_yards_per_attempt,points_allowed,points_scored,punt_yards,punts,quarterback_rating,result,rush_attempts,rush_touchdowns,rush_yards,rush_yards_per_attempt,third_down_attempts,third_down_conversions,time_of_possession,times_sacked,type,week,yards_lost_from_sacks
+201809090gnb,September 9,2018-09-09,Sun,2,2,3,3,2,0,0,Away,GNB,Green Bay Packers,False,35,65.7,23,0,155,4.9,24,23,201,4,75.3,Loss,27,1,139,5.1,17,7,33:22,4,Reg,1,16
+201809170chi,September 17,2018-09-17,Mon,3,3,1,1,1,1,2,Home,SEA,Seattle Seahawks,False,34,73.5,25,2,185,5.9,17,24,206,5,81.1,Win,27,0,86,3.2,12,5,34:24,2,Reg,2,15
+201809230crd,September 23,2018-09-23,Sun,1,1,4,3,1,1,1,Away,CRD,Arizona Cardinals,False,35,68.6,24,0,194,6.3,14,16,158,3,70.4,Win,31,1,122,3.9,14,5,36:21,3,Reg,3,26
+201809300chi,September 30,2018-09-30,Sun,6,6,2,2,0,0,0,Home,TAM,Tampa Bay Buccaneers,False,26,73.1,19,6,344,13.6,10,48,96,2,154.6,Win,31,0,139,4.5,8,4,28:06,1,Reg,4,10
+201810140mia,October 14,2018-10-14,Sun,4,4,1,0,1,0,1,Away,MIA,Miami Dolphins,True,31,71.0,22,3,303,10.2,31,28,79,2,120.8,Loss,31,1,164,5.3,12,8,33:25,2,Reg,6,13
+201810210chi,October 21,2018-10-21,Sun,4,4,1,1,1,1,2,Home,NWE,New England Patriots,False,50,52.0,26,2,319,6.7,38,31,173,5,68.7,Loss,25,2,134,5.4,16,8,30:09,2,Reg,7,14
+201810280chi,October 28,2018-10-28,Sun,3,3,2,1,1,1,0,Home,NYJ,New York Jets,False,29,55.2,16,2,216,7.6,10,24,225,5,102.1,Win,34,1,179,5.3,12,4,32:44,2,Reg,8,4
+201811040buf,November 4,2018-11-04,Sun,5,5,2,2,0,0,1,Away,BUF,Buffalo Bills,False,20,60.0,12,1,126,6.8,9,41,200,5,74.2,Win,25,2,64,2.6,11,3,25:57,1,Reg,9,9
+201811110chi,November 11,2018-11-11,Sun,4,2,2,0,0,0,0,Home,DET,Detroit Lions,False,30,76.7,23,3,348,11.8,22,34,144,3,147.6,Win,22,2,54,2.5,10,4,28:00,1,Reg,10,7
+201811180chi,November 18,2018-11-18,Sun,0,0,3,3,0,0,2,Home,MIN,Minnesota Vikings,False,31,64.5,20,1,160,5.3,20,25,71,2,61.2,Win,39,0,148,3.8,12,6,34:29,1,Reg,11,5
+201811220det,November 22,2018-11-22,Thu,2,2,1,1,0,0,0,Away,DET,Detroit Lions,False,38,73.7,28,2,226,6.3,16,23,235,5,105.8,Win,15,0,38,2.5,10,3,27:14,4,Reg,12,12
+201812020nyg,December 2,2018-12-02,Sun,3,3,2,2,5,4,2,Away,NYG,New York Giants,True,40,67.5,27,2,258,7.2,30,27,303,6,81.0,Loss,32,1,118,3.7,15,2,33:58,5,Reg,13,28
+201812090chi,December 9,2018-12-09,Sun,1,1,3,2,0,0,3,Home,RAM,Los Angeles Rams,False,30,53.3,16,1,100,3.7,6,15,229,5,31.9,Win,35,0,194,5.5,16,7,36:49,1,Reg,14,10
+201812160chi,December 16,2018-12-16,Sun,3,3,1,1,1,0,0,Home,GNB,Green Bay Packers,False,28,71.4,20,2,232,8.4,17,24,177,4,119.9,Win,29,1,100,3.4,10,3,30:23,1,Reg,15,3
+201812230sfo,December 23,2018-12-23,Sun,2,2,1,0,1,1,0,Away,SFO,San Francisco 49ers,False,29,86.2,25,1,235,8.5,9,14,119,3,111.9,Win,28,1,90,3.2,11,5,35:30,3,Reg,16,11
+201812300min,December 30,2018-12-30,Sun,2,1,1,1,1,0,0,Away,MIN,Minnesota Vikings,False,26,69.2,18,0,163,6.3,10,24,175,4,85.9,Win,37,3,169,4.6,14,8,37:08,0,Reg,17,0
+201901060chi,January 6,2019-01-06,Sun,0,0,4,3,0,0,0,Home,PHI,Philadelphia Eagles,False,43,60.5,26,1,291,7.0,16,15,243,6,88.4,Loss,18,0,65,3.6,16,5,29:12,2,Post,18,12

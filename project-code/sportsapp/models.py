@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default_profile.png')
     password = db.Column(db.String(60), nullable=False)
     #currently only support a single interest
-    #interest = db.Column(db.String(50), nullable=False)
+    interests = db.Column(db.String(50), nullable=False)
 
     #creating a one-to-many relationship between users and their personal sports stats
     #owner attribute can be used to get the user who created the sportsStats
@@ -30,6 +30,7 @@ class User(db.Model, UserMixin):
 class sportsStats(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
+    downloaded_file = db.Column(db.String(30), nullable=False, default = '')
     date_queried = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
