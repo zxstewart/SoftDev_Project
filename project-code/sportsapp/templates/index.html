@@ -2,31 +2,46 @@
 {% block content %}
     <h1>Welcome to Sports Stats Master</h1>
     <!--Here is how to iterate through data that is passed to this html webpage: uses templating engine-->
-    {% for genData in posts %}
-        <!--Unsure but the format for displaying recent graphs/stats can be changed to be cards?-->
+    {% if current_user.is_authenticated %}
+        {% for genData in posts %}
+            <!--Unsure but the format for displaying recent graphs/stats can be changed to be cards?-->
+            <article class="media content-section">
+                <div class="media-body">
+                <div class="article-metadata">
+                    <div>
+                        <a class="mr-2" style="color: rgb(4, 4, 8); pointer-events: none; cursor: default;">{{ genData.title }}</a>
+                        <small class="text-muted">{{ genData.date }}</small>
+                    </div>
+                </div>
+                <h2>
+                    <p class="h5">Redownload/View Data CSV: {{ genData.fileName }}</a>
+                    <!--<a class="article-title" href="{{ url_for('static', filename='/sportsStatsDownloads/DAL_2018.csv') }}">{{ genData.fileName }}</a>-->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!--View csv functionality currently not working: open the file and view it in the browser
+                                <button type="button" class="btn btn-primary mr-1" href="{{ url_for('static', filename='/sportsStatsDownloads/DAL_2018.csv') }}">View Data</button>
+                                <button type="button" class="btn btn-primary" href="{{ url_for('getFile', filename=genData.fileName) }}">Redownload Data</button>
+                            -->
+                            <meta id="fN" data-name="{{ genData.fileName }}">
+                            <button type="button" class="btn btn-primary" onclick="callGetFile()">Redownload Data</button>
+                        </div>
+                    </div>
+                </h2>
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
         <article class="media content-section">
             <div class="media-body">
             <div class="article-metadata">
                 <div>
-                    <a class="mr-2" style="color: rgb(4, 4, 8); pointer-events: none; cursor: default;">{{ genData.title }}</a>
-                    <small class="text-muted">{{ genData.date }}</small>
+                    <a class="mr-2" style="color: rgb(4, 4, 8); pointer-events: none; cursor: default;">See Your Generated Files Here!</a>
                 </div>
             </div>
             <h2>
-                <p class="h5">Redownload/View Data CSV: {{ genData.fileName }}</a>
-                <!--<a class="article-title" href="{{ url_for('static', filename='/sportsStatsDownloads/DAL_2018.csv') }}">{{ genData.fileName }}</a>-->
-                <div class="container-fluid">
-                    <div class="row">
-                        <!--View csv functionality currently not working: open the file and view it in the browser
-                            <button type="button" class="btn btn-primary mr-1" href="{{ url_for('static', filename='/sportsStatsDownloads/DAL_2018.csv') }}">View Data</button>
-                            <button type="button" class="btn btn-primary" href="{{ url_for('getFile', filename=genData.fileName) }}">Redownload Data</button>
-                        -->
-                        <meta id="fN" data-name="{{ genData.fileName }}">
-                        <button type="button" class="btn btn-primary" onclick="callGetFile()">Redownload Data</button>
-                    </div>
-                </div>
+                <p class="h5">Log in to see previously generated charts/downloaded data!</a>
             </h2>
             </div>
         </article>
-    {% endfor %}
+    {% endif %}
 {% endblock content%}
