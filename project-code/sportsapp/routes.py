@@ -1,6 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request, send_from_directory, abort, send_file
 import secrets
 import os
+import sys
 from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm
 #importing models for database
@@ -291,6 +292,17 @@ def download_data():
             except FileNotFoundError:
                 abort(404)
     return render_template('download_data.html', title='Download Sports Data', form=form)
+
+#Return CSV file (previously downloaded file)
+@app.route('/<filename>', methods=['GET','POST'])
+def getFile(filename):
+    print('in function', file=sys.stderr)
+    try:
+        p = Path("sportsapp").resolve()
+        p = str(p) + "/static/sportsStatsDownloads/" + filename
+        return send_file(p, as_attachment=True)
+    except FileNotFoundError:
+        abort(404)
 
 #adding routing backend for logout button
 @app.route('/logout')
