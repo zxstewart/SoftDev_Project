@@ -185,6 +185,7 @@ app.config["SPORTS_DATA"] = "/static/sportsStatsDownloads"
 @login_required
 def download_data():
     form = DownloadDataForm()
+    form.team.choices = [(team.team_abbr, team.team_name) for team in teamTable.query.all()]
     #in each case I create a set of accepted team abbreviations for download_data (this is done dynamically b/c teams change over time)
     if form.validate_on_submit():
         if(form.sport.data == 'football'):
