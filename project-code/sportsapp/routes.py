@@ -303,6 +303,56 @@ def download_data():
                 abort(404)
     return render_template('download_data.html', title='Download Sports Data', form=form)
 
+#helper route function to return the teams in a year and for some sport
+@app.route('/getnfl/<year>')
+def getnfl(year):
+    #query the database for the list of teams in football in the given year
+    teams = teamTable.query.filter(teamTable.team_year==year).all()
+    teamArr = []
+    for team in teams:
+        if team.sport == 'Football':
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamArr.append(teamObj)
+    return jsonify({'teams' : teamArr})
+
+@app.route('/getnba/<year>')
+def getnba(year):
+    teams = teamTable.query.filter(teamTable.team_year==year).all()
+    teamArr = []
+    for team in teams:
+        if team.sport == 'Basketball':
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamArr.append(teamObj)
+    return jsonify({'teams' : teamArr})
+
+@app.route('/getnhl/<year>')
+def getnhl(year):
+    teams = teamTable.query.filter(teamTable.team_year==year).all()
+    teamArr = []
+    for team in teams:
+        if team.sport == 'Hockey':
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamArr.append(teamObj)
+    return jsonify({'teams' : teamArr})
+
+@app.route('/getmlb/<year>')
+def getmlb(year):
+    teams = teamTable.query.filter(teamTable.team_year==year).all()
+    teamArr = []
+    for team in teams:
+        if team.sport == 'Baseball':
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamArr.append(teamObj)
+    return jsonify({'teams' : teamArr})
+
 #Return CSV file (previously downloaded file)
 @app.route('/<filename>', methods=['GET','POST'])
 def getFile(filename):
