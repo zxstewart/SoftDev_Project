@@ -2,7 +2,7 @@
 {% block content %}
 <!--download data form: Uses GET and POST request and retrieves season statistics for team/individual-->
 <div class="content-section">
-    <form method="POST" action="">
+    <form method="POST" action="/compare">
         <!--Used for site safety: Don't worry about this part!-->
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
@@ -42,7 +42,7 @@
             </div>
         </fieldset>
         <!--Submit button-->
-        <div class = "form-group">
+        <div class = "form-group" onclick=>
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
     </form>

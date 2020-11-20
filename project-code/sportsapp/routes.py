@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect, request, send_from_directory, abort, send_file
+from flask import render_template, url_for, flash, redirect, request, send_from_directory, abort, send_file,jsonify
 import secrets
 import os
 import sys
@@ -9,6 +9,7 @@ from sportsapp.models import User, sportsStats, teamTable
 from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 from pathlib import Path
+from sportsreference.nba.roster import Player
 
 #generic list of dictionaries to be used when user is not loggedin
 information = [
@@ -119,21 +120,30 @@ def compare():
 
         player1id = lname1id + fname1id+"01"
         player2id = lname2id + fname2id+"01"
+        player1array = [1,2,3,4,5]
+           # player2array = []
+
+        data = {}
+        data['value']=player1array
+        return jsonify(data)
 
         playerobj1 = Player(player1id)
         playerobj2 = Player(player2id)
         
         if(form.sport.data == 'nba'):
-            from sportsreference.nba.roster import Player
+            
             statnames = ['and-ones', 'assist_percentage', 'assists', 'block_percentage', 'blocking_fouls', 'blocks', 'box_plus_minus', 'center_percentage', 'defensive_box_plus_minus', 'defensive_rebound_percentage', 'turnovers', 'two_point_attempts', 'two_point_percentage', 'two_pointers', 'two_pointers_assisted_percentage', 'usage_percentage', 'value_over_replacement_player', 'weight', 'win_shares', 'win_shares_per_48_minutes']
 
             #can change to specify year
             playerobj1('2018-19')
             playerobj2('2018-19')
 
-            player1array = []
+            player1array = [1,2,3,4,5]
             player2array = []
 
+            data = {}
+            data['value']=player1array
+            return jsonify(data)
             #Need to get help
             # for i in statnames:
             #     player1array.append(playerobj1.i)
