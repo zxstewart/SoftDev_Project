@@ -5,7 +5,7 @@ import sys
 from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm
 #importing models for database
-from sportsapp.models import User, sportsStats
+from sportsapp.models import User, sportsStats, teamTable
 from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 from pathlib import Path
@@ -357,3 +357,53 @@ def settings():
         form.email.data = current_user.email
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
     return render_template('settings.html', title='Settings', image_file = image_file, form = form)
+
+#code that initalizes the database teams
+@app.route('/set_teamsNFL')
+def setTeamsNFL():
+    #using a loop to populate teams from year==1980 to present
+    from sportsreference.nfl.teams import Teams
+    for tY in range(1980, 2021):
+        teams = Teams(year=tY)
+        for team in teams:
+            teamObj = teamTable(sport="Football", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
+            db.session.add(teamObj)
+            db.session.commit()
+    flash('Loaded Teams for NFL into Database', 'success')
+    return redirect(url_for('home'))
+
+@app.route('/set_teamsNBA')
+def setTeamsNBA():
+    from sportsreference.nba.teams import Teams
+    for tY in range(1980, 2021):
+        teams = Teams(year=tY)
+        for team in teams:
+            teamObj = teamTable(sport="Basketball", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
+            db.session.add(teamObj)
+            db.session.commit()
+    flash('Loaded Teams for NBA into Database', 'success')
+    return redirect(url_for('home'))
+
+@app.route('/set_teamsNHL')
+def setTeamsNHL():
+    from sportsreference.nhl.teams import Teams
+    for tY in range(2010, 2020):
+        teams = Teams(year=tY)
+        for team in teams:
+            teamObj = teamTable(sport="Hockey", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
+            db.session.add(teamObj)
+            db.session.commit()
+    flash('Loaded Teams for NHL into Database', 'success')
+    return redirect(url_for('home'))
+
+@app.route('/set_teamsMLB')
+def setTeamsMLB():
+    from sportsreference.mlb.teams import Teams
+    for tY in range(1980, 2021):
+        teams = Teams(year=tY)
+        for team in teams:
+            teamObj = teamTable(sport="Baseball", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
+            db.session.add(teamObj)
+            db.session.commit()
+    flash('Loaded Teams for MLB into Database', 'success')
+    return redirect(url_for('home'))

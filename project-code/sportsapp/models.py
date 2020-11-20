@@ -37,5 +37,13 @@ class sportsStats(db.Model):
     def __repr__(self):
         return f"sportsStats('{self.title}', '{self.date_queried}')"
 
+#creating table for holding team names, years, sport type
+class teamTable(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sport = db.Column(db.String(10))
+    team_name = db.Column(db.String(50))
+    team_year = db.Column(db.Integer)
+    team_abbr = db.Column(db.String(3))
+
 #create all the tables before returning to importing file: ALL TABLES SHOULD BE DEFINED ABOVE THIS
 db.create_all()
