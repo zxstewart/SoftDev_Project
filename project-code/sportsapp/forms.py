@@ -35,11 +35,11 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
 
 class DownloadDataForm(FlaskForm):
-    sport_type = SelectField(u'Download Data Type', choices=[('team_sport', 'Season Schedule'), ('individual_sport','Game Schedule')])
+    sport_type = SelectField(u'Download Data Type', choices=[('season_schedule', 'Team Season Schedule'), ('league_stats','League-wide Stats by Team'), ('season_roster', 'Season Roster'), ('player_stats','Player Stats')])
     sport = SelectField(u'Sport', choices=[('football','NFL Football'), ('baseball', 'MLB Baseball'), ('hockey', 'NHL Hockey'), ('basketball', 'NBA Basketball')])
-    #team = StringField('Team Name Abreviation: (First 3 Letters)', validators=[DataRequired(), Length(min=3,max=3)])
     team = SelectField(u'Team Name', choices=[])
     season_year = StringField('Year of Season: XXXX >1980', validators=[DataRequired(), Length(min=4,max=4)])
+    players_list = SelectField('Select Players', choices=[])
     submit = SubmitField('Fetch and Download Data')
 
 #account update form using registration form
