@@ -2,7 +2,7 @@
 {% block content %}
 <!--download data form: Uses GET and POST request and retrieves season statistics for team/individual-->
 <div class="content-section">
-    <form method="POST" action="/compare">
+    <form method="POST" action="">
         <!--Used for site safety: Don't worry about this part!-->
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
@@ -50,7 +50,8 @@
 <canvas id="myChart" width="400" height="400"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
-
+    console.log({{jdata}})
+    list1 = {{list1}}
     //premilinary use of getDATA function to insert information from API calls into chart function.
     /*a sync function getData(){
 

@@ -107,6 +107,7 @@ def video():
 #Compare page
 @app.route('/compare', methods=['GET','POST'])
 def compare():
+    from sportsreference.nba.roster import Player
     form = ComparePlayersForm()
     if form.validate_on_submit():
         sport = form.sport.data
@@ -120,15 +121,17 @@ def compare():
 
         player1id = lname1id + fname1id+"01"
         player2id = lname2id + fname2id+"01"
+        player1array = Player(player1id)
+        player1array('2018-19')
+           player2array = []
         player1array = [1,2,3,4,5]
-           # player2array = []
-
         data = {}
         data['value']=player1array
-        return jsonify(data)
+        jdata = jsonify(data)
+        return render_template('compare.html', form=form, jdata=player1array, list1=[0,0,0,0])
 
         playerobj1 = Player(player1id)
-        playerobj2 = Player(player2id)
+        playerobj2 = Player(player2id) 
         
         if(form.sport.data == 'nba'):
             
