@@ -5,7 +5,7 @@ import sys
 from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm
 #importing models for database
-from sportsapp.models import User, sportsStats
+from sportsapp.models import User, sportsStats, teamTable
 from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 from pathlib import Path
@@ -188,51 +188,67 @@ app.config["SPORTS_DATA"] = "/static/sportsStatsDownloads"
 @login_required
 def download_data():
     form = DownloadDataForm()
-    #in each case I create a set of accepted team abbreviations for download_data (this is done dynamically b/c teams change over time)
+    form.team.choices = [(team.team_abbr, team.team_name) for team in teamTable.query.all()]
     if form.validate_on_submit():
         if(form.sport.data == 'football'):
-            #maybe later: create a drop down to select teams based on team name and abbreviations!
-            from sportsreference.nfl.schedule import Schedule
-            #also validating the team abbreviations for given year
-            from sportsreference.nfl.teams import Teams
-            teams = Teams(year=form.season_year.data)
-            validAbbr = []
-            for team in teams:
-                validAbbr.append(team.abbreviation)
-            validAbbrSet = set(validAbbr)
-            #notify the user if an invalid abbreviation was inputted
-            if form.team.data not in validAbbrSet:
-                flash('Not a valid team abbreviation please try again', 'danger')
-                return redirect(url_for('download_data'))
-            teamData = Schedule(form.team.data, year=form.season_year.data)
-            td = teamData.dataframe
-            #maybe add a check for invalid 3 letter ID for team when inputting form
-            p = Path("sportsapp").resolve()
-            f_n = "NFLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
-            p = str(p) + "/static/sportsStatsDownloads/" + f_n
-            td.to_csv(p, index=False)
-            #adding code to associate the downloaded file with the user
-            nameDownload = "NFL Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
-            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
-            db.session.add(post)
-            db.session.commit()
-            try:
-                return send_file(p, as_attachment=True)
-            except FileNotFoundError:
-                abort(404)
+            if(form.sport_type.data == 'season_schedule'):
+                from sportsreference.nfl.schedule import Schedule
+                #from sportsreference.nfl.teams import Teams
+                teamData = Schedule(form.team.data, year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            elif(form.sport_type.data == 'season_roster'):
+                #populates dropdown of players on that teams roster: user can then download the specific forms
+                from sportsreference.nfl.roster import Roster
+                teamData = Roster(form.team.data, year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFLRoster_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Roster: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            else:
+                #generic response: returns the csv of list of teams in league in given year
+                from sportsreference.nfl.teams import Teams
+                teamData = Teams(year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFL_League_Stats_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Leaugue-Wide Stats: " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            
         if(form.sport.data == 'baseball'):
             from sportsreference.mlb.schedule import Schedule
-            #also validating the team abbreviations for given year
-            from sportsreference.mlb.teams import Teams
-            teams = Teams(year=form.season_year.data)
-            validAbbr = []
-            for team in teams:
-                validAbbr.append(team.abbreviation)
-            validAbbrSet = set(validAbbr)
-            #notify the user if an invalid abbreviation was inputted
-            if form.team.data not in validAbbrSet:
-                flash('Not a valid team abbreviation please try again', 'danger')
-                return redirect(url_for('download_data'))
+            #from sportsreference.mlb.teams import Teams
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
@@ -250,17 +266,7 @@ def download_data():
                 abort(404)
         if(form.sport.data == 'hockey'):
             from sportsreference.nhl.schedule import Schedule
-            #also validating the team abbreviations for given year
-            from sportsreference.nhl.teams import Teams
-            teams = Teams(year=form.season_year.data)
-            validAbbr = []
-            for team in teams:
-                validAbbr.append(team.abbreviation)
-            validAbbrSet = set(validAbbr)
-            #notify the user if an invalid abbreviation was inputted
-            if form.team.data not in validAbbrSet:
-                flash('Not a valid team abbreviation please try again', 'danger')
-                return redirect(url_for('download_data'))
+            #from sportsreference.nhl.teams import Teams
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
@@ -278,17 +284,7 @@ def download_data():
                 abort(404)
         if(form.sport.data == 'baskeball'):
             from sportsreference.nba.schedule import Schedule
-            #also validating the team abbreviations for given year
-            from sportsreference.nba.teams import Teams
-            teams = Teams(year=form.season_year.data)
-            validAbbr = []
-            for team in teams:
-                validAbbr.append(team.abbreviation)
-            validAbbrSet = set(validAbbr)
-            #notify the user if an invalid abbreviation was inputted
-            if form.team.data not in validAbbrSet:
-                flash('Not a valid team abbreviation please try again', 'danger')
-                return redirect(url_for('download_data'))
+            #from sportsreference.nba.teams import Teams
             teamData = Schedule(form.team.data, year=form.season_year.data)
             td = teamData.dataframe
             p = Path("sportsapp").resolve()
@@ -305,6 +301,56 @@ def download_data():
             except FileNotFoundError:
                 abort(404)
     return render_template('download_data.html', title='Download Sports Data', form=form)
+
+#helper route function to return the teams in a year and for some sport
+@app.route('/getnfl/<year>')
+def getnfl(year):
+    #query the database for the list of teams in football in the given year
+    teams = teamTable.query.filter(teamTable.team_year==year).all()
+    teamArr = []
+    for team in teams:
+        if team.sport == 'Football':
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamArr.append(teamObj)
+    return jsonify({'teams' : teamArr})
+
+@app.route('/getnba/<year>')
+def getnba(year):
+    teams = teamTable.query.filter(teamTable.team_year==year).all()
+    teamArr = []
+    for team in teams:
+        if team.sport == 'Basketball':
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamArr.append(teamObj)
+    return jsonify({'teams' : teamArr})
+
+@app.route('/getnhl/<year>')
+def getnhl(year):
+    teams = teamTable.query.filter(teamTable.team_year==year).all()
+    teamArr = []
+    for team in teams:
+        if team.sport == 'Hockey':
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamArr.append(teamObj)
+    return jsonify({'teams' : teamArr})
+
+@app.route('/getmlb/<year>')
+def getmlb(year):
+    teams = teamTable.query.filter(teamTable.team_year==year).all()
+    teamArr = []
+    for team in teams:
+        if team.sport == 'Baseball':
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamArr.append(teamObj)
+    return jsonify({'teams' : teamArr})
 
 #Return CSV file (previously downloaded file)
 @app.route('/<filename>', methods=['GET','POST'])
@@ -370,3 +416,53 @@ def settings():
         form.email.data = current_user.email
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
     return render_template('settings.html', title='Settings', image_file = image_file, form = form)
+
+#code that initalizes the database teams
+@app.route('/set_teamsNFL')
+def setTeamsNFL():
+    #using a loop to populate teams from year==1980 to present
+    from sportsreference.nfl.teams import Teams
+    for tY in range(1980, 2021):
+        teams = Teams(year=tY)
+        for team in teams:
+            teamObj = teamTable(sport="Football", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
+            db.session.add(teamObj)
+            db.session.commit()
+    flash('Loaded Teams for NFL into Database', 'success')
+    return redirect(url_for('home'))
+
+@app.route('/set_teamsNBA')
+def setTeamsNBA():
+    from sportsreference.nba.teams import Teams
+    for tY in range(1980, 2021):
+        teams = Teams(year=tY)
+        for team in teams:
+            teamObj = teamTable(sport="Basketball", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
+            db.session.add(teamObj)
+            db.session.commit()
+    flash('Loaded Teams for NBA into Database', 'success')
+    return redirect(url_for('home'))
+
+@app.route('/set_teamsNHL')
+def setTeamsNHL():
+    from sportsreference.nhl.teams import Teams
+    for tY in range(2010, 2020):
+        teams = Teams(year=tY)
+        for team in teams:
+            teamObj = teamTable(sport="Hockey", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
+            db.session.add(teamObj)
+            db.session.commit()
+    flash('Loaded Teams for NHL into Database', 'success')
+    return redirect(url_for('home'))
+
+@app.route('/set_teamsMLB')
+def setTeamsMLB():
+    from sportsreference.mlb.teams import Teams
+    for tY in range(1980, 2021):
+        teams = Teams(year=tY)
+        for team in teams:
+            teamObj = teamTable(sport="Baseball", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
+            db.session.add(teamObj)
+            db.session.commit()
+    flash('Loaded Teams for MLB into Database', 'success')
+    return redirect(url_for('home'))

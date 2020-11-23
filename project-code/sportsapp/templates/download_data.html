@@ -9,26 +9,13 @@
               <legend class="border-bottom mb-4">Download Sports Data</legend>
               <div class="form-group">
                   {{ form.sport_type.label(class="form-control-label") }}
-                  {{ form.sport_type(class="form-control form-control-lg ") }}
+                  {{ form.sport_type(class="form-control form-control-lg ", onchange="togglePlayerList()") }}
               </div>
               <div class="form-group">
                 {{ form.sport.label(class="form-control-label") }}
                 {{ form.sport(class="form-control form-control-lg ") }}
               </div>
-              <div class="form-group">
-                  {{ form.team.label(class="form-control-label") }}
-                  {% if form.team.errors %}
-                  {{ form.team(class="form-control form-control-lg is-invalid") }}
-                  <div class = "invalid-feedback">
-                      {% for error in form.team.errors %}
-                          <span> {{ error }} </span>
-                      {% endfor %}
-                  </div>
-                  {% else %}
-                      {{ form.team(class="form-control form-control-lg ") }}
-                  {% endif %}
-              </div>
-              <div class="form-group">
+              <div class="form-group" id="yearBox">
                 {{ form.season_year.label(class="form-control-label") }}
                 {% if form.season_year.errors %}
                 {{ form.season_year(class="form-control form-control-lg is-invalid") }}
@@ -41,10 +28,99 @@
                     {{ form.season_year(class="form-control form-control-lg ") }}
                 {% endif %}
             </div>
+            <div class="form-group" id="teamList">
+                {{ form.team.label(class="form-control-label") }}
+                {% if form.team.errors %}
+                {{ form.team(class="form-control form-control-lg is-invalid") }}
+                <div class = "invalid-feedback">
+                    {% for error in form.team.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.team(class="form-control form-control-lg ") }}
+                {% endif %}
+            </div>
+            <div class="form-group" id="playList">
+                {{ form.players_list.label(class="form-control-label") }}
+                {% if form.players_list.errors %}
+                {{ form.player_list(class="form-control form-control-lg is-invalid") }}
+                <div class = "invalid-feedback">
+                    {% for error in form.players_list.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.players_list(class="form-control form-control-lg ") }}
+                {% endif %}
+            </div>
           </fieldset>
           <div class = "form-group">
               {{ form.submit(class="btn btn-outline-info") }}
           </div>
       </form>
+      <script>
+          let sport_select = document.getElementById('sport');
+          let year_select = document.getElementById('season_year');
+          let team_select = document.getElementById('team');
+          let request_type = document.getElementById('sport_type');
+
+          year_select.onchange = function(){
+              sport = sport_select.value;
+              year = year_select.value;
+              if(sport == 'baseball'){
+                fetch('/getmlb/' + year).then(function(response){
+                    response.json().then(function(data){
+                        let optionHTML = '';
+                        for(let teamz of data.teams){
+                            //construct html for the dropdown list
+                            optionHTML += '<option value="' + teamz.abbr + '">' + teamz.name + '</option>';
+                        }
+                        //update the document html
+                        team_select.innerHTML = optionHTML;
+                    });
+                });
+              }
+              else if(sport == 'football'){
+                fetch('/getnfl/' + year).then(function(response){
+                    response.json().then(function(data){
+                        let optionHTML = '';
+                        for(let teamz of data.teams){
+                            //construct html for the dropdown list
+                            optionHTML += '<option value="' + teamz.abbr + '">' + teamz.name + '</option>';
+                        }
+                        //update the document html
+                        team_select.innerHTML = optionHTML;
+                    });
+                });;
+              }
+              else if(sport == 'basketball'){
+                fetch('/getnba/' + year).then(function(response){
+                    response.json().then(function(data){
+                        let optionHTML = '';
+                        for(let teamz of data.teams){
+                            //construct html for the dropdown list
+                            optionHTML += '<option value="' + teamz.abbr + '">' + teamz.name + '</option>';
+                        }
+                        //update the document html
+                        team_select.innerHTML = optionHTML;
+                    });
+                });;
+              }
+              else{
+                fetch('/getnhl/' + year).then(function(response){
+                    response.json().then(function(data){
+                        let optionHTML = '';
+                        for(let teamz of data.teams){
+                            //construct html for the dropdown list
+                            optionHTML += '<option value="' + teamz.abbr + '">' + teamz.name + '</option>';
+                        }
+                        //update the document html
+                        team_select.innerHTML = optionHTML;
+                    });
+                });;
+              }
+          };
+      </script>
   </div>
 {% endblock content%}
