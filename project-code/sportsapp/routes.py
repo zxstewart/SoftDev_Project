@@ -124,16 +124,16 @@ def compare():
 
         if(form.sport.data == 'nba'):
             from sportsreference.nba.roster import Player
-            statnames = ["2 Pointers","", "0-3'","", "3-10'","", "10-16'","", "3 Pointers","", "Corner 3 Pointer","", "Dunks",""]
+            statnames = ["2 Pointers",' ', '0-3',' ', '3-10',' ', '10-16',' ', '3 Pointers',' ']
             player1stats = Player(player1id)
             player2stats = Player(player2id)
             player1stats('career')
             player2stats('career')
-            if (player1stats is None | player2stats is None):
+            if player1stats is None :
                 flash('Invalid Player Name', 'danger')
                 return render_template('compare.html', title='Compare Stats', form=form)
 
-            data = [player1stats.two_point_percentage, player2stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet,player2stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player2stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player2stats.field_goal_perc_ten_to_sixteen_feet,player1stats.three_point_percentage,player2stats.three_point_percentage]
+            pdata = [player1stats.two_point_percentage, player2stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet,player2stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player2stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player2stats.field_goal_perc_ten_to_sixteen_feet,player1stats.three_point_percentage,player2stats.three_point_percentage]
 
 
             return render_template('compare.html', form=form, statnames = statnames, pdata = pdata)
