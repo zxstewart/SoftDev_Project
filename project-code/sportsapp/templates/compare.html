@@ -50,8 +50,9 @@
 <canvas id="myChart" width="400" height="400"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
-    console.log({{jdata}})
-    list1 = {{list1}}
+    statnames = {{statnames}};
+    pdata = {{pdata}}
+    //list1 = {{list1}}
     //premilinary use of getDATA function to insert information from API calls into chart function.
     /*a sync function getData(){
 
@@ -65,10 +66,10 @@ function chartIt() {
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Steve Kerr', 'Steph Curry', 'Steve Novak', 'Klay Thompson', 'Joe Ingles', 'Kawhi Leonard'],
+            labels: statnames,
             datasets: [{
-                label: '3-Point Percentage',
-                data: [45.4, 43.5, 43.0, 41.9, 40.7, 38.3],
+                label: 'Percentages',
+                data: pdata,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
