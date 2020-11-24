@@ -9,7 +9,7 @@ from sportsapp.models import User, sportsStats, teamTable
 from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 from pathlib import Path
-from sportsreference.nba.roster import Player
+
 
 #generic list of dictionaries to be used when user is not loggedin
 information = [
@@ -107,11 +107,12 @@ def video():
 #Compare page
 @app.route('/compare', methods=['GET','POST'])
 def compare():
+    from sportsreference.nba.roster import Player
     form = ComparePlayersForm()
     if form.validate_on_submit():
         sport = form.sport.data
-        player1 = form.player1.data
-        player2 = form.player2.data
+        player1 = form.player1.data.lower()
+        player2 = form.player2.data.lower()
         #use to lookup player on API
         fname1id = player1.split()[0][0:2]
         lname1id = player1.split()[1][0:5]
@@ -120,34 +121,22 @@ def compare():
 
         player1id = lname1id + fname1id+"01"
         player2id = lname2id + fname2id+"01"
-        player1array = [1,2,3,4,5]
-           # player2array = []
 
-        data = {}
-        data['value']=player1array
-        return jsonify(data)
-
-        playerobj1 = Player(player1id)
-        playerobj2 = Player(player2id)
-        
         if(form.sport.data == 'nba'):
-            
-            statnames = ['and-ones', 'assist_percentage', 'assists', 'block_percentage', 'blocking_fouls', 'blocks', 'box_plus_minus', 'center_percentage', 'defensive_box_plus_minus', 'defensive_rebound_percentage', 'turnovers', 'two_point_attempts', 'two_point_percentage', 'two_pointers', 'two_pointers_assisted_percentage', 'usage_percentage', 'value_over_replacement_player', 'weight', 'win_shares', 'win_shares_per_48_minutes']
+            from sportsreference.nba.roster import Player
+            statnames = ["2 Pointers",' ', '0-3',' ', '3-10',' ', '10-16',' ', '3 Pointers',' ']
+            player1stats = Player(player1id)
+            player2stats = Player(player2id)
+            player1stats('career')
+            player2stats('career')
+            if player1stats is None :
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
 
-            #can change to specify year
-            playerobj1('2018-19')
-            playerobj2('2018-19')
+            pdata = [player1stats.two_point_percentage, player2stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet,player2stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player2stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player2stats.field_goal_perc_ten_to_sixteen_feet,player1stats.three_point_percentage,player2stats.three_point_percentage]
 
-            player1array = [1,2,3,4,5]
-            player2array = []
 
-            data = {}
-            data['value']=player1array
-            return jsonify(data)
-            #Need to get help
-            # for i in statnames:
-            #     player1array.append(playerobj1.i)
-            #     player2array.append(playerobj2.i)
+            return render_template('compare.html', form=form, statnames = statnames, pdata = pdata)
         
         elif(form.sport.data == 'mlb'):
             from sportsreference.mlb.roster import Player

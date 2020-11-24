@@ -2,7 +2,7 @@
 {% block content %}
 <!--download data form: Uses GET and POST request and retrieves season statistics for team/individual-->
 <div class="content-section">
-    <form method="POST" action="/compare">
+    <form method="POST" action="">
         <!--Used for site safety: Don't worry about this part!-->
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
@@ -50,7 +50,16 @@
 <canvas id="myChart" width="400" height="400"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
+    bardata = {
+        statnames : [
+            {% for item in statnames %}
+                "{{item}}",
+            {%endfor %}
+        ]
+    }
 
+    //console.log(statnames, pdata)
+    //list1 = {{list1}}
     //premilinary use of getDATA function to insert information from API calls into chart function.
     /*a sync function getData(){
 
@@ -64,25 +73,38 @@ function chartIt() {
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Steve Kerr', 'Steph Curry', 'Steve Novak', 'Klay Thompson', 'Joe Ingles', 'Kawhi Leonard'],
+            labels: bardata,
             datasets: [{
-                label: '3-Point Percentage',
-                data: [45.4, 43.5, 43.0, 41.9, 40.7, 38.3],
+                label: 'Percentages',
+                data: {{pdata}},
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
+                    
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
                 ],
                 borderWidth: 1
             }]
