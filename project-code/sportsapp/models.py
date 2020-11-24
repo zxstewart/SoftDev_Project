@@ -45,5 +45,12 @@ class teamTable(db.Model):
     team_year = db.Column(db.Integer)
     team_abbr = db.Column(db.String(3))
 
+#creating table for holding list of favorite players
+class favoritesTable(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    p_name = db.Column(db.String(50))
+    team = db.Column(db.String(30))
+    sport = db.Column(db.String(20))
+
 #create all the tables before returning to importing file: ALL TABLES SHOULD BE DEFINED ABOVE THIS
 db.create_all()

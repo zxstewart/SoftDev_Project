@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <!-- form to add player to favorites table -->
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add Player</legend>
+            <table class="table">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            {{ form.p_name.label(class="form-control-label") }}
+                            {% if form.p_name.errors %}
+                            {{ form.p_name(class="form-control form-control-lg is-invalid") }}
+                            <div class = "invalid-feedback">
+                                {% for error in form.p_name.errors %}
+                                    <span> {{ error }} </span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.p_name(class="form-control form-control-lg ") }}
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            {{ form.team.label(class="form-control-label") }}
+                            {% if form.team.errors %}
+                            {{ form.team(class="form-control form-control-lg is-invalid") }}
+                            <div class = "invalid-feedback">
+                                {% for error in form.team.errors %}
+                                    <span> {{ error }} </span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.team(class="form-control form-control-lg ") }}
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            {{ form.sport.label(class="form-control-label") }}
+                            {% if form.sport.errors %}
+                            {{ form.sport(class="form-control form-control-lg is-invalid") }}
+                            <div class = "invalid-feedback">
+                                {% for error in form.sport.errors %}
+                                    <span> {{ error }} </span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.sport(class="form-control form-control-lg ") }}
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <div class = "form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    <br><br>
+</div>
+{% endblock content%}

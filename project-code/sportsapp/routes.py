@@ -3,7 +3,7 @@ import secrets
 import os
 import sys
 from sportsapp import app, db, bcrypt
-from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm
+from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm, FavoritesForm
 #importing models for database
 from sportsapp.models import User, sportsStats, teamTable
 from flask_login import login_user, current_user, logout_user, login_required
@@ -380,21 +380,22 @@ def save_picture(form_picture):
 @app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
-    form = UpdateAccountForm()
-    if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_picture(form.picture.data)
-            current_user.image_file = picture_file
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash('Your account has been updated.', 'success')
-        return redirect(url_for('account'))
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
+    favorites = Favorite.query.all()
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file = image_file, form = form)
+    return render_template('account.html', title='Account', image_file = image_file, favorites=favorites)
+
+@app.route('/favorites', methods=['GET','POST'])
+@login_required
+def favorites():
+    form = FavoritesForm()
+    if form.validate_on_submit():
+       favorite = Favorite(p_name=form.p_name.data, team=form.team.data, sport=form.sport.data)
+       db.session.add(favorite) 
+       db.session.commit()
+       flash('Player has been added', 'success')
+       return redirect(url_for('account'))
+    favorites = Favorite.query.all()
+    return render_template('favorites.html', title='Add Favorite', form=form)
 
 @app.route('/settings', methods=['GET','POST'])
 def settings():
