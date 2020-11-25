@@ -3,13 +3,13 @@ import secrets
 import os
 import sys
 from sportsapp import app, db, bcrypt
-from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm
+from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm, FavoriteForm
 #importing models for database
 from sportsapp.models import User, sportsStats, teamTable
 from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 from pathlib import Path
-from sportsreference.nba.roster import Player
+
 
 #generic list of dictionaries to be used when user is not loggedin
 information = [
@@ -43,7 +43,6 @@ def browse():
     return render_template('browse.html')
 
 #adding routing backend for registration page
-#NOTE: register.html is depracated and SHOULD NOT be used!
 @app.route('/register', methods=['GET','POST'])
 def register():
     if current_user.is_authenticated:
@@ -107,11 +106,12 @@ def video():
 #Compare page
 @app.route('/compare', methods=['GET','POST'])
 def compare():
+    from sportsreference.nba.roster import Player
     form = ComparePlayersForm()
     if form.validate_on_submit():
         sport = form.sport.data
-        player1 = form.player1.data
-        player2 = form.player2.data
+        player1 = form.player1.data.lower()
+        player2 = form.player2.data.lower()
         #use to lookup player on API
         fname1id = player1.split()[0][0:2]
         lname1id = player1.split()[1][0:5]
@@ -120,37 +120,46 @@ def compare():
 
         player1id = lname1id + fname1id+"01"
         player2id = lname2id + fname2id+"01"
-        player1array = [1,2,3,4,5]
-           # player2array = []
 
-        data = {}
-        data['value']=player1array
-        return jsonify(data)
-
-        playerobj1 = Player(player1id)
-        playerobj2 = Player(player2id)
-        
         if(form.sport.data == 'nba'):
+            from sportsreference.nba.roster import Player
+            player1stats = Player(player1id)
+            player2stats = Player(player2id)
             
-            statnames = ['and-ones', 'assist_percentage', 'assists', 'block_percentage', 'blocking_fouls', 'blocks', 'box_plus_minus', 'center_percentage', 'defensive_box_plus_minus', 'defensive_rebound_percentage', 'turnovers', 'two_point_attempts', 'two_point_percentage', 'two_pointers', 'two_pointers_assisted_percentage', 'usage_percentage', 'value_over_replacement_player', 'weight', 'win_shares', 'win_shares_per_48_minutes']
+            if player1stats is None :
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
+            if player2stats is None:
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
+            
+            player1stats('career')
+            player2stats('career')
+            statnames = ["2 Pointers", "From 0-3 feet", "From 3-10 feet", "From 10-16 feet", '3 Pointers']
+            p1data = [player1stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player1stats.three_point_percentage]
+            p2data = [player2stats.two_point_percentage, player2stats.field_goal_perc_zero_to_three_feet, player2stats.field_goal_perc_three_to_ten_feet, player2stats.field_goal_perc_ten_to_sixteen_feet, player2stats.three_point_percentage]
 
-            #can change to specify year
-            playerobj1('2018-19')
-            playerobj2('2018-19')
-
-            player1array = [1,2,3,4,5]
-            player2array = []
-
-            data = {}
-            data['value']=player1array
-            return jsonify(data)
-            #Need to get help
-            # for i in statnames:
-            #     player1array.append(playerobj1.i)
-            #     player2array.append(playerobj2.i)
+            return render_template('compare.html', form=form, statnames = statnames, p1name = form.player1.data, p2name = form.player2.data, p1data = p1data, p2data = p2data)
         
         elif(form.sport.data == 'mlb'):
             from sportsreference.mlb.roster import Player
+            player1stats = Player(player1id)
+            player2stats = Player(player2id)
+            
+            if player1stats is None :
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
+            if player2stats is None:
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
+            
+            player1stats('career')
+            player2stats('career')
+            #statnames = ["2 Pointers", "From 0-3 feet", "From 3-10 feet", "From 10-16 feet", '3 Pointers']
+            #p1data = [player1stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player1stats.three_point_percentage]
+            #p2data = [player2stats.two_point_percentage, player2stats.field_goal_perc_zero_to_three_feet, player2stats.field_goal_perc_three_to_ten_feet, player2stats.field_goal_perc_ten_to_sixteen_feet, player2stats.three_point_percentage]
+
+            #return render_template('compare.html', form=form, statnames = statnames, p1name = form.player1.data, p2name = form.player2.data, p1data = p1data, p2data = p2data)
 
 
        
@@ -380,21 +389,21 @@ def save_picture(form_picture):
 @app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
-    form = UpdateAccountForm()
-    if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_picture(form.picture.data)
-            current_user.image_file = picture_file
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash('Your account has been updated.', 'success')
-        return redirect(url_for('account'))
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
+    favorite = Favorite.query.all()
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file = image_file, form = form)
+    return render_template('account.html', title='Account', image_file = image_file, favorites=favorites)
+
+@app.route('/favorites', methods=['GET','POST'])
+@login_required
+def favorite():
+    form = FavoriteForm()
+    if form.validate_on_submit():
+       favorite = Favorite(p_name=form.p_name.data, team=form.team.data, sport=form.sport.data)
+       db.session.add(favorite) 
+       db.session.commit()
+       flash('Player has been added', 'success')
+       return redirect(url_for('account'))
+    return render_template('favorites.html', title='Add Favorite', form=form)
 
 @app.route('/settings', methods=['GET','POST'])
 def settings():

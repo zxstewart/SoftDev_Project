@@ -25,6 +25,15 @@ class User(db.Model, UserMixin):
         #magic method used for printing information in table
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
+class Favorite(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    p_name = db.Column(db.String(30))
+    team = db.Column(db.String(30))
+    sport = db.Column(db.String(30))
+
+    def __repr__(self):
+        return f"Favorite('{self.p_name}', '{self.team}', '{self.sport}')"
+
 
 #creating table for holding sports statistics
 class sportsStats(db.Model):
