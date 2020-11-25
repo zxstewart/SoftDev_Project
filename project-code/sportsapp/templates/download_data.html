@@ -41,7 +41,7 @@
                     {{ form.team(class="form-control form-control-lg ") }}
                 {% endif %}
             </div>
-            <div class="form-group" id="playList">
+            <div class="form-group" id="playList" style="height: 0; display: none;">
                 {{ form.players_list.label(class="form-control-label") }}
                 {% if form.players_list.errors %}
                 {{ form.players_list(class="form-control form-control-lg is-invalid") }}
@@ -64,10 +64,11 @@
           let year_select = document.getElementById('season_year');
           let team_select = document.getElementById('team');
           let request_type = document.getElementById('sport_type');
+          let sport = sport_select.value;
+          let year = year_select.value;
+          let req = request_type.value;
 
           year_select.onchange = function(){
-              sport = sport_select.value;
-              year = year_select.value;
               if(sport == 'baseball'){
                 fetch('/getmlb/' + year).then(function(response){
                     response.json().then(function(data){

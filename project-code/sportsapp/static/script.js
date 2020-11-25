@@ -29,7 +29,15 @@ function togglePlayerList(){
         player_select.style.height="0";
         player_select.style.display="none";
     }
-    if(request_type.value != 'league_stats'){
+    else if(request_type.value == 'season_schedule'){
+        year_select.style.height = "auto";
+        year_select.style.display = "block";
+        team_select.style.height="auto";
+        team_select.style.display="block";
+        player_select.style.height="0";
+        player_select.style.display="none";
+    }
+    else{
         year_select.style.height = "auto";
         year_select.style.display = "block";
         team_select.style.height="auto";

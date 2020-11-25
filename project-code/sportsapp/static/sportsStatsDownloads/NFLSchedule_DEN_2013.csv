@@ -1,0 +1,20 @@
+boxscore_index,date,datetime,day,extra_points_attempted,extra_points_made,field_goals_attempted,field_goals_made,fourth_down_attempts,fourth_down_conversions,interceptions,location,opponent_abbr,opponent_name,overtime,pass_attempts,pass_completion_rate,pass_completions,pass_touchdowns,pass_yards,pass_yards_per_attempt,points_allowed,points_scored,punt_yards,punts,quarterback_rating,result,rush_attempts,rush_touchdowns,rush_yards,rush_yards_per_attempt,third_down_attempts,third_down_conversions,time_of_possession,times_sacked,type,week,yards_lost_from_sacks
+201309050den,September 5,2013-09-05,Thu,7,7,0,0,0,0,0,Home,RAV,Baltimore Ravens,False,42,64.3,27,7,445,11.0,27,49,319,7,139.4,Win,23,0,65,2.8,15,8,26:12,3,Reg,1,17
+201309150nyg,September 15,2013-09-15,Sun,5,5,2,2,0,0,0,Away,NYG,New York Giants,False,43,69.8,30,2,307,7.1,23,41,210,5,105.5,Win,29,2,107,3.7,15,8,28:02,0,Reg,2,0
+201309230den,September 23,2013-09-23,Mon,4,4,3,3,0,0,0,Home,RAI,Oakland Raiders,False,37,86.5,32,3,372,10.1,21,37,37,1,135.6,Win,35,1,164,4.7,9,5,35:24,1,Reg,3,2
+201309290den,September 29,2013-09-29,Sun,7,7,1,1,0,0,0,Home,PHI,Philadelphia Eagles,False,37,81.1,30,4,331,9.1,20,52,92,2,140.0,Win,33,1,141,4.3,8,5,33:22,1,Reg,4,6
+201310060dal,October 6,2013-10-06,Sun,6,6,3,3,0,0,1,Away,DAL,Dallas Cowboys,False,42,78.6,33,4,414,9.9,48,51,0,0,129.6,Win,31,2,103,3.3,13,9,32:34,0,Reg,5,0
+201310130den,October 13,2013-10-13,Sun,5,5,0,0,1,1,1,Home,JAX,Jacksonville Jaguars,False,42,66.7,28,2,295,7.0,19,35,129,3,92.9,Win,29,3,112,3.9,13,7,28:45,0,Reg,6,0
+201310200clt,October 20,2013-10-20,Sun,3,3,2,2,1,1,1,Away,CLT,Indianapolis Colts,False,49,59.2,29,3,365,7.9,39,33,331,7,94.3,Loss,20,1,64,3.2,16,5,28:13,4,Reg,7,21
+201310270den,October 27,2013-10-27,Sun,6,6,1,1,2,2,3,Home,WAS,Washington Redskins,False,44,68.2,30,4,339,8.0,21,45,147,3,92.9,Win,34,1,107,3.1,12,4,32:00,2,Reg,8,15
+201311100sdg,November 10,2013-11-10,Sun,4,4,0,0,0,0,0,Away,SDG,San Diego Chargers,False,36,69.4,25,4,313,9.2,20,28,233,5,133.2,Win,22,0,84,3.8,8,3,21:57,2,Reg,10,17
+201311170den,November 17,2013-11-17,Sun,3,3,3,2,0,0,0,Home,KAN,Kansas City Chiefs,False,40,60.0,24,1,323,8.1,17,27,275,6,94.1,Win,36,2,104,2.9,16,6,29:53,0,Reg,11,0
+201311240nwe,November 24,2013-11-24,Sun,4,4,1,1,0,0,1,Away,NWE,New England Patriots,True,36,52.8,19,2,132,4.2,34,31,325,8,68.3,Loss,48,1,280,5.8,18,9,38:58,2,Reg,12,18
+201312010kan,December 1,2013-12-01,Sun,5,5,0,0,0,0,2,Away,KAN,Kansas City Chiefs,False,35,62.9,22,5,403,11.5,28,35,132,3,118.2,Win,31,0,132,4.3,14,8,28:04,0,Reg,13,0
+201312080den,December 8,2013-12-08,Sun,6,6,3,3,3,3,0,Home,OTI,Tennessee Titans,False,59,66.1,39,4,397,6.7,28,51,65,2,107.8,Win,32,2,154,4.8,13,5,39:20,0,Reg,14,0
+201312120den,December 12,2013-12-12,Thu,2,2,2,2,1,1,1,Home,SDG,San Diego Chargers,False,41,65.9,27,2,277,7.0,27,20,186,4,91.2,Loss,11,0,18,1.6,9,2,21:11,1,Reg,15,12
+201312220htx,December 22,2013-12-22,Sun,4,4,3,3,1,0,0,Away,HTX,Houston Texans,False,51,62.7,32,4,397,7.8,13,37,292,6,112.9,Win,18,0,114,6.3,11,2,28:53,1,Reg,16,3
+201312290rai,December 29,2013-12-29,Sun,4,4,2,2,0,0,0,Away,RAI,Oakland Raiders,False,41,82.9,34,4,334,8.6,14,34,120,4,133.1,Win,29,0,124,4.3,15,9,35:29,3,Reg,17,17
+201401120den,January 12,2014-01-12,Sun,3,3,2,1,0,0,1,Home,SDG,San Diego Chargers,False,36,69.4,25,2,230,6.4,17,24,0,0,93.5,Win,34,1,133,3.9,13,9,35:27,0,Post,19,0
+201401190den,January 19,2014-01-19,Sun,2,2,4,4,1,1,0,Home,NWE,New England Patriots,False,43,74.4,32,2,400,9.3,16,26,48,1,118.4,Win,28,0,107,3.8,13,7,35:44,0,Post,20,0
+201402020den,February 2,2014-02-02,Sun,0,0,0,0,3,0,2,Neutral,SEA,Seattle Seahawks,False,49,69.4,34,1,279,5.7,43,8,60,2,73.4,Loss,14,0,27,1.9,13,6,28:07,1,Post,21,1
