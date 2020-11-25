@@ -32,7 +32,13 @@
                     <th>Team</td>
                     <th>Sport</td>
                 </tr>
-                
+                {% for favorite in Favorite %}
+                <tr>
+                    <td>{{ favorite.p_name }}</td>
+                    <td>{{ favorite.team }}</td>
+                    <td>{{ favorite.sport }}</td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </div>

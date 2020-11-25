@@ -3,7 +3,7 @@ import secrets
 import os
 import sys
 from sportsapp import app, db, bcrypt
-from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm, FavoritesForm
+from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm, FavoriteForm
 #importing models for database
 from sportsapp.models import User, sportsStats, teamTable
 from flask_login import login_user, current_user, logout_user, login_required
@@ -43,7 +43,6 @@ def browse():
     return render_template('browse.html')
 
 #adding routing backend for registration page
-#NOTE: register.html is depracated and SHOULD NOT be used!
 @app.route('/register', methods=['GET','POST'])
 def register():
     if current_user.is_authenticated:
@@ -369,21 +368,20 @@ def save_picture(form_picture):
 @app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
-    favorites = Favorite.query.all()
+    favorite = Favorite.query.all()
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file = image_file, favorites=favorites)
 
 @app.route('/favorites', methods=['GET','POST'])
 @login_required
-def favorites():
-    form = FavoritesForm()
+def favorite():
+    form = FavoriteForm()
     if form.validate_on_submit():
        favorite = Favorite(p_name=form.p_name.data, team=form.team.data, sport=form.sport.data)
        db.session.add(favorite) 
        db.session.commit()
        flash('Player has been added', 'success')
        return redirect(url_for('account'))
-    favorites = Favorite.query.all()
     return render_template('favorites.html', title='Add Favorite', form=form)
 
 @app.route('/settings', methods=['GET','POST'])

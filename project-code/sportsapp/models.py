@@ -25,6 +25,15 @@ class User(db.Model, UserMixin):
         #magic method used for printing information in table
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
+class Favorite(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    p_name = db.Column(db.String(30))
+    team = db.Column(db.String(30))
+    sport = db.Column(db.String(30))
+
+    def __repr__(self):
+        return f"Favorite('{self.p_name}', '{self.team}', '{self.sport}')"
+
 
 #creating table for holding sports statistics
 class sportsStats(db.Model):
@@ -44,13 +53,6 @@ class teamTable(db.Model):
     team_name = db.Column(db.String(50))
     team_year = db.Column(db.Integer)
     team_abbr = db.Column(db.String(3))
-
-#creating table for holding list of favorite players
-class favoritesTable(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    p_name = db.Column(db.String(50))
-    team = db.Column(db.String(30))
-    sport = db.Column(db.String(20))
 
 #create all the tables before returning to importing file: ALL TABLES SHOULD BE DEFINED ABOVE THIS
 db.create_all()
