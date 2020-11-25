@@ -22,8 +22,8 @@ function togglePlayerList(){
     let request_type = document.getElementById('sport_type');
 
     if(request_type.value == 'league_stats'){
-        year_select.style.height = "0";
-        year_select.style.display = "none";
+        year_select.style.height = "auto";
+        year_select.style.display = "block";
         team_select.style.height="0";
         team_select.style.display="none";
         player_select.style.height="0";

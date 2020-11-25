@@ -215,6 +215,23 @@ def download_data():
                     return send_file(p, as_attachment=True)
                 except FileNotFoundError:
                     abort(404)
+            elif(form.sport_type.data == 'league_stats'):
+                from sportsreference.nfl.teams import Teams
+                team = Teams(year=form.season_year.data)
+                td = team.dataframes
+                p = Path("sportsapp").resolve()
+                f_n = "NFL_League_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL League Stats: " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
             elif(form.sport_type.data == 'season_roster'):
                 #populates dropdown of players on that teams roster: user can then download the specific forms
                 from sportsreference.nfl.roster import Roster
