@@ -136,7 +136,7 @@ def compare():
             pdata = [player1stats.two_point_percentage, player2stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet,player2stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player2stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player2stats.field_goal_perc_ten_to_sixteen_feet,player1stats.three_point_percentage,player2stats.three_point_percentage]
 
 
-            return render_template('compare.html', form=form, statnames = statnames, pdata = pdata)
+            return render_template('compare.html', form=form, statnames = statnames, pdata = pdata, p1name = form.player1.data, p2name = form.player2.data)
         
         elif(form.sport.data == 'mlb'):
             from sportsreference.mlb.roster import Player
