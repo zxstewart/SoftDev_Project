@@ -42,12 +42,14 @@
             </div>
         </fieldset>
         <!--Submit button-->
-        <div class = "form-group" onclick=>
+        <div class = "form-group">
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
-    </form>
-</div>
+    
+
 <canvas id="myChart" width="400" height="400"></canvas>
+</form>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
     bardata = {
@@ -57,7 +59,9 @@
             {%endfor %}
         ]
     }
-
+    console.log({{pdata}})
+    console.log(bardata)
+    chartIt()
     //console.log(statnames, pdata)
     //list1 = {{list1}}
     //premilinary use of getDATA function to insert information from API calls into chart function.
@@ -65,57 +69,27 @@
 
     } */
 
-    chartIt();
 
 function chartIt() {
-    //await getData();
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: bardata,
-            datasets: [{
-                label: 'Percentages',
-                data: {{pdata}},
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                    
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)'
-                ],
-                borderWidth: 1
+        type:'bar',
+        data:{
+            labels: bardata.statnames,
+            datasets:[{
+                label:'Percentages',
+                data:{{pdata}},
+                backgroundColor:["rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)"],
+                borderColor:["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 99, 132)","rgb(54, 162, 235)"],
             }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: false, YAxisID:"30"
+        options:{
+            scales:{
+                yAxes:{
+                    ticks:{
+                        beginAtZero:true
                     }
-                }]
+                }
             }
         }
     });
