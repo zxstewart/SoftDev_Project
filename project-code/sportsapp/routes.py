@@ -5,7 +5,7 @@ import sys
 from sportsapp import app, db, bcrypt
 from sportsapp.forms import RegistrationForm, LoginForm, DownloadDataForm, UpdateAccountForm, ComparePlayersForm, FavoriteForm
 #importing models for database
-from sportsapp.models import User, sportsStats, teamTable
+from sportsapp.models import User, sportsStats, teamTable, Favorite
 from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 from pathlib import Path
@@ -389,7 +389,7 @@ def save_picture(form_picture):
 @app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
-    favorite = Favorite.query.all()
+    favorites = Favorite.query.all()
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file = image_file, favorites=favorites)
 
