@@ -59,7 +59,7 @@
             {%endfor %}
         ]
     }
-    console.log({{pdata}})
+    console.log({{p1data}})
     console.log(bardata)
     chartIt()
     //console.log(statnames, pdata)
@@ -77,12 +77,18 @@ function chartIt() {
         data:{
             labels: bardata.statnames,
             datasets:[{
-                label:["{{p1name}}", "{{p2name}}"],
-                data:{{pdata}},
-                backgroundColor:["rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)"],
-                borderColor:["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 99, 132)","rgb(54, 162, 235)"],
-            }]
-        },
+                label:"{{p1name}}",
+                data:{{p1data}},
+                backgroundColor:["rgba(255, 0, 0)","rgba(255, 99, 13)","rgba(255, 99, 13)","rgba(255, 99, 13)","rgba(255, 0, 0)"],
+                borderColor:"rgba(0, 0, 0)"
+            },
+            {
+                label:"{{p2name}}",
+                data:{{p2data}},
+                backgroundColor:["rgba(0, 0, 255)","rgba(0, 100, 255)","rgba(0, 100, 255)","rgba(0, 100, 255)","rgba(0, 0, 255)"],
+                borderColor:"rgba(0, 0, 0)"
+        }
+        ]},
         options:{
             scales:{
                 yAxes:[{
