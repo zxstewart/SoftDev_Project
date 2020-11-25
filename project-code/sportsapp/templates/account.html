@@ -25,13 +25,20 @@
         <div class="table-responsive">
             <table class="table">
                 <tr>
-                    <th>Favorite Players:</th>
+                    <th style="font-size: large;">Favorites List:</th>
                 </tr>
                 <tr>
-                    <td>Add Player Name</td>
-                    <td>Add Player Team</td>
-                    <td>Add Player Sport</td>
+                    <th>Player Name</td>
+                    <th>Team</td>
+                    <th>Sport</td>
                 </tr>
+                {% for favorite in Favorite %}
+                <tr>
+                    <td>{{ favorite.p_name }}</td>
+                    <td>{{ favorite.team }}</td>
+                    <td>{{ favorite.sport }}</td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
