@@ -1,14 +1,18 @@
-function callGetFile(){
-    console.log("test");
-    //window.location.href += 'DAL_2018.csv';
-    //window.location.href += filename;
+function callGetFile(filename_data){
     //using jquery to get data
-    var filename_data = $('#fN').data("name");
+    //let filename_data = $('#fN').data("name");
     let str = window.location.href;
-    //handles home page download data when the url is "/home"
-    str = str.slice(0,-4);
-    str += filename_data;
-    location.replace(str);
+    //determine if we are at '/' or '/home'
+    if(str.endsWith('home')){
+        //handles home page download data when the url is "/home"
+        str = str.slice(0,-4);
+        str += filename_data;
+        location.replace(str);
+    }
+    else{
+        str += filename_data;
+        location.replace(str);
+    }
 }
 
 function togglePlayerList(){
@@ -19,18 +23,40 @@ function togglePlayerList(){
 
     if(request_type.value == 'league_stats'){
         year_select.style.height = "0";
-        year_select.style.visibility = "hidden";
+        year_select.style.display = "none";
         team_select.style.height="0";
-        team_select.style.visibility="hidden";
+        team_select.style.display="none";
         player_select.style.height="0";
-        player_select.style.visibility="hidden";
+        player_select.style.display="none";
     }
     if(request_type.value != 'league_stats'){
         year_select.style.height = "auto";
-        year_select.style.visibility = "visible";
+        year_select.style.display = "block";
         team_select.style.height="auto";
-        team_select.style.visibility="visible";
-        player_select.style.height="0";
-        player_select.style.visibility="hidden";
+        team_select.style.display="block";
+        player_select.style.height="auto";
+        player_select.style.display="block";
+    }
+}
+
+function defaultSet(){
+    alert("test");
+}
+
+function displayTableData(filename_data){
+    //call the viewtable route
+    let str = window.location.href;
+    //determine if we are at '/' or '/home'
+    if(str.endsWith('home')){
+        //handles home page download data when the url is "/home"
+        str = str.slice(0,-4);
+        str += 'viewData/';
+        str += filename_data;
+        location.replace(str);
+    }
+    else{
+        str += 'viewData/';
+        str += filename_data;
+        location.replace(str);
     }
 }

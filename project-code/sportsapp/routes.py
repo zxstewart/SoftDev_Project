@@ -463,3 +463,19 @@ def setTeamsMLB():
             db.session.commit()
     flash('Loaded Teams for MLB into Database', 'success')
     return redirect(url_for('home'))
+
+#app route for generating nice view of data in table form
+@app.route('/viewData/<filename>')
+def viewData(filename):
+    #stz = 'Able to go to viewData route ' + filename
+    #flash(stz, 'success')
+    try:
+        p = Path("sportsapp").resolve()
+        p = str(p) + "/static/sportsStatsDownloads/" + filename
+        table = pd.read_csv(p)
+        html_file = table.to_html(classes='table table-striped table-bordered table-hover')
+        nameTable = filename[0:-4]
+        nameTable = nameTable.replace("_"," ")
+        return render_template('view_table.html', title='View Table', tables=html_file, table_name=nameTable)
+    except FileNotFoundError:
+        abort(404)

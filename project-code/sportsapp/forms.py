@@ -39,7 +39,7 @@ class DownloadDataForm(FlaskForm):
     sport = SelectField(u'Sport', choices=[('football','NFL Football'), ('baseball', 'MLB Baseball'), ('hockey', 'NHL Hockey'), ('basketball', 'NBA Basketball')])
     team = SelectField(u'Team Name', choices=[])
     season_year = StringField('Year of Season: XXXX >1980', validators=[DataRequired(), Length(min=4,max=4)])
-    players_list = SelectField('Select Players', choices=[])
+    players_list = SelectField('Select Players', choices=[('football','NFL Football')])
     submit = SubmitField('Fetch and Download Data')
 
 #account update form using registration form

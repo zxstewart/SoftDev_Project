@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <!--download data form: Uses GET and POST request and retrieves season statistics for team/individual-->
-    <div class="content-section">
+    <div class="content-section" onload="defaultSet()">
       <form method="POST" action="">
           <!--Used for site safety: Don't worry about this part!-->
           {{ form.hidden_tag() }}
@@ -44,7 +44,7 @@
             <div class="form-group" id="playList">
                 {{ form.players_list.label(class="form-control-label") }}
                 {% if form.players_list.errors %}
-                {{ form.player_list(class="form-control form-control-lg is-invalid") }}
+                {{ form.players_list(class="form-control form-control-lg is-invalid") }}
                 <div class = "invalid-feedback">
                     {% for error in form.players_list.errors %}
                         <span> {{ error }} </span>
