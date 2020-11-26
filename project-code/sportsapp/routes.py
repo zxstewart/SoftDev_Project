@@ -270,59 +270,221 @@ def download_data():
                     abort(404)
             
         if(form.sport.data == 'baseball'):
-            from sportsreference.mlb.schedule import Schedule
-            #from sportsreference.mlb.teams import Teams
-            teamData = Schedule(form.team.data, year=form.season_year.data)
-            td = teamData.dataframe
-            p = Path("sportsapp").resolve()
-            f_n = "MLBSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
-            p = str(p) + "/static/sportsStatsDownloads/" + f_n
-            td.to_csv(p, index=False)
-            #adding code to associate the downloaded file with the user
-            nameDownload = "MLB Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
-            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
-            db.session.add(post)
-            db.session.commit()
-            try:
-                return send_file(p, as_attachment=True)
-            except FileNotFoundError:
-                abort(404)
+            if(form.sport_type.data == 'season_schedule'):
+                from sportsreference.mlb.schedule import Schedule
+                #from sportsreference.mlb.teams import Teams
+                teamData = Schedule(form.team.data, year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "MLBSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "MLB Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            elif(form.sport_type.data == 'league_stats'):
+                from sportsreference.mlb.teams import Teams
+                team = Teams(year=form.season_year.data)
+                td = team.dataframes
+                p = Path("sportsapp").resolve()
+                f_n = "MLB_League_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "MLB League Stats: " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            elif(form.sport_type.data == 'season_roster'):
+                #populates dropdown of players on that teams roster: user can then download the specific forms
+                from sportsreference.nfl.roster import Roster
+                teamData = Roster(form.team.data, year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFLRoster_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Roster: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            else:
+                #generic response: returns the csv of list of teams in league in given year
+                from sportsreference.nfl.teams import Teams
+                teamData = Teams(year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFL_League_Stats_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Leaugue-Wide Stats: " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
         if(form.sport.data == 'hockey'):
-            from sportsreference.nhl.schedule import Schedule
-            #from sportsreference.nhl.teams import Teams
-            teamData = Schedule(form.team.data, year=form.season_year.data)
-            td = teamData.dataframe
-            p = Path("sportsapp").resolve()
-            f_n = "NHLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
-            p = str(p) + "/static/sportsStatsDownloads/" + f_n
-            td.to_csv(p, index=False)
-            #adding code to associate the downloaded file with the user
-            nameDownload = "NHL Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
-            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
-            db.session.add(post)
-            db.session.commit()
-            try:
-                return send_file(p, as_attachment=True)
-            except FileNotFoundError:
-                abort(404)
+            if(form.sport_type.data == 'season_schedule'):
+                from sportsreference.nhl.schedule import Schedule
+                #from sportsreference.nhl.teams import Teams
+                teamData = Schedule(form.team.data, year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NHLSchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NHL Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            elif(form.sport_type.data == 'league_stats'):
+                from sportsreference.nhl.teams import Teams
+                team = Teams(year=form.season_year.data)
+                td = team.dataframes
+                p = Path("sportsapp").resolve()
+                f_n = "NHL_League_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NHL League Stats: " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            elif(form.sport_type.data == 'season_roster'):
+                #populates dropdown of players on that teams roster: user can then download the specific forms
+                from sportsreference.nfl.roster import Roster
+                teamData = Roster(form.team.data, year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFLRoster_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Roster: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            else:
+                #generic response: returns the csv of list of teams in league in given year
+                from sportsreference.nfl.teams import Teams
+                teamData = Teams(year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFL_League_Stats_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Leaugue-Wide Stats: " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
         if(form.sport.data == 'baskeball'):
-            from sportsreference.nba.schedule import Schedule
-            #from sportsreference.nba.teams import Teams
-            teamData = Schedule(form.team.data, year=form.season_year.data)
-            td = teamData.dataframe
-            p = Path("sportsapp").resolve()
-            f_n = "NBASchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
-            p = str(p) + "/static/sportsStatsDownloads/" + f_n
-            td.to_csv(p, index=False)
-            #adding code to associate the downloaded file with the user
-            nameDownload = "NBA Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
-            post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
-            db.session.add(post)
-            db.session.commit()
-            try:
-                return send_file(p, as_attachment=True)
-            except FileNotFoundError:
-                abort(404)
+            if(form.sport_type.data == 'season_schedule'):
+                from sportsreference.nba.schedule import Schedule
+                #from sportsreference.nba.teams import Teams
+                teamData = Schedule(form.team.data, year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NBASchedule_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NBA Schedule: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            elif(form.sport_type.data == 'league_stats'):
+                from sportsreference.nba.teams import Teams
+                team = Teams(year=form.season_year.data)
+                td = team.dataframes
+                p = Path("sportsapp").resolve()
+                f_n = "NBA_League_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NBA League Stats: " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            elif(form.sport_type.data == 'season_roster'):
+                #populates dropdown of players on that teams roster: user can then download the specific forms
+                from sportsreference.nfl.roster import Roster
+                teamData = Roster(form.team.data, year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFLRoster_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Roster: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            else:
+                #generic response: returns the csv of list of teams in league in given year
+                from sportsreference.nfl.teams import Teams
+                teamData = Teams(year=form.season_year.data)
+                td = teamData.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFL_League_Stats_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Leaugue-Wide Stats: " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
     return render_template('download_data.html', title='Download Sports Data', form=form)
 
 #helper route function to return the teams in a year and for some sport

@@ -1,0 +1,18 @@
+boxscore_index,date,datetime,day,extra_points_attempted,extra_points_made,field_goals_attempted,field_goals_made,fourth_down_attempts,fourth_down_conversions,interceptions,location,opponent_abbr,opponent_name,overtime,pass_attempts,pass_completion_rate,pass_completions,pass_touchdowns,pass_yards,pass_yards_per_attempt,points_allowed,points_scored,punt_yards,punts,quarterback_rating,result,rush_attempts,rush_touchdowns,rush_yards,rush_yards_per_attempt,third_down_attempts,third_down_conversions,time_of_possession,times_sacked,type,week,yards_lost_from_sacks
+201609110kan,September 11,2016-09-11,Sun,3,3,2,2,2,2,1,Home,SDG,San Diego Chargers,True,48,70.8,34,2,330,7.6,27,33,197,5,95.0,Win,19,2,83,4.4,14,5,31:06,3,Reg,1,33
+201609180htx,September 18,2016-09-18,Sun,0,0,4,4,0,0,0,Away,HTX,Houston Texans,False,37,54.1,20,0,172,5.0,19,12,285,6,66.5,Loss,19,0,119,6.3,14,3,26:01,4,Reg,2,14
+201609250kan,September 25,2016-09-25,Sun,3,3,1,1,1,0,0,Home,NYJ,New York Jets,False,33,75.8,25,1,221,7.2,3,24,172,4,103.2,Win,27,0,72,2.7,15,7,32:05,2,Reg,3,16
+201610020pit,October 2,2016-10-02,Sun,2,2,1,0,3,2,1,Away,PIT,Pittsburgh Steelers,False,50,60.0,30,2,270,5.7,43,14,257,6,79.6,Loss,18,0,87,4.8,17,8,30:36,4,Reg,4,17
+201610160rai,October 16,2016-10-16,Sun,3,2,3,2,0,0,0,Away,RAI,Oakland Raiders,False,23,82.6,19,0,223,9.7,10,26,122,3,107.1,Win,40,3,183,4.6,13,7,36:45,1,Reg,6,1
+201610230kan,October 23,2016-10-23,Sun,3,3,2,2,0,0,0,Home,NOR,New Orleans Saints,False,24,70.8,17,2,214,8.9,21,27,191,4,126.0,Win,28,0,112,4.0,9,3,27:22,0,Reg,7,0
+201610300clt,October 30,2016-10-30,Sun,3,3,4,3,0,0,0,Away,CLT,Indianapolis Colts,False,41,61.0,25,3,334,8.5,14,30,245,5,111.2,Win,27,0,88,3.3,16,7,33:36,3,Reg,8,16
+201611060kan,November 6,2016-11-06,Sun,1,1,4,4,1,1,0,Home,JAX,Jacksonville Jaguars,False,33,60.6,20,1,169,5.7,14,19,353,7,84.0,Win,22,0,62,2.8,14,1,30:21,2,Reg,9,18
+201611130car,November 13,2016-11-13,Sun,0,0,4,4,1,1,1,Away,CAR,Carolina Panthers,False,38,65.8,25,0,165,4.7,17,20,245,5,64.0,Win,20,0,91,4.6,12,2,24:48,3,Reg,10,13
+201611200kan,November 20,2016-11-20,Sun,2,2,1,1,0,0,1,Home,TAM,Tampa Bay Buccaneers,False,31,77.4,24,1,261,8.4,19,17,130,3,99.0,Loss,21,1,82,3.9,8,4,24:42,0,Reg,11,0
+201611270den,November 27,2016-11-27,Sun,2,2,2,2,1,1,0,Away,DEN,Denver Broncos,True,44,59.1,26,1,190,5.0,27,30,431,9,76.9,Win,26,1,83,3.2,17,5,37:39,6,Reg,12,30
+201612040atl,December 4,2016-12-04,Sun,4,3,0,0,2,2,0,Away,ATL,Atlanta Falcons,False,25,84.0,21,1,266,10.8,28,29,150,3,124.3,Win,22,2,123,5.6,10,3,28:08,1,Reg,13,4
+201612080kan,December 8,2016-12-08,Thu,3,3,0,0,1,0,1,Home,RAI,Oakland Raiders,False,26,65.4,17,1,258,10.2,13,21,168,5,94.7,Win,27,1,65,2.4,11,5,28:15,1,Reg,14,6
+201612180kan,December 18,2016-12-18,Sun,2,2,1,1,2,1,1,Home,OTI,Tennessee Titans,False,28,53.6,15,0,159,5.8,19,17,273,6,55.5,Loss,28,2,157,5.6,14,4,29:25,1,Reg,15,4
+201612250kan,December 25,2016-12-25,Sun,4,3,3,2,0,0,1,Home,DEN,Denver Broncos,False,37,70.3,26,2,246,6.6,10,33,164,4,95.1,Win,37,2,238,6.4,17,9,38:01,0,Reg,16,0
+201701010sdg,January 1,2017-01-01,Sun,4,4,3,3,0,0,1,Away,SDG,San Diego Chargers,False,28,75.0,21,2,262,9.4,27,37,44,1,112.5,Win,31,1,103,3.3,12,8,30:48,1,Reg,17,2
+201701150kan,January 15,2017-01-15,Sun,1,1,1,1,2,2,1,Home,PIT,Pittsburgh Steelers,False,34,58.8,20,1,166,5.1,18,16,183,4,69.0,Loss,14,1,61,4.4,9,2,25:47,1,Post,19,6
