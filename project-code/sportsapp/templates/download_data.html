@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <!--download data form: Uses GET and POST request and retrieves season statistics for team/individual-->
-    <div class="content-section" onload="defaultSet()">
+    <div class="content-section">
       <form method="POST" action="">
           <!--Used for site safety: Don't worry about this part!-->
           {{ form.hidden_tag() }}
@@ -64,13 +64,12 @@
           let year_select = document.getElementById('season_year');
           let team_select = document.getElementById('team');
           let request_type = document.getElementById('sport_type');
-          let sport = sport_select.value;
-          let year = year_select.value;
-          let req = request_type.value;
 
           year_select.onchange = function(){
+              sport = sport_select.value;
+              year = year_select.value;
               if(sport == 'baseball'){
-                fetch('/getmlb/' + year).then(function(response){
+                fetch('/getmlb/' + String(year)).then(function(response){
                     response.json().then(function(data){
                         let optionHTML = '';
                         for(let teamz of data.teams){
@@ -83,7 +82,7 @@
                 });
               }
               else if(sport == 'football'){
-                fetch('/getnfl/' + year).then(function(response){
+                fetch('/getnfl/' + String(year)).then(function(response){
                     response.json().then(function(data){
                         let optionHTML = '';
                         for(let teamz of data.teams){
@@ -96,7 +95,7 @@
                 });;
               }
               else if(sport == 'basketball'){
-                fetch('/getnba/' + year).then(function(response){
+                fetch('/getnba/' + String(year)).then(function(response){
                     response.json().then(function(data){
                         let optionHTML = '';
                         for(let teamz of data.teams){
@@ -109,7 +108,7 @@
                 });;
               }
               else{
-                fetch('/getnhl/' + year).then(function(response){
+                fetch('/getnhl/' + String(year)).then(function(response){
                     response.json().then(function(data){
                         let optionHTML = '';
                         for(let teamz of data.teams){

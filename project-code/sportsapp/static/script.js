@@ -47,10 +47,6 @@ function togglePlayerList(){
     }
 }
 
-function defaultSet(){
-    alert("test");
-}
-
 function displayTableData(filename_data){
     //call the viewtable route
     let str = window.location.href;
