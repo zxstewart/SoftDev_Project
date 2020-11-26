@@ -667,3 +667,54 @@ def viewData(filename):
         return render_template('view_table.html', title='View Table', tables=html_file, table_name=nameTable)
     except FileNotFoundError:
         abort(404)
+
+#app route for returning a json filled with player ids and names
+@app.route('/getPlayers/')
+def getPlayers:
+    team = request.args.get('team')
+    year = request.args.get('year')
+    sport = request.args.get('sport')
+
+    playerArr = []
+    #now getting the players object from sportsreference API
+    #choose correct api object based on sport type
+    if(sport == 'football'):
+        from sportsreference.nfl.roster import Roster
+        roster = Roster(team, year=year, slim=True)
+        players = roster.players
+        for play_id, play_name in players.items():
+            playerObj = {}
+            playerObj['play_id'] = play_id
+            playerObj['play_name'] = play_name
+            playerArr.append(playerObj)
+        return jsonify({'players' : playerArr})
+    elif(sport == 'baseball'):
+        from sportsreference.mlb.roster import Roster
+        roster = Roster(team, year=year, slim=True)
+        players = roster.players
+        for play_id, play_name in players.items():
+            playerObj = {}
+            playerObj['play_id'] = play_id
+            playerObj['play_name'] = play_name
+            playerArr.append(playerObj)
+        return jsonify({'players' : playerArr})
+    elif(sport == 'hockey'):
+        from sportsreference.nhl.roster import Roster
+        roster = Roster(team, year=year, slim=True)
+        players = roster.players
+        for play_id, play_name in players.items():
+            playerObj = {}
+            playerObj['play_id'] = play_id
+            playerObj['play_name'] = play_name
+            playerArr.append(playerObj)
+        return jsonify({'players' : playerArr})
+    else:
+        from sportsreference.nfl.roster import Roster
+        roster = Roster(team, year=year, slim=True)
+        players = roster.players
+        for play_id, play_name in players.items():
+            playerObj = {}
+            playerObj['play_id'] = play_id
+            playerObj['play_name'] = play_name
+            playerArr.append(playerObj)
+        return jsonify({'players' : playerArr})

@@ -121,6 +121,18 @@
                 });;
               }
           };
+          //additional javascript fetches used for populating roster
+          team_select.onchange = function(){
+              if(request_type.value == 'season_roster'){
+                  //fetch the correct route for the given sport, team, and year
+                  fetch('/getPlayers?team=' + team_select.value + '&year=' + year_select.value + '&sport=' + sport_select.value).then(function(response){
+                      response.json().then(function(data){
+                          let playersHTML = '';
+
+                      });
+                  });;
+              }
+          }
       </script>
   </div>
 {% endblock content%}
