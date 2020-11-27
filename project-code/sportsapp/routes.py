@@ -568,9 +568,9 @@ def save_picture(form_picture):
 @app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
-    favorites = Favorite.query.all()
+    favorite = Favorite.query.all()
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file = image_file, favorites=favorites)
+    return render_template('account.html', title='Account', image_file = image_file, favorite=favorite)
 
 @app.route('/favorites', methods=['GET','POST'])
 @login_required
@@ -670,7 +670,7 @@ def viewData(filename):
 
 #app route for returning a json filled with player ids and names
 @app.route('/getPlayers/')
-def getPlayers:
+def getPlayers():
     team = request.args.get('team')
     year = request.args.get('year')
     sport = request.args.get('sport')
