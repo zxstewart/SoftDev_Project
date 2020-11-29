@@ -1,4 +1,4 @@
-# import pandas as pd
+import pandas as pd
 from prettytable import PrettyTable
   
 csv_file = open('/Users/quinnstone/downloads/NFL_stats/Basic_Stats.csv', 'r')
