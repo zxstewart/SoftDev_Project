@@ -245,6 +245,10 @@ def soccer():
 def baseball():
     return render_template('baseball.html')
 
+@app.route('/other')
+def other():
+    return render_template('other.html')
+
 #adding an app config to the generated files
 app.config["SPORTS_DATA"] = "/static/sportsStatsDownloads"
 
