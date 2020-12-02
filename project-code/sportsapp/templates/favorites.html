@@ -69,7 +69,7 @@
         }
 
         //populating the players dropdown when the team is selected
-        team_select.onchange = function(){
+        team_select.onclick = function(){
             fetch('/getFavoritePlayers?team=' + team_select.value + '&sport=' + sport_select.value).then(function(response){
                 response.json().then(function(data){
                     let playersHTML = '';

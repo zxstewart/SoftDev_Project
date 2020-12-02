@@ -691,10 +691,30 @@ def favorite():
     if form.validate_on_submit():
         #the data from the form is the abbreviation of the team and the abbreviation of the player name
         #convert and add relevant info about player to the database
-        
-        favorite = Favorite(p_name=form.p_name.data, team=form.team.data, sport=form.sport.data)
-        db.session.add(favorite) 
-        db.session.commit()
+        if(str(form.sport.data) == 'mlb'):
+            from sportsreference.mlb.roster import Player
+            player = Player(form.p_name.data)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=form.team.name, sport=form.sport.data, sport_name='Football', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            db.session.add(favorite) 
+            db.session.commit()
+        if(str(form.sport.data) == 'nba'):
+            from sportsreference.nba.roster import Player
+            player = Player(form.p_name.data)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=form.team.name, sport=form.sport.data, sport_name='Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            db.session.add(favorite) 
+            db.session.commit()
+        if(str(form.sport.data) == 'nhl'):
+            from sportsreference.nhl.roster import Player
+            player = Player(form.p_name.data)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=form.team.name, sport=form.sport.data, sport_name='Hockey', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            db.session.add(favorite) 
+            db.session.commit()
+        else:
+            from sportsreference.nfl.roster import Player
+            player = Player(form.p_name.data)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=form.team.name, sport=form.sport.data, sport_name='Baseball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            db.session.add(favorite) 
+            db.session.commit()
         flash('Player has been added', 'success')
         return redirect(url_for('account'))
     return render_template('favorites.html', title='Add Favorite', form=form, legend='Add Favorite')
@@ -714,7 +734,7 @@ def view_favorite(favorite_id):
         #Check for NoneType *Not currently working
         if player1stats is None :
             flash('Invalid Player Name', 'danger')
-            return render_template('compare.html', title='Compare Stats', form=form)
+            return render_template('compare.html', title='Compare Stats')
         #For Graph
         player1stats('career')
         statnames = ["2 Pointers", "From 0-3 feet", "From 3-10 feet", "From 10-16 feet", '3 Pointers']
