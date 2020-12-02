@@ -702,10 +702,9 @@ def favorite():
 @app.route('/favorites/<int:favorite_id>', methods=['GET','POST'])
 def view_favorite(favorite_id):
     favorite = Favorite.query.get_or_404(favorite_id)
-    pname = favorite.p_name
     sport = favorite.sport
-    
-    player1id = pname
+
+    player1id = favorite.p_id
     if(sport == 'nba'):
         from sportsreference.nba.roster import Player
         player1stats = Player(player1id)
@@ -739,7 +738,7 @@ def view_favorite(favorite_id):
         #Check for NoneType *Not currently working
         if player1stats is None :
             flash('Invalid Player Name', 'danger')
-            return render_template('compare.html', title='Compare Stats', form=form)
+            return render_template('compare.html', title='Compare Stats')
         #For Graph
         player1stats('career')
         statnames = ["Fielding %", "% On Base", "Win %"]
@@ -756,18 +755,14 @@ def view_favorite(favorite_id):
     elif(sport == "nfl"):
         from sportsreference.nfl.roster import Player
         #NFL uses a different id format "LLLLFF00"
-        player1 = favorite.p_name
-        #fname1id = player1.split()[0][0:2]
-        #lname1id = player1.split()[1][0:4]
-        #player1id = lname1id + fname1id+"00"
-        player1id = player1
+        player1id = favorite.p_id
         player1stats = Player(player1id)
         #For the table
         df1 = player1stats.dataframe.loc['Career']
         #Check for NoneType *Not currently working
         if player1stats is None :
             flash('Invalid Player Name', 'danger')
-            return render_template('compare.html', title='Compare Stats', form=form)
+            return render_template('compare.html', title='Compare Stats')
         #For Graph
         player1stats('career')
         statnames = ["Catch %", "Interception %", "Passing %"]

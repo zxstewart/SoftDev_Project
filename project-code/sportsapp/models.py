@@ -28,6 +28,7 @@ class User(db.Model, UserMixin):
 class Favorite(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     p_name = db.Column(db.String(30))
+    p_id = db.Column(db.String(30))
     team = db.Column(db.String(30))
     sport = db.Column(db.String(30))
     weight = db.Column(db.String(4))
