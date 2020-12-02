@@ -31,4 +31,66 @@
         </div>
     </div>
 </div>
+<div class = "content-section">
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+<div class="container-fluid">
+    <div class="table-responsive">
+        {{ tables|safe }}
+    </div>
+</div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+    bardata = {
+        statnames : [
+            {% for item in statnames %}
+                "{{item}}",
+            {%endfor %}
+        ]
+    }
+    name = "{{name}}"
+    //name = "{{favorite.p_name}}"
+    console.log("{{name}}")
+    console.log({{p1data}})
+    console.log(bardata.statnames)
+    chartIt()
+    //console.log(statnames, pdata)
+    //list1 = {{list1}}
+    //premilinary use of getDATA function to insert information from API calls into chart function.
+    /*a sync function getData(){
+
+    } */
+
+
+function chartIt() {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type:'bar',
+        data:{
+            labels: bardata.statnames,
+            datasets:[{
+                label:"{{name}}",
+                data:{{p1data}},
+                backgroundColor:"rgba(255, 0, 0)",
+                borderColor:"rgba(0, 0, 0)"
+            }
+            
+        ]},
+        options:{
+            scales:{
+                yAxes:[{
+                    ticks:{
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+}
+</script>
+
 {% endblock content%}

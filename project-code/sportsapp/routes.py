@@ -698,7 +698,117 @@ def favorite():
 @app.route('/favorites/<int:favorite_id>')
 def view_favorite(favorite_id):
     favorite = Favorite.query.get_or_404(favorite_id)
-    return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite)
+    pname = favorite.p_name
+    sport = favorite.sport
+
+    player1 = pname.lower()
+    
+    #use to lookup player on API
+    #Player object id's are formatted like "LLLLLFF01"
+    fname1id = player1.split()[0][0:2]
+    lname1id = player1.split()[1][0:5]
+    
+    player1id = lname1id + fname1id+"01"
+    
+    if(sport == 'nba'):
+        from sportsreference.nba.roster import Player
+        player1stats = Player(player1id)
+        #For the table
+        df1 = player1stats.dataframe.loc['Career']
+        #Check for NoneType *Not currently working
+        if player1stats is None :
+            flash('Invalid Player Name', 'danger')
+            return render_template('compare.html', title='Compare Stats', form=form)
+        #For Graph
+        player1stats('career')
+        statnames = ["2 Pointers", "From 0-3 feet", "From 3-10 feet", "From 10-16 feet", '3 Pointers']
+        p1data = [player1stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player1stats.three_point_percentage]
+        #Changes None elements to 0.0
+        for i in range(0, len(p1data)):
+            if p1data[i] is None:
+                p1data[i] = 0.0
+
+
+        df1.rename(index={'Career': player1})
+        df1 = df1.T
+        html_file = df1.to_html(classes='table table-striped table-bordered table-hover')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+    
+    elif(sport == 'mlb'):
+        from sportsreference.mlb.roster import Player
+        player1stats = Player(player1id)
+        #For the table
+        df1 = player1stats.dataframe.loc['Career']
+        #Check for NoneType *Not currently working
+        if player1stats is None :
+            flash('Invalid Player Name', 'danger')
+            return render_template('compare.html', title='Compare Stats', form=form)
+        #For Graph
+        player1stats('career')
+        statnames = ["Fielding %", "% On Base", "Win %"]
+        p1data = [player1stats.fielding_percentage, player1stats.on_base_percentage, player1stats.win_percentage]
+        #Changes None elements to 0.0
+        for i in range(0, len(p1data)):
+            if p1data[i] is None:
+                p1data[i] = 0.0
+
+        concat = df1.T
+        html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)    
+
+    elif(sport == "nfl"):
+        from sportsreference.nfl.roster import Player
+        #NFL uses a different id format "LLLLFF00"
+        player1 = favorite.p_name
+        fname1id = player1.split()[0][0:2]
+        lname1id = player1.split()[1][0:4]
+        player1id = lname1id + fname1id+"00"
+
+        player1stats = Player(player1id)
+        #For the table
+        df1 = player1stats.dataframe.loc['Career']
+        #Check for NoneType *Not currently working
+        if player1stats is None :
+            flash('Invalid Player Name', 'danger')
+            return render_template('compare.html', title='Compare Stats', form=form)
+        #For Graph
+        player1stats('career')
+        statnames = ["Catch %", "Interception %", "Passing %"]
+        p1data = [player1stats.catch_percentage, player1stats.interception_percentage, player1stats.passing_completion]
+        for i in range(0, len(p1data)):
+            if p1data[i] is None:
+                p1data[i] = 0.0
+
+        concat = df1.T
+        html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+
+    elif(sport == 'nhl'):
+        from sportsreference.nhl.roster import Player
+        player1stats = Player(player1id)
+        #For the table
+        df1 = player1stats.dataframe.loc['Career']
+        #Check for NoneType *Not currently working
+        if player1stats is None :
+            flash('Invalid Player Name', 'danger')
+            return render_template('compare.html', title='Compare Stats', form=form)
+        #For Graph
+        player1stats('career')
+        statnames = ["Faceoff %", "PDO", "Shootout %"]
+        p1data = [player1stats.faceoff_percentage, player1stats.pdo, player1stats.shootout_percentage]
+        #Changes None elements to 0.0
+        for i in range(0, len(p1data)):
+            if p1data[i] is None:
+                p1data[i] = 0.0
+
+
+        concat = df1.T
+        html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+       
+    else:
+        flash('Invalid input')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite)
 
 @app.route('/favorites/<int:favorite_id>/update', methods=['GET','POST'])
 def update_favorite(favorite_id):
