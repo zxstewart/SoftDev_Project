@@ -1027,3 +1027,18 @@ def getFavoritePlayers():
                 playerArr.append(playerObj)
         setPlayers = set(playerArr)
         return jsonify({'players' : setPlayers})
+
+#an app route that returns a json from a python set of teams based on sport
+@app.route('/getAllTeams/<sport>')
+def getAllTeams():
+    teamChoices = []
+    if sport == 'nfl':
+        teamChoices = [(team.team_abbr, team.team_name) for team in teamTable.query.filter_by(sport='Football')]
+    elif sport == 'nhl':
+        teamChoices = [(team.team_abbr, team.team_name) for team in teamTable.query.filter_by(sport='Hockey')]
+    elif sport == 'mlb':
+        teamChoices = [(team.team_abbr, team.team_name) for team in teamTable.query.filter_by(sport='Baseball')]
+    else:
+        teamChoices = [(team.team_abbr, team.team_name) for team in teamTable.query.filter_by(sport='Basketball')]
+    teamChoicesSet = set(teamChoices)
+    return jsonify({'teams' : teamChoicesSet})
