@@ -29,7 +29,7 @@ function togglePlayerList(){
         player_select.style.height="0";
         player_select.style.display="none";
     }
-    else if(request_type.value == 'season_schedule'){
+    else if(request_type.value == 'season_schedule' || request_type.value == 'season_roster'){
         year_select.style.height = "auto";
         year_select.style.display = "block";
         team_select.style.height="auto";

@@ -232,11 +232,12 @@ def download_data():
                     return send_file(p, as_attachment=True)
                 except FileNotFoundError:
                     abort(404)
-            elif(form.sport_type.data == 'season_roster'):
-                #populates dropdown of players on that teams roster: user can then download the specific forms
-                from sportsreference.nfl.roster import Roster
-                teamData = Roster(form.team.data, year=form.season_year.data)
-                td = teamData.dataframe
+            elif(form.sport_type.data == 'player_stats'):
+                #download the player's data in a season for a team
+                from sportsreference.nfl.roster import Player
+                player = Player(form.players_list.data)
+                playYear = player(form.season_year.data)
+                td = playYear.dataframe
                 p = Path("sportsapp").resolve()
                 f_n = "NFLRoster_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
                 p = str(p) + "/static/sportsStatsDownloads/" + f_n
@@ -670,7 +671,7 @@ def viewData(filename):
 
 #app route for returning a json filled with player ids and names
 @app.route('/getPlayers/')
-def getPlayers:
+def getPlayers():
     team = request.args.get('team')
     year = request.args.get('year')
     sport = request.args.get('sport')

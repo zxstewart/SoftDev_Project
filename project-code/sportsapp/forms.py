@@ -35,7 +35,7 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
 
 class DownloadDataForm(FlaskForm):
-    sport_type = SelectField(u'Download Data Type', choices=[('season_schedule', 'Team Season Schedule'), ('league_stats','League-wide Stats by Team'), ('season_roster', 'Season Roster'), ('player_stats','Player Stats')])
+    sport_type = SelectField(u'Download Data Type', choices=[('season_schedule', 'Team Season Schedule'), ('league_stats','League-wide Stats for Year'), ('season_roster', 'Team Season Roster'), ('player_stats','Player Season Stats')])
     sport = SelectField(u'Sport', choices=[('football','NFL Football'), ('baseball', 'MLB Baseball'), ('hockey', 'NHL Hockey'), ('basketball', 'NBA Basketball')])
     team = SelectField(u'Team Name', choices=[])
     season_year = StringField('Year of Season: XXXX >1980', validators=[DataRequired(), Length(min=4,max=4)])

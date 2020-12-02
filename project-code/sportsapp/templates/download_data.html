@@ -64,6 +64,7 @@
           let year_select = document.getElementById('season_year');
           let team_select = document.getElementById('team');
           let request_type = document.getElementById('sport_type');
+          let player_select = document.getElementById('players_list');
 
           year_select.onchange = function(){
               sport = sport_select.value;
@@ -123,12 +124,15 @@
           };
           //additional javascript fetches used for populating roster
           team_select.onchange = function(){
-              if(request_type.value == 'season_roster'){
+              if(request_type.value == 'player_stats'){
                   //fetch the correct route for the given sport, team, and year
                   fetch('/getPlayers?team=' + team_select.value + '&year=' + year_select.value + '&sport=' + sport_select.value).then(function(response){
                       response.json().then(function(data){
                           let playersHTML = '';
-
+                          for(let playz of data.players){
+                              playersHTML += '<option value="' + playz.play_id + '">' + playz.play_name + '</option>';
+                          }
+                          player_select.innerHTML = playersHTML;
                       });
                   });;
               }
