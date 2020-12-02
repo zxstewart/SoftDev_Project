@@ -113,6 +113,7 @@ def compare():
         player1 = form.player1.data.lower()
         player2 = form.player2.data.lower()
         #use to lookup player on API
+        #Player object id's are formatted like "LLLLLFF01"
         fname1id = player1.split()[0][0:2]
         lname1id = player1.split()[1][0:5]
         fname2id = player2.split()[0][0:2]
@@ -121,46 +122,152 @@ def compare():
         player1id = lname1id + fname1id+"01"
         player2id = lname2id + fname2id+"01"
 
-        if(form.sport.data == 'nba'):
+        if(sport == 'nba'):
             from sportsreference.nba.roster import Player
             player1stats = Player(player1id)
             player2stats = Player(player2id)
-            
+            #For the table
+            df1 = player1stats.dataframe.loc['Career']
+            df2 = player2stats.dataframe.loc['Career']
+            #Check for NoneType *Not currently working
             if player1stats is None :
                 flash('Invalid Player Name', 'danger')
                 return render_template('compare.html', title='Compare Stats', form=form)
             if player2stats is None:
                 flash('Invalid Player Name', 'danger')
                 return render_template('compare.html', title='Compare Stats', form=form)
-            
+            #For Graph
             player1stats('career')
             player2stats('career')
             statnames = ["2 Pointers", "From 0-3 feet", "From 3-10 feet", "From 10-16 feet", '3 Pointers']
             p1data = [player1stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player1stats.three_point_percentage]
             p2data = [player2stats.two_point_percentage, player2stats.field_goal_perc_zero_to_three_feet, player2stats.field_goal_perc_three_to_ten_feet, player2stats.field_goal_perc_ten_to_sixteen_feet, player2stats.three_point_percentage]
+            #Changes None elements to 0.0
+            for i in range(0, len(p1data)):
+                if p1data[i] is None:
+                    p1data[i] = 0.0
 
-            return render_template('compare.html', form=form, statnames = statnames, p1name = form.player1.data, p2name = form.player2.data, p1data = p1data, p2data = p2data)
+            for i in range(0, len(p2data)):
+                if p2data[i] is None:
+                    p2data[i] = 0.0
+
+            df1.rename(index={'Career': player1})
+            df2.rename(index={'Career': player2})
+            concat = pd.concat([df1, df2]).T
+            html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+            return render_template('compare.html', form=form, statnames = statnames, p1name = form.player1.data, p2name = form.player2.data, p1data = p1data, p2data = p2data, tables = html_file)
         
-        elif(form.sport.data == 'mlb'):
+        elif(sport == 'mlb'):
             from sportsreference.mlb.roster import Player
             player1stats = Player(player1id)
             player2stats = Player(player2id)
-            
+            #For the table
+            df1 = player1stats.dataframe.loc['Career']
+            df2 = player2stats.dataframe.loc['Career']
+            #Check for NoneType *Not currently working
             if player1stats is None :
                 flash('Invalid Player Name', 'danger')
                 return render_template('compare.html', title='Compare Stats', form=form)
             if player2stats is None:
                 flash('Invalid Player Name', 'danger')
                 return render_template('compare.html', title='Compare Stats', form=form)
-            
+            #For Graph
             player1stats('career')
             player2stats('career')
-            #statnames = ["2 Pointers", "From 0-3 feet", "From 3-10 feet", "From 10-16 feet", '3 Pointers']
-            #p1data = [player1stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player1stats.three_point_percentage]
-            #p2data = [player2stats.two_point_percentage, player2stats.field_goal_perc_zero_to_three_feet, player2stats.field_goal_perc_three_to_ten_feet, player2stats.field_goal_perc_ten_to_sixteen_feet, player2stats.three_point_percentage]
+            statnames = ["Fielding %", "% On Base", "Win %"]
+            p1data = [player1stats.fielding_percentage, player1stats.on_base_percentage, player1stats.win_percentage]
+            p2data = [player2stats.fielding_percentage, player2stats.on_base_percentage, player2stats.win_percentage]
+            #Changes None elements to 0.0
+            for i in range(0, len(p1data)):
+                if p1data[i] is None:
+                    p1data[i] = 0.0
 
-            #return render_template('compare.html', form=form, statnames = statnames, p1name = form.player1.data, p2name = form.player2.data, p1data = p1data, p2data = p2data)
+            for i in range(0, len(p2data)):
+                if p2data[i] is None:
+                    p2data[i] = 0.0
 
+
+            concat = pd.concat([df1, df2]).T
+            html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+            return render_template('compare.html', form=form, statnames = statnames, p1name = form.player1.data, p2name = form.player2.data, p1data = p1data, p2data = p2data, tables = html_file)
+        
+
+        elif(sport == "nfl"):
+            from sportsreference.nfl.roster import Player
+            #NFL uses a different id format "LLLLFF00"
+            player1 = form.player1.data
+            player2 = form.player2.data
+            fname1id = player1.split()[0][0:2]
+            lname1id = player1.split()[1][0:4]
+            fname2id = player2.split()[0][0:2]
+            lname2id = player2.split()[1][0:4]
+            player1id = lname1id + fname1id+"00"
+            player2id = lname2id + fname2id+"00"
+
+            player1stats = Player(player1id)
+            player2stats = Player(player2id)
+            #For the table
+            df1 = player1stats.dataframe.loc['Career']
+            df2 = player2stats.dataframe.loc['Career']
+            #Check for NoneType *Not currently working
+            if player1stats is None :
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
+            if player2stats is None:
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
+            #For Graph
+            player1stats('career')
+            player2stats('career')
+            statnames = ["Catch %", "Interception %", "Passing %"]
+            p1data = [player1stats.catch_percentage, player1stats.interception_percentage, player1stats.passing_completion]
+            p2data = [player2stats.catch_percentage, player2stats.interception_percentage, player2stats.passing_completion]            #Changes None elements to 0.0
+            for i in range(0, len(p1data)):
+                if p1data[i] is None:
+                    p1data[i] = 0.0
+
+            for i in range(0, len(p2data)):
+                if p2data[i] is None:
+                    p2data[i] = 0.0
+
+
+            concat = pd.concat([df1, df2]).T
+            html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+            return render_template('compare.html', form=form, statnames = statnames, p1name = form.player1.data, p2name = form.player2.data, p1data = p1data, p2data = p2data, tables = html_file)
+        
+        elif(sport == 'nhl'):
+            from sportsreference.nhl.roster import Player
+            player1stats = Player(player1id)
+            player2stats = Player(player2id)
+            #For the table
+            df1 = player1stats.dataframe.loc['Career']
+            df2 = player2stats.dataframe.loc['Career']
+            #Check for NoneType *Not currently working
+            if player1stats is None :
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
+            if player2stats is None:
+                flash('Invalid Player Name', 'danger')
+                return render_template('compare.html', title='Compare Stats', form=form)
+            #For Graph
+            player1stats('career')
+            player2stats('career')
+            statnames = ["Faceoff %", "PDO", "Shootout %"]
+            p1data = [player1stats.faceoff_percentage, player1stats.pdo, player1stats.shootout_percentage]
+            p2data = [player2stats.faceoff_percentage, player2stats.pdo, player2stats.shootout_percentage]
+            #Changes None elements to 0.0
+            for i in range(0, len(p1data)):
+                if p1data[i] is None:
+                    p1data[i] = 0.0
+
+            for i in range(0, len(p2data)):
+                if p2data[i] is None:
+                    p2data[i] = 0.0
+
+
+            concat = pd.concat([df1, df2]).T
+            html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+            return render_template('compare.html', form=form, statnames = statnames, p1name = form.player1.data, p2name = form.player2.data, p1data = p1data, p2data = p2data, tables = html_file)
 
        
     else:
@@ -186,6 +293,10 @@ def soccer():
 @app.route('/baseball')
 def baseball():
     return render_template('baseball.html')
+
+@app.route('/other')
+def other():
+    return render_template('other.html')
 
 #adding an app config to the generated files
 app.config["SPORTS_DATA"] = "/static/sportsStatsDownloads"
@@ -569,9 +680,9 @@ def save_picture(form_picture):
 @app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
-    favorites = Favorite.query.all()
+    favorite = Favorite.query.all()
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file = image_file, favorites=favorites)
+    return render_template('account.html', title='Account', image_file = image_file, favorite=favorite)
 
 @app.route('/favorites', methods=['GET','POST'])
 @login_required
@@ -583,7 +694,147 @@ def favorite():
        db.session.commit()
        flash('Player has been added', 'success')
        return redirect(url_for('account'))
-    return render_template('favorites.html', title='Add Favorite', form=form)
+    return render_template('favorites.html', title='Add Favorite', form=form, legend='Add Favorite')
+
+@app.route('/favorites/<int:favorite_id>')
+def view_favorite(favorite_id):
+    favorite = Favorite.query.get_or_404(favorite_id)
+    pname = favorite.p_name
+    sport = favorite.sport
+
+    player1 = pname.lower()
+    
+    #use to lookup player on API
+    #Player object id's are formatted like "LLLLLFF01"
+    fname1id = player1.split()[0][0:2]
+    lname1id = player1.split()[1][0:5]
+    
+    player1id = lname1id + fname1id+"01"
+    
+    if(sport == 'nba'):
+        from sportsreference.nba.roster import Player
+        player1stats = Player(player1id)
+        #For the table
+        df1 = player1stats.dataframe.loc['Career']
+        #Check for NoneType *Not currently working
+        if player1stats is None :
+            flash('Invalid Player Name', 'danger')
+            return render_template('compare.html', title='Compare Stats', form=form)
+        #For Graph
+        player1stats('career')
+        statnames = ["2 Pointers", "From 0-3 feet", "From 3-10 feet", "From 10-16 feet", '3 Pointers']
+        p1data = [player1stats.two_point_percentage, player1stats.field_goal_perc_zero_to_three_feet, player1stats.field_goal_perc_three_to_ten_feet, player1stats.field_goal_perc_ten_to_sixteen_feet, player1stats.three_point_percentage]
+        #Changes None elements to 0.0
+        for i in range(0, len(p1data)):
+            if p1data[i] is None:
+                p1data[i] = 0.0
+
+
+        df1.rename(index={'Career': player1})
+        df1 = df1.T
+        html_file = df1.to_html(classes='table table-striped table-bordered table-hover')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+    
+    elif(sport == 'mlb'):
+        from sportsreference.mlb.roster import Player
+        player1stats = Player(player1id)
+        #For the table
+        df1 = player1stats.dataframe.loc['Career']
+        #Check for NoneType *Not currently working
+        if player1stats is None :
+            flash('Invalid Player Name', 'danger')
+            return render_template('compare.html', title='Compare Stats', form=form)
+        #For Graph
+        player1stats('career')
+        statnames = ["Fielding %", "% On Base", "Win %"]
+        p1data = [player1stats.fielding_percentage, player1stats.on_base_percentage, player1stats.win_percentage]
+        #Changes None elements to 0.0
+        for i in range(0, len(p1data)):
+            if p1data[i] is None:
+                p1data[i] = 0.0
+
+        concat = df1.T
+        html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)    
+
+    elif(sport == "nfl"):
+        from sportsreference.nfl.roster import Player
+        #NFL uses a different id format "LLLLFF00"
+        player1 = favorite.p_name
+        fname1id = player1.split()[0][0:2]
+        lname1id = player1.split()[1][0:4]
+        player1id = lname1id + fname1id+"00"
+
+        player1stats = Player(player1id)
+        #For the table
+        df1 = player1stats.dataframe.loc['Career']
+        #Check for NoneType *Not currently working
+        if player1stats is None :
+            flash('Invalid Player Name', 'danger')
+            return render_template('compare.html', title='Compare Stats', form=form)
+        #For Graph
+        player1stats('career')
+        statnames = ["Catch %", "Interception %", "Passing %"]
+        p1data = [player1stats.catch_percentage, player1stats.interception_percentage, player1stats.passing_completion]
+        for i in range(0, len(p1data)):
+            if p1data[i] is None:
+                p1data[i] = 0.0
+
+        concat = df1.T
+        html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+
+    elif(sport == 'nhl'):
+        from sportsreference.nhl.roster import Player
+        player1stats = Player(player1id)
+        #For the table
+        df1 = player1stats.dataframe.loc['Career']
+        #Check for NoneType *Not currently working
+        if player1stats is None :
+            flash('Invalid Player Name', 'danger')
+            return render_template('compare.html', title='Compare Stats', form=form)
+        #For Graph
+        player1stats('career')
+        statnames = ["Faceoff %", "PDO", "Shootout %"]
+        p1data = [player1stats.faceoff_percentage, player1stats.pdo, player1stats.shootout_percentage]
+        #Changes None elements to 0.0
+        for i in range(0, len(p1data)):
+            if p1data[i] is None:
+                p1data[i] = 0.0
+
+
+        concat = df1.T
+        html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+       
+    else:
+        flash('Invalid input')
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite)
+
+@app.route('/favorites/<int:favorite_id>/update', methods=['GET','POST'])
+def update_favorite(favorite_id):
+    favorite = Favorite.query.get_or_404(favorite_id)
+    form = FavoriteForm()
+    if form.validate_on_submit():
+        favorite.p_name = form.p_name.data
+        favorite.team = form.team.data
+        favorite.sport = form.sport.data
+        db.session.commit()
+        flash('Player has been updated', 'success')
+        return redirect(url_for('account'))
+    elif request.method == 'GET':
+        form.p_name.data = favorite.p_name
+        form.team.data = favorite.team
+        form.sport.data = favorite.sport
+    return render_template('favorites.html', title='Update Favorite', form=form, legend='Update Favorite')
+
+@app.route('/favorites/<int:favorite_id>/delete', methods=['POST'])
+def delete_favorite(favorite_id):
+    favorite = Favorite.query.get_or_404(favorite_id)
+    db.session.delete(favorite)
+    db.session.commit()
+    flash('Player has been deleted from Favorites', 'success')
+    return redirect(url_for('account'))
 
 @app.route('/settings', methods=['GET','POST'])
 def settings():

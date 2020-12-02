@@ -65,7 +65,7 @@ class UpdateAccountForm(FlaskForm):
 class FavoriteForm(FlaskForm):
     p_name = StringField('Player Name', validators=[DataRequired()])
     team = StringField('Team', validators=[DataRequired()])
-    sport = StringField('Sport', validators=[DataRequired()])
+    sport = SelectField(u'Sport', choices=[('nfl','Football'), ('mlb', 'Baseball'), ('nhl', 'Hockey'), ('nba', 'Basketball')])
     submit = SubmitField('Add to Favorites')
 
 
