@@ -961,7 +961,7 @@ def getPlayers():
             playerArr.append(playerObj)
         return jsonify({'players' : playerArr})
     else:
-        from sportsreference.nfl.roster import Roster
+        from sportsreference.nba.roster import Roster
         roster = Roster(team, year=year, slim=True)
         players = roster.players
         for play_id, play_name in players.items():
@@ -970,3 +970,60 @@ def getPlayers():
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
         return jsonify({'players' : playerArr})
+
+#app route for returning a json filled with player ids and names
+@app.route('/getFavoritePlayers/')
+def getFavoritePlayers():
+    team = request.args.get('team')
+    sport = request.args.get('sport')
+
+    playerArr = []
+    #now getting the players object from sportsreference API: choose correct api object based on sport type
+    if(sport == 'nfl'):
+        from sportsreference.nfl.roster import Roster
+        for year in range(1980,2021):
+            roster = Roster(team, year=year, slim=True)
+            players = roster.players
+            for play_id, play_name in players.items():
+                playerObj = {}
+                playerObj['play_id'] = play_id
+                playerObj['play_name'] = play_name
+                playerArr.append(playerObj)
+        setPlayers = set(playerArr)
+        return jsonify({'players' : setPlayers})
+    elif(sport == 'mlb'):
+        from sportsreference.mlb.roster import Roster
+        for year in range(1980, 2021):
+            roster = Roster(team, year=year, slim=True)
+            players = roster.players
+            for play_id, play_name in players.items():
+                playerObj = {}
+                playerObj['play_id'] = play_id
+                playerObj['play_name'] = play_name
+                playerArr.append(playerObj)
+        setPlayers = set(playerArr)
+        return jsonify({'players' : setPlayers})
+    elif(sport == 'nhl'):
+        from sportsreference.nhl.roster import Roster
+        for year in range(2010,2020):
+            roster = Roster(team, year=year, slim=True)
+            players = roster.players
+            for play_id, play_name in players.items():
+                playerObj = {}
+                playerObj['play_id'] = play_id
+                playerObj['play_name'] = play_name
+                playerArr.append(playerObj)
+        setPlayers = set(playerArr)
+        return jsonify({'players' : setPlayers})
+    else:
+        from sportsreference.nba.roster import Roster
+        for year in range(1980, 2021):
+            roster = Roster(team, year=year, slim=True)
+            players = roster.players
+            for play_id, play_name in players.items():
+                playerObj = {}
+                playerObj['play_id'] = play_id
+                playerObj['play_name'] = play_name
+                playerArr.append(playerObj)
+        setPlayers = set(playerArr)
+        return jsonify({'players' : setPlayers})

@@ -63,8 +63,8 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError('Email is taken or previously used! Please choose a different one.')
 
 class FavoriteForm(FlaskForm):
-    p_name = SelectField(u'Player Name', choices=[])
-    team = SelectField(u'Team', choices=[])
+    p_name = SelectField(u'Player Name', choices=[('players', "Choose a player")])
+    team = SelectField(u'Team', choices=[('teams', "Choose a team")])
     sport = SelectField(u'Sport', choices=[('nfl','Football'), ('mlb', 'Baseball'), ('nhl', 'Hockey'), ('nba', 'Basketball')])
     submit = SubmitField('Add to Favorites')
 
