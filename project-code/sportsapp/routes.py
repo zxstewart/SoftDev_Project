@@ -692,11 +692,11 @@ def favorite():
         #the data from the form is the abbreviation of the team and the abbreviation of the player name
         #convert and add relevant info about player to the database
         
-       favorite = Favorite(p_name=form.p_name.data, team=form.team.data, sport=form.sport.data)
-       db.session.add(favorite) 
-       db.session.commit()
-       flash('Player has been added', 'success')
-       return redirect(url_for('account'))
+        favorite = Favorite(p_name=form.p_name.data, team=form.team.data, sport=form.sport.data)
+        db.session.add(favorite) 
+        db.session.commit()
+        flash('Player has been added', 'success')
+        return redirect(url_for('account'))
     return render_template('favorites.html', title='Add Favorite', form=form, legend='Add Favorite')
 
 @app.route('/favorites/<int:favorite_id>', methods=['GET','POST'])
@@ -855,7 +855,7 @@ def setTeamsNFL():
         for team in teams:
             teamObj = teamTable(sport="Football", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
             db.session.add(teamObj)
-            db.session.commit()
+        db.session.commit()
     flash('Loaded Teams for NFL into Database', 'success')
     return redirect(url_for('home'))
 
@@ -867,7 +867,7 @@ def setTeamsNBA():
         for team in teams:
             teamObj = teamTable(sport="Basketball", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
             db.session.add(teamObj)
-            db.session.commit()
+        db.session.commit()
     flash('Loaded Teams for NBA into Database', 'success')
     return redirect(url_for('home'))
 
@@ -879,7 +879,7 @@ def setTeamsNHL():
         for team in teams:
             teamObj = teamTable(sport="Hockey", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
             db.session.add(teamObj)
-            db.session.commit()
+        db.session.commit()
     flash('Loaded Teams for NHL into Database', 'success')
     return redirect(url_for('home'))
 
@@ -891,7 +891,7 @@ def setTeamsMLB():
         for team in teams:
             teamObj = teamTable(sport="Baseball", team_name=team.name, team_year=tY, team_abbr=team.abbreviation)
             db.session.add(teamObj)
-            db.session.commit()
+        db.session.commit()
     flash('Loaded Teams for MLB into Database', 'success')
     return redirect(url_for('home'))
 
