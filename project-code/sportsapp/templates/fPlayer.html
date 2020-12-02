@@ -1,12 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="content-section">
-
-    <h2>{{ favorite.p_name }}</h2>
-    <p>{{ favorite.team }}
-        <br>
-        {{ favorite.sport }}</p>
-             
+    <div class="col-4">
+        <div class="card-img-top" style="border-radius: 10%;">
+            <img src="#" alt="player image">
+        </div>
+    </div>
+    <br>
+    <div class="col-8">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>{{ favorite.p_name }}</th>
+                </tr>
+                <tr>
+                    <td>Team: {{ favorite.team }}</td>
+                    <td>Sport: {{ favorite.sport }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>  
     <div>
         <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_favorite', favorite_id=favorite.id) }}">Update</a>
         <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Remove Player</button>

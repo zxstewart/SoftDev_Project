@@ -699,24 +699,17 @@ def favorite():
        return redirect(url_for('account'))
     return render_template('favorites.html', title='Add Favorite', form=form, legend='Add Favorite')
 
-@app.route('/favorites/<int:favorite_id>')
+@app.route('/favorites/<int:favorite_id>', methods=['GET','POST'])
 def view_favorite(favorite_id):
     favorite = Favorite.query.get_or_404(favorite_id)
     pname = favorite.p_name
     sport = favorite.sport
-
-    #player1 = pname.lower()
     
-    #use to lookup player on API
-    #Player object id's are formatted like "LLLLLFF01"
-    #fname1id = player1.split()[0][0:2]
-    #lname1id = player1.split()[1][0:5]
-    
-    #player1id = lname1id + fname1id+"01"
     player1id = pname
     if(sport == 'nba'):
         from sportsreference.nba.roster import Player
         player1stats = Player(player1id)
+
         #For the table
         df1 = player1stats.dataframe.loc['Career']
         #Check for NoneType *Not currently working
