@@ -582,7 +582,37 @@ def favorite():
        db.session.commit()
        flash('Player has been added', 'success')
        return redirect(url_for('account'))
-    return render_template('favorites.html', title='Add Favorite', form=form)
+    return render_template('favorites.html', title='Add Favorite', form=form, legend='Add Favorite')
+
+@app.route('/favorites/<int:favorite_id>')
+def view_favorite(favorite_id):
+    favorite = Favorite.query.get_or_404(favorite_id)
+    return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite)
+
+@app.route('/favorites/<int:favorite_id>/update', methods=['GET','POST'])
+def update_favorite(favorite_id):
+    favorite = Favorite.query.get_or_404(favorite_id)
+    form = FavoriteForm()
+    if form.validate_on_submit():
+        favorite.p_name = form.p_name.data
+        favorite.team = form.team.data
+        favorite.sport = form.sport.data
+        db.session.commit()
+        flash('Player has been updated', 'success')
+        return redirect(url_for('account'))
+    elif request.method == 'GET':
+        form.p_name.data = favorite.p_name
+        form.team.data = favorite.team
+        form.sport.data = favorite.sport
+    return render_template('favorites.html', title='Update Favorite', form=form, legend='Update Favorite')
+
+@app.route('/favorites/<int:favorite_id>/delete', methods=['POST'])
+def delete_favorite(favorite_id):
+    favorite = Favorite.query.get_or_404(favorite_id)
+    db.session.delete(favorite)
+    db.session.commit()
+    flash('Player has been deleted from Favorites', 'success')
+    return redirect(url_for('account'))
 
 @app.route('/settings', methods=['GET','POST'])
 def settings():

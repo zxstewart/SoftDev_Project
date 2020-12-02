@@ -34,7 +34,7 @@
                 </tr>
                 {% for favorite in favorite %}
                 <tr>
-                    <td>{{ favorite.p_name }}</td>
+                    <td><a href="{{ url_for('view_favorite', favorite_id=favorite.id) }}" style="color: black;">{{ favorite.p_name }}</a></td>
                     <td>{{ favorite.team }}</td>
                     <td>{{ favorite.sport }}</td>
                 </tr>
