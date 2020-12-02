@@ -715,7 +715,7 @@ def view_favorite(favorite_id):
     if(sport == 'nba'):
         from sportsreference.nba.roster import Player
         player1stats = Player(player1id)
-        img_link = "https://www.basketball-reference.com/req/202012011/images/players/"+ img_name
+
         #For the table
         df1 = player1stats.dataframe.loc['Career']
         #Check for NoneType *Not currently working
