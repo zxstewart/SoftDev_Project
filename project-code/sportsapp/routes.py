@@ -689,6 +689,9 @@ def account():
 def favorite():
     form = FavoriteForm()
     if form.validate_on_submit():
+        #the data from the form is the abbreviation of the team and the abbreviation of the player name
+        #convert and add relevant info about player to the database
+        
        favorite = Favorite(p_name=form.p_name.data, team=form.team.data, sport=form.sport.data)
        db.session.add(favorite) 
        db.session.commit()
@@ -702,15 +705,15 @@ def view_favorite(favorite_id):
     pname = favorite.p_name
     sport = favorite.sport
 
-    player1 = pname.lower()
+    #player1 = pname.lower()
     
     #use to lookup player on API
     #Player object id's are formatted like "LLLLLFF01"
-    fname1id = player1.split()[0][0:2]
-    lname1id = player1.split()[1][0:5]
+    #fname1id = player1.split()[0][0:2]
+    #lname1id = player1.split()[1][0:5]
     
-    player1id = lname1id + fname1id+"01"
-    
+    #player1id = lname1id + fname1id+"01"
+    player1id = pname
     if(sport == 'nba'):
         from sportsreference.nba.roster import Player
         player1stats = Player(player1id)
@@ -761,10 +764,10 @@ def view_favorite(favorite_id):
         from sportsreference.nfl.roster import Player
         #NFL uses a different id format "LLLLFF00"
         player1 = favorite.p_name
-        fname1id = player1.split()[0][0:2]
-        lname1id = player1.split()[1][0:4]
-        player1id = lname1id + fname1id+"00"
-
+        #fname1id = player1.split()[0][0:2]
+        #lname1id = player1.split()[1][0:4]
+        #player1id = lname1id + fname1id+"00"
+        player1id = player1
         player1stats = Player(player1id)
         #For the table
         df1 = player1stats.dataframe.loc['Career']
