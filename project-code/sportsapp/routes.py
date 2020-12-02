@@ -696,7 +696,7 @@ def favorite():
        return redirect(url_for('account'))
     return render_template('favorites.html', title='Add Favorite', form=form, legend='Add Favorite')
 
-@app.route('/favorites/<int:favorite_id>')
+@app.route('/favorites/<int:favorite_id>', methods=['GET','POST'])
 def view_favorite(favorite_id):
     favorite = Favorite.query.get_or_404(favorite_id)
     pname = favorite.p_name
@@ -710,10 +710,12 @@ def view_favorite(favorite_id):
     lname1id = player1.split()[1][0:5]
     
     player1id = lname1id + fname1id+"01"
+    img_name = player1id + ".jpg"
     
     if(sport == 'nba'):
         from sportsreference.nba.roster import Player
         player1stats = Player(player1id)
+        img_link = "https://www.basketball-reference.com/req/202012011/images/players/"+ img_name
         #For the table
         df1 = player1stats.dataframe.loc['Career']
         #Check for NoneType *Not currently working
@@ -989,8 +991,6 @@ def getFavoritePlayers():
                 playerObj['play_id'] = play_id
                 playerObj['play_name'] = play_name
                 playerArr.append(playerObj)
-        setPlayers = set(playerArr)
-        return jsonify({'players' : setPlayers})
     elif(sport == 'mlb'):
         from sportsreference.mlb.roster import Roster
         for year in range(1980, 2021):
@@ -1001,8 +1001,6 @@ def getFavoritePlayers():
                 playerObj['play_id'] = play_id
                 playerObj['play_name'] = play_name
                 playerArr.append(playerObj)
-        setPlayers = set(playerArr)
-        return jsonify({'players' : setPlayers})
     elif(sport == 'nhl'):
         from sportsreference.nhl.roster import Roster
         for year in range(2010,2020):
@@ -1013,8 +1011,6 @@ def getFavoritePlayers():
                 playerObj['play_id'] = play_id
                 playerObj['play_name'] = play_name
                 playerArr.append(playerObj)
-        setPlayers = set(playerArr)
-        return jsonify({'players' : setPlayers})
     else:
         from sportsreference.nba.roster import Roster
         for year in range(1980, 2021):
@@ -1025,20 +1021,38 @@ def getFavoritePlayers():
                 playerObj['play_id'] = play_id
                 playerObj['play_name'] = play_name
                 playerArr.append(playerObj)
-        setPlayers = set(playerArr)
-        return jsonify({'players' : setPlayers})
+    #remove duplicates from the list of dictionaries
+    setPlayers = [dict(t) for t in {tuple(d.items()) for d in playerArr}]
+    return jsonify({'players' : setPlayers})
 
 #an app route that returns a json from a python set of teams based on sport
 @app.route('/getAllTeams/<sport>')
-def getAllTeams():
+def getAllTeams(sport):
     teamChoices = []
     if sport == 'nfl':
-        teamChoices = [(team.team_abbr, team.team_name) for team in teamTable.query.filter_by(sport='Football')]
+        for team in teamTable.query.filter_by(sport='Football'):
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamChoices.append(teamObj)
     elif sport == 'nhl':
-        teamChoices = [(team.team_abbr, team.team_name) for team in teamTable.query.filter_by(sport='Hockey')]
+        for team in teamTable.query.filter_by(sport='Hockey'):
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamChoices.append(teamObj)
     elif sport == 'mlb':
-        teamChoices = [(team.team_abbr, team.team_name) for team in teamTable.query.filter_by(sport='Baseball')]
+        for team in teamTable.query.filter_by(sport='Baseball'):
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamChoices.append(teamObj)
     else:
-        teamChoices = [(team.team_abbr, team.team_name) for team in teamTable.query.filter_by(sport='Basketball')]
-    teamChoicesSet = set(teamChoices)
+        for team in teamTable.query.filter_by(sport='Basketball'):
+            teamObj = {}
+            teamObj['abbr'] = team.team_abbr
+            teamObj['name'] = team.team_name
+            teamChoices.append(teamObj)
+    #convert a list of 
+    teamChoicesSet = [dict(t) for t in {tuple(d.items()) for d in teamChoices}]
     return jsonify({'teams' : teamChoicesSet})
