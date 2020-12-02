@@ -32,7 +32,7 @@
                     {{ form.team(class="form-control form-control-lg ") }}
                 {% endif %}
             </div>
-            <div class="form-group">
+            <div class="form-group" onload="setNFLTeams()">
                 {{ form.p_name.label(class="form-control-label") }}
                 {% if form.p_name.errors %}
                 {{ form.p_name(class="form-control form-control-lg is-invalid") }}
@@ -50,6 +50,37 @@
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
     </form>
+    <script>
+        let sport_select = document.getElementById('sport');
+        let team_select = document.getElementById('team');
+        let player_select = document.getElementById('p_name');
+
+        sport_select.onclick = function(){
+            fetch('/getAllTeams/' + sport_select.value).then(function(response){
+                response.json().then(function(data){
+                    let optionHTML = '';
+                    //using **of** to iterate over elements instead of keys!
+                    for(let teamz of data.teams){
+                        optionHTML += '<option value="' + teamz.abbr + '">' + teamz.name + '</option>';
+                    }
+                    team_select.innerHTML = optionHTML;
+                });
+            });;
+        }
+
+        //populating the players dropdown when the team is selected
+        team_select.onchange = function(){
+            fetch('/getFavoritePlayers?team=' + team_select.value + '&sport=' + sport_select.value).then(function(response){
+                response.json().then(function(data){
+                    let playersHTML = '';
+                    for(let playz of data.players){
+                        playersHTML += '<option value="' + playz.play_id + '">' + playz.play_name + '</option>';
+                    }
+                    player_select.innerHTML = playersHTML;
+                });
+            });;
+        };
+    </script>
     <br><br>
 </div>
 {% endblock content%}
