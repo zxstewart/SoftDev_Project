@@ -680,9 +680,14 @@ def save_picture(form_picture):
 @app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
-    favorite = Favorite.query.all()
     image_file = url_for('static', filename='profileImages/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file = image_file, favorite=favorite)
+    return render_template('account.html', title='Account', image_file = image_file)
+
+@app.route('/faveList', methods=['GET','POST'])
+@login_required
+def favorite_list():
+    favorite = Favorite.query.all()
+    return render_template('faveList.html', title='My Favorite Players', favorite=favorite)
 
 @app.route('/favorites', methods=['GET','POST'])
 @login_required
