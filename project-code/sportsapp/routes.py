@@ -725,7 +725,7 @@ def favorite():
             db.session.add(favorite) 
             db.session.commit()
         flash('Player has been added', 'success')
-        return redirect(url_for('account'))
+        return redirect(url_for('favorite_list'))
     return render_template('favorites.html', title='Add Favorite', form=form, legend='Add Favorite')
 
 @app.route('/favorites/<int:favorite_id>', methods=['GET','POST'])
