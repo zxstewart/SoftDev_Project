@@ -1,29 +1,39 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="content-section">
-    <div class="col-4">
-        <div>
-            <img class="img-fluid rounded-circle" src="{{ image }}" alt="player image">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img class="img-fluid rounded-circle" src="{{ image }}" alt="player image">
+            </div>
+            <div class="col-10">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>{{ favorite.p_name }}</th>
+                        </tr>
+                        <tr>
+                            <td>Team: {{ favorite.team }}</td>
+                            <td>Sport: {{ favorite.sport_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Weight: {{ favorite.weight }}</td>
+                            <td>Height: {{ favorite.height }}</td>
+                        </tr>
+                        <tr>
+                            <td>Games Played: {{ favorite.games_played }}</td>
+                            <td>Birthdate: {{ favorite.birthday }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div> 
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_favorite', favorite_id=favorite.id) }}">Update</a>
+                <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Remove Player</button>
+            </div>
         </div>
     </div>
-    <br>
-    <div class="col-8">
-        <div class="table-responsive">
-            <table class="table">
-                <tr>
-                    <th>{{ favorite.p_name }}</th>
-                </tr>
-                <tr>
-                    <td>Team: {{ favorite.team }}</td>
-                    <td>Sport: {{ favorite.sport }}</td>
-                </tr>
-            </table>
-        </div>
-    </div>  
-    <div>
-        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_favorite', favorite_id=favorite.id) }}">Update</a>
-        <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Remove Player</button>
-    </div>
+    
 </div>
 <!-- bootstap modal to confirm delete -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
