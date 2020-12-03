@@ -699,29 +699,28 @@ def favorite():
         if(str(form.sport.data) == "mlb"):
             from sportsreference.mlb.roster import Player
             player = Player(form.p_name.data)
-            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Baseball').first()
             favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='MLB Baseball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
             db.session.add(favorite) 
             db.session.commit()
         elif(str(form.sport.data) == 'nba'):
             from sportsreference.nba.roster import Player
             player = Player(form.p_name.data)
-            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played='Not Found')
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Basketball').first()
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=plyer.games_played)
             db.session.add(favorite) 
             db.session.commit()
         elif(str(form.sport.data) == 'nhl'):
             from sportsreference.nhl.roster import Player
             player = Player(form.p_name.data)
-            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NHL Hockey', weight=player.weight, height=player.height, birthday='Not Found', games_played='Not Found')
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Hockey').first()
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NHL Hockey', weight=player.weight, height=player.height, birthday='Not Found', games_played=player.games_played)
             db.session.add(favorite) 
             db.session.commit()
         else:
             from sportsreference.nfl.roster import Player
             player = Player(form.p_name.data)
-            #using database to find the correct team name from team abbreviation
-            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Football').first()
             favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NFL Football', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
             db.session.add(favorite) 
             db.session.commit()
