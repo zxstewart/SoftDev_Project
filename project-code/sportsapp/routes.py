@@ -725,7 +725,7 @@ def favorite():
             db.session.add(favorite) 
             db.session.commit()
         flash('Player has been added', 'success')
-        return redirect(url_for('account'))
+        return redirect(url_for('favorite_list'))
     return render_template('favorites.html', title='Add Favorite', form=form, legend='Add Favorite')
 
 @app.route('/favorites/<int:favorite_id>', methods=['GET','POST'])
@@ -841,7 +841,7 @@ def update_favorite(favorite_id):
         favorite.sport = form.sport.data
         db.session.commit()
         flash('Player has been updated', 'success')
-        return redirect(url_for('account'))
+        return redirect(url_for('favorite_list'))
     elif request.method == 'GET':
         form.p_name.data = favorite.p_name
         form.team.data = favorite.team
@@ -854,7 +854,7 @@ def delete_favorite(favorite_id):
     db.session.delete(favorite)
     db.session.commit()
     flash('Player has been deleted from Favorites', 'success')
-    return redirect(url_for('account'))
+    return redirect(url_for('favorite_list'))
 
 @app.route('/settings', methods=['GET','POST'])
 def settings():
@@ -959,7 +959,6 @@ def getPlayers():
             playerObj['play_id'] = play_id
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
-        return jsonify({'players' : playerArr})
     elif(sport == 'baseball'):
         from sportsreference.mlb.roster import Roster
         roster = Roster(team, year=year, slim=True)
@@ -969,7 +968,6 @@ def getPlayers():
             playerObj['play_id'] = play_id
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
-        return jsonify({'players' : playerArr})
     elif(sport == 'hockey'):
         from sportsreference.nhl.roster import Roster
         roster = Roster(team, year=year, slim=True)
@@ -979,7 +977,6 @@ def getPlayers():
             playerObj['play_id'] = play_id
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
-        return jsonify({'players' : playerArr})
     else:
         from sportsreference.nba.roster import Roster
         roster = Roster(team, year=year, slim=True)
@@ -989,7 +986,9 @@ def getPlayers():
             playerObj['play_id'] = play_id
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
-        return jsonify({'players' : playerArr})
+    #sorting the dictionary alphabetically for searchability
+    sortedPlayers = sorted(playerArr, key = lambda i: i['play_name'])
+    return jsonify({'players' : sortedPlayers})
 
 #app route for returning a json filled with player ids and names
 @app.route('/getFavoritePlayers/')
@@ -1041,7 +1040,8 @@ def getFavoritePlayers():
                 playerArr.append(playerObj)
     #remove duplicates from the list of dictionaries
     setPlayers = [dict(t) for t in {tuple(d.items()) for d in playerArr}]
-    return jsonify({'players' : setPlayers})
+    sortedPlayers = sorted(setPlayers, key = lambda i: i['play_name'])
+    return jsonify({'players' : sortedPlayers})
 
 #an app route that returns a json from a python set of teams based on sport
 @app.route('/getAllTeams/<sport>')
