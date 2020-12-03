@@ -726,7 +726,7 @@ def favorite():
 
 @app.route('/favorites/<int:favorite_id>', methods=['GET','POST'])
 def view_favorite(favorite_id):
-    favorite = Favorite.query.get_or_404(favorite_id)
+    favorite = Favorite.query.filter_by(id=favorite_id).first()
     sport = favorite.sport
 
     player1id = favorite.p_id
@@ -798,7 +798,8 @@ def view_favorite(favorite_id):
 
         concat = df1.T
         html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
-        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+        imgSrc = 'https://pro-football-reference.com/req/20200210/images/headshots/' + favorite.p_id + '.jpg'
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, image=imgSrc)
 
     elif(sport == 'nhl'):
         from sportsreference.nhl.roster import Player
