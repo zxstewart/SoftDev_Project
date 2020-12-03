@@ -696,32 +696,31 @@ def favorite():
     if form.validate_on_submit():
         #the data from the form is the abbreviation of the team and the abbreviation of the player name
         #convert and add relevant info about player to the database
-        if(str(form.sport.data) == 'mlb'):
+        if(str(form.sport.data) == "mlb"):
             from sportsreference.mlb.roster import Player
             player = Player(form.p_name.data)
-            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Baseball').first()
             favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='MLB Baseball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
             db.session.add(favorite) 
             db.session.commit()
-        if(str(form.sport.data) == 'nba'):
+        elif(str(form.sport.data) == 'nba'):
             from sportsreference.nba.roster import Player
             player = Player(form.p_name.data)
-            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Basketball').first()
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=plyer.games_played)
             db.session.add(favorite) 
             db.session.commit()
-        if(str(form.sport.data) == 'nhl'):
+        elif(str(form.sport.data) == 'nhl'):
             from sportsreference.nhl.roster import Player
             player = Player(form.p_name.data)
-            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NHL Hockey', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Hockey').first()
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NHL Hockey', weight=player.weight, height=player.height, birthday='Not Found', games_played=player.games_played)
             db.session.add(favorite) 
             db.session.commit()
         else:
             from sportsreference.nfl.roster import Player
             player = Player(form.p_name.data)
-            #using database to find the correct team name from team abbreviation
-            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Football').first()
             favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NFL Football', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
             db.session.add(favorite) 
             db.session.commit()
@@ -753,12 +752,11 @@ def view_favorite(favorite_id):
         for i in range(0, len(p1data)):
             if p1data[i] is None:
                 p1data[i] = 0.0
-
-
-        df1.rename(index={'Career': player1})
+        #df1.rename(index={'Career': player1})
         df1 = df1.T
         html_file = df1.to_html(classes='table table-striped table-bordered table-hover')
-        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+        imgSrc = 'https://basketball-reference.com/req/20200210/images/players/' + favorite.p_id + '.jpg'
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, image=imgSrc)
     
     elif(sport == 'mlb'):
         from sportsreference.mlb.roster import Player
@@ -777,10 +775,11 @@ def view_favorite(favorite_id):
         for i in range(0, len(p1data)):
             if p1data[i] is None:
                 p1data[i] = 0.0
-
         concat = df1.T
         html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
-        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)    
+        #there are issues with statically generating a link source for baseball player images
+        imgSrc = 'https://baseball-reference.com/req/20200210/images/headshots/' + favorite.p_id + '.jpg'
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file)    
 
     elif(sport == "nfl"):
         from sportsreference.nfl.roster import Player
@@ -823,11 +822,10 @@ def view_favorite(favorite_id):
         for i in range(0, len(p1data)):
             if p1data[i] is None:
                 p1data[i] = 0.0
-
-
         concat = df1.T
         html_file = concat.to_html(classes='table table-striped table-bordered table-hover')
-        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, name = pname)
+        imgSrc = 'https://hockey-reference.com/req/20200210/images/headshots/' + favorite.p_id + '.jpg'
+        return render_template('fPlayer.html', title=favorite.p_name, favorite=favorite, statnames = statnames, p1data = p1data, tables = html_file, image=imgSrc)
        
     else:
         flash('Invalid input')
