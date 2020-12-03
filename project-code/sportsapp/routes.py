@@ -841,7 +841,7 @@ def update_favorite(favorite_id):
         favorite.sport = form.sport.data
         db.session.commit()
         flash('Player has been updated', 'success')
-        return redirect(url_for('account'))
+        return redirect(url_for('favorite_list'))
     elif request.method == 'GET':
         form.p_name.data = favorite.p_name
         form.team.data = favorite.team
@@ -854,7 +854,7 @@ def delete_favorite(favorite_id):
     db.session.delete(favorite)
     db.session.commit()
     flash('Player has been deleted from Favorites', 'success')
-    return redirect(url_for('account'))
+    return redirect(url_for('favorite_list'))
 
 @app.route('/settings', methods=['GET','POST'])
 def settings():
