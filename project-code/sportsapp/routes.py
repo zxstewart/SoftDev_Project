@@ -699,25 +699,30 @@ def favorite():
         if(str(form.sport.data) == 'mlb'):
             from sportsreference.mlb.roster import Player
             player = Player(form.p_name.data)
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=form.team.name, sport=form.sport.data, sport_name='Football', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='MLB Baseball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
             db.session.add(favorite) 
             db.session.commit()
         if(str(form.sport.data) == 'nba'):
             from sportsreference.nba.roster import Player
             player = Player(form.p_name.data)
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=form.team.name, sport=form.sport.data, sport_name='Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
             db.session.add(favorite) 
             db.session.commit()
         if(str(form.sport.data) == 'nhl'):
             from sportsreference.nhl.roster import Player
             player = Player(form.p_name.data)
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=form.team.name, sport=form.sport.data, sport_name='Hockey', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NHL Hockey', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
             db.session.add(favorite) 
             db.session.commit()
         else:
             from sportsreference.nfl.roster import Player
             player = Player(form.p_name.data)
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=form.team.name, sport=form.sport.data, sport_name='Baseball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            #using database to find the correct team name from team abbreviation
+            teamObj = teamTable.query.filter_by(team_abbr = form.team.data).first()
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NFL Football', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
             db.session.add(favorite) 
             db.session.commit()
         flash('Player has been added', 'success')
