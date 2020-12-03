@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th style="font-size: large;">My Favorite Players:</th>
+                </tr>
+                <tr>
+                    <th>Name</td>
+                    <th>Team</td>
+                    <th>Sport</td>
+                </tr>
+                {% for favorite in favorite %}
+                <tr>
+                    <td><a href="{{ url_for('view_favorite', favorite_id=favorite.id) }}" style="color: black;">{{ favorite.p_name }}</a></td>
+                    <td>{{ favorite.team }}</td>
+                    <td>{{ favorite.sport }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <br><br>
+        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('favorite') }}">Add a Player to Favorites</a>
+    <br><br>
+</div>
+{% endblock content%}
