@@ -959,7 +959,6 @@ def getPlayers():
             playerObj['play_id'] = play_id
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
-        return jsonify({'players' : playerArr})
     elif(sport == 'baseball'):
         from sportsreference.mlb.roster import Roster
         roster = Roster(team, year=year, slim=True)
@@ -969,7 +968,6 @@ def getPlayers():
             playerObj['play_id'] = play_id
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
-        return jsonify({'players' : playerArr})
     elif(sport == 'hockey'):
         from sportsreference.nhl.roster import Roster
         roster = Roster(team, year=year, slim=True)
@@ -979,7 +977,6 @@ def getPlayers():
             playerObj['play_id'] = play_id
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
-        return jsonify({'players' : playerArr})
     else:
         from sportsreference.nba.roster import Roster
         roster = Roster(team, year=year, slim=True)
@@ -989,7 +986,9 @@ def getPlayers():
             playerObj['play_id'] = play_id
             playerObj['play_name'] = play_name
             playerArr.append(playerObj)
-        return jsonify({'players' : playerArr})
+    #sorting the dictionary alphabetically for searchability
+    sortedPlayers = sorted(playerArr, key = lambda i: i['play_name'])
+    return jsonify({'players' : sortedPlayers})
 
 #app route for returning a json filled with player ids and names
 @app.route('/getFavoritePlayers/')
@@ -1041,7 +1040,8 @@ def getFavoritePlayers():
                 playerArr.append(playerObj)
     #remove duplicates from the list of dictionaries
     setPlayers = [dict(t) for t in {tuple(d.items()) for d in playerArr}]
-    return jsonify({'players' : setPlayers})
+    sortedPlayers = sorted(setPlayers, key = lambda i: i['play_name'])
+    return jsonify({'players' : sortedPlayers})
 
 #an app route that returns a json from a python set of teams based on sport
 @app.route('/getAllTeams/<sport>')
