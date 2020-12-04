@@ -3,7 +3,7 @@
 <div class="content-section">
     <br>
     <div class="col-4">
-        <div class="card-img-top" style="border-radius: 50%;">
+        <div class="card-img-top rounded-circle">
             <img class="rounded-circle card-img-top" id="profile_pic" src="{{ image_file }}" alt="profile picture">
         </div>
     </div>
@@ -12,33 +12,13 @@
         <div class="table-responsive">
             <table class="table">
                 <tr>
-                    <th>{{ current_user.username }}</th>
+                    <th>Username:</th>
+                    <td>{{ current_user.username }}</td>
                 </tr>
                 <tr>
+                    <th>Email:</th>
                     <td>{{ current_user.email }}</td>
                 </tr>
-            </table>
-        </div>
-    </div>
-    <br>
-    <div class="card">
-        <div class="table-responsive">
-            <table class="table">
-                <tr>
-                    <th style="font-size: large;">Favorite Players:</th>
-                </tr>
-                <tr>
-                    <th>Player Name</td>
-                    <th>Team</td>
-                    <th>Sport</td>
-                </tr>
-                {% for favorite in favorite %}
-                <tr>
-                    <td><a href="{{ url_for('view_favorite', favorite_id=favorite.id) }}" style="color: black;">{{ favorite.p_name }}</a></td>
-                    <td>{{ favorite.team }}</td>
-                    <td>{{ favorite.sport }}</td>
-                </tr>
-                {% endfor %}
             </table>
         </div>
     </div>
