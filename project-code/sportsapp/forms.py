@@ -3,7 +3,7 @@ from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, IntegerField
 #make sure to also install email_validator: 'pipenv install email_validator'
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Regexp
 from sportsapp.models import User
 
 class RegistrationForm(FlaskForm):
@@ -71,6 +71,6 @@ class FavoriteForm(FlaskForm):
 
 class ComparePlayersForm(FlaskForm):
     sport = SelectField(u'Sport', choices=[('nfl','Football'), ('mlb', 'Baseball'), ('nhl', 'Hockey'), ('nba', 'Basketball')])
-    player1 = StringField('Name of player 1', validators=[DataRequired(), Length(min=3, max=50)])
-    player2 = StringField('Name of player 2', validators=[DataRequired(), Length(min=3, max=50)])
+    player1 = StringField('Name of player 1', validators=[DataRequired(), Length(min=3, max=50), Regexp(regex='.+\s.+')])
+    player2 = StringField('Name of player 2', validators=[DataRequired(), Length(min=3, max=50), Regexp(regex='.+\s.+')])
     submit = SubmitField('Compare')
