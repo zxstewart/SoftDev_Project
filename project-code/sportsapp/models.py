@@ -37,6 +37,7 @@ class Favorite(db.Model, UserMixin):
     height = db.Column(db.String(5))
     birthday = db.Column(db.String(15))
     games_played = db.Column(db.String(4))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
         return f"Favorite('{self.p_name}', '{self.team}', '{self.sport}')"
