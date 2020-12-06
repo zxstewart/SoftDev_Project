@@ -710,8 +710,8 @@ def account():
 @login_required
 def favorite_list():
     #making a query for the user's favorite players and their favorite players only
-    query = Favorite.query.filter_by(user_id=current_user.id)
-    return render_template('faveList.html', title='My Favorite Players', favorite=favorite)
+    queryFav = Favorite.query.filter_by(user_id=current_user.id)
+    return render_template('faveList.html', title='My Favorite Players', favorite=queryFav)
 
 @app.route('/favorites', methods=['GET','POST'])
 @login_required
@@ -731,7 +731,7 @@ def favorite():
             from sportsreference.nba.roster import Player
             player = Player(form.p_name.data)
             teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Basketball').first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=plyer.games_played, owner=current_user)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games_played, owner=current_user)
             db.session.add(favorite) 
             db.session.commit()
         elif(str(form.sport.data) == 'nhl'):

@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
     #creating a one-to-many relationship between users and their personal sports stats
     #owner attribute can be used to get the user who created the sportsStats
     posts = db.relationship('sportsStats', backref='owner', lazy=True)
+    favPlay = db.relationship('Favorite', backref='owner', lazy=True)
 
     def __repr__(self):
         #magic method used for printing information in table
