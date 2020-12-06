@@ -1,20 +1,117 @@
 ### Start of David Dayan Commits:
+* f253a97 Update contributions.md
+* 2983756 Update contributions.md
+* d78462a Rename contributions.txt to contributions.md
+* b1a4426 added list of git contributions by member from git log
 * 5bc04db Update README.md
 * 4a07153 Delete ProjectMileston6_203_4.pdf
 * f9ec9cb Add files via upload
+* 20d916b Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+* 4496e8d listing players in favorite player add and download data by player alphabetically
+* 903b38d fixed issue with incorrect team name from abbreviation
+* cba2344 Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+* 033fb41 working favorite player add feature for all sports: fixed control issue
+* ba2e172 added support for team name field in favorite player
+* b1df1b7 Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+* a07baa1 fixed sport type for favorite players
+* 9619367 Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+* 9e1ad15 formatted and added more player-specific info for favorite players
+* 871cfda making favorite player page and account page more readable
+* a1f081a adding favorite players working for nfl players
+* b24de6c updated database loading
+* e422c31 Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+* b6ea898 fixing favorite player database object and compare page
+* bcec769 fixed merge conflict reverting to old database
+* b22c031 added more fields for favorite player db model, adjusted chart function
+* 0a6109f changed favorite player addition to dynamic selection
+* 730847d added route for getting all possible teams that Favorite player has played
+* cd7d929 added route for fetching JSON of players for favorite players
+* e7a7b1e change favorite players form to selectfield and reordered form order
+* c6bb5e5 Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+* ced1bea added to download data function for players
+* 8de1027 return json of players from getplayers route
+* 36b5ed8 expanded league-wide download to nhl, mlb, and nba
+* 709bdca fixed broken dynamic team field
+* e94b408 working league stats download for NFL
+* c95c7f7 added js to fix some form issues with download data
+* 4d0c842 fixed issue with Favorite Database table in account route
+* 37103b8 deleted old csv files: wiping database
+* 6e7bda9 fixed conflict in database
+* a31570c view csv as table feature and additional debugging fixes
+* 4279702 removed helper function, fixed form toggle for different data download type
+* e0c8587 removed redundant team abbreviation check since dropdown selection is implemented
+* 7d03757 completed dynamic form dropdown based on sports and year
+* a9497f7 added routes for querying DB to get teams and team abbreviations for dropdown
+* 884e602 Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+* 6edd270 added code for loading database with teams used in dynamic dropdown
+* f791799 different home pages for logged in and non-authenticated users
+* e7e9f4e checking verification of my commit
+* a8db6b9 fixed download data button to work with all possible app routes
+* 42989fe Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+* 359d117 display the previously downloaded files of user: allow user to redownload files as well
+* 83b5d4d dynamic home page to display previous downloaded files
+* 43bdb4d add downloaded data object to database associated with user
+* 97e2898 fixed interests DB field, added feature for associating downloaded data csv to user in database
+* a53d40d removed profile.html depracated page
+* 661626e fixed bug with account update: email verification
+* f7dea66 removed register.html, updated form registration. Also added file for helper function etc
 * 98fc301 Add files via upload
+* 7a4d0cc added team abbreviation validation for download data form
+* efde25b solved imported libraries merge conflict
+* e24d74e added download schedule stats for all available professional sports
+* d39e1c9 completed download data by team for NFL
 * 70fb77b Add files via upload
+* 8c5967f fixed validation for season year and team abbreviation fields in download data
+* b5c1f9d implemented download data template to accept form and post
+* c04a5aa added form routing and definition for downloadData feature
+* a533d38 begin implementation of download data feature
+* f43bd59 user can login then redirect back to page that required login
+* 5fb8e7f updated account page: now only accessible while logged in
+* 3f4a306 added logout and dynamic nav bar functionality
+* 1fd2c17 updated login to check users from database
+* f60fa95 updated dependencies list
+* 2140b96 updated registration forms backend to prevent accounts with same username/email from being created and added to db
+* 54f839e updated user registration to add users to database
+* 32f4be3 updated registration to add user info to database
+* a9fb5f8 updated structure to handle app as package: USE runsportsApp.py instead of sportsApp.py to run application
+* d5cd275 updated basic forms for database
+* cac476e updated routing for navbar in layout template
+* e6001bd updated routes for login page
+* 089d589 updated login page to work with boostrap and flask POST
+* e745f1d update register page to accept GET and POST requests
+* 8a40c87 updated routing and added file to indicate dependency files
 * 61ca7c3 Pushed Project Milestone 3
 * 5f6d1a6 Delete README.md
+* 16298fb fixed register page: now working!
+* df0f30e added images and routing for images of sports from static folder
+* 0d2cf06 updated routing for register page, fixed locally hosted images (they now show up)
+* a1ea583 updated css for card images and added images to browse page
+* 7cf0ed2 added images for NFL
+* 3a09f43 added routing to browse.html in flask backend
+* 26ee287 verified that ssh key is working
+* 9169dd9 testing if my ssh for github works
 * 775365d updated browse page search and sport slection to work with layout.html
+* a371986 added intermediate file to reorganize browse.html to work with templates
+* 08763ec additional test data gathering from API
 * 9416654 Update README.md
 * 72b5bde Update README.md
 * 8852998 Update README.md
+* f295e3a removed local Package Lock files
 * 1eac21a added new testing
 * c33bc10 updated readme with instructions for how to install sportsreference package
 * e0c1c46 removed redundant script for running site
+* 5910338 updated packages and testing dynamic visualizations
 * c79ea5d Update README.md
+* bed8467 updated README with instructions to run site locally
+* 0a79e1b added more style with Boostrap and pages, navbar
+* 775915e created static folder to hold JS and CSS files
+* 80b2a35 added boostrap support to layout.html that adds Bootstrap functionality to all html files
+* ebd8571 adding templates to support passing python info from DB
 * 16ba9b5 Testing Sports-reference api
+* 9544cd5 Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20 Merging to get index.html in
+* 7b747d3 added index.html
+* f853fcf created basic routs between pages in flask python file
+* 4455882 first flask application and script to run
 * ce89b88 formatting
 * c2b842d formatting
 * a9bff5b completed documentation for installing pipenv
@@ -24,14 +121,23 @@
 * 23da203 added contributors
 * 7b41061 updated README.md
 * 3c0313e updated README with instructions on how to set up virtual python environments
+* 98071f9 Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20 Deleted django project, switching to flask project due to project constraints
+* 011efd2 deleted django project switching to flask
 * 3406636 Update README.md
 * cb17444 Merge pull request #5 from CSCI-3308-CU-Boulder/makayla
+* f2219cf added home landing functions in views.py
+* 5ad37a7 created sportsApp
+* 674a048 created runlocal.sh script to be used to run the local host website
+* 8f8bf5a created sports_stats_master django project
 * 8146052 updated README.md with basic description
+* 85aae4a Deleted redundant ReadMe.md file
 * cd57a65 Merge pull request #4 from CSCI-3308-CU-Boulder/zoe
 * 3576d68 Merge branch 'master' into zoe
 * 6b16022 Merge pull request #2 from CSCI-3308-CU-Boulder/Mitch_Branch
 * c4a7a4e Merge branch 'master' into Mitch_Branch
 * 47f3a9b Updated README
+* 46ae04f made changes by adding header on branch David
+* 8ce770b Added name David Dayan
 * dd32ab6 Create README.md
 
 ------------------------------------------
