@@ -418,6 +418,25 @@ def download_data():
                 except FileNotFoundError:
                     abort(404)
             elif(form.sport_type.data == 'season_roster'):
+                #download the player's data in a season for a team
+                from sportsreference.mlb.roster import Player
+                player = Player(form.players_list.data)
+                playYear = player(form.season_year.data)
+                td = playYear.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFLRoster_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Roster: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            else:
                 #populates dropdown of players on that teams roster: user can then download the specific forms
                 from sportsreference.nfl.roster import Roster
                 teamData = Roster(form.team.data, year=form.season_year.data)
@@ -435,7 +454,7 @@ def download_data():
                     return send_file(p, as_attachment=True)
                 except FileNotFoundError:
                     abort(404)
-            else:
+
                 #generic response: returns the csv of list of teams in league in given year
                 from sportsreference.nfl.teams import Teams
                 teamData = Teams(year=form.season_year.data)

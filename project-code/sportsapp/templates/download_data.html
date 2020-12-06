@@ -66,7 +66,7 @@
           let request_type = document.getElementById('sport_type');
           let player_select = document.getElementById('players_list');
 
-          year_select.onchange = function(){
+          year_select.onclick = function(){
               sport = sport_select.value;
               year = year_select.value;
               if(sport == 'baseball'){
@@ -123,7 +123,7 @@
               }
           };
           //additional javascript fetches used for populating roster
-          team_select.onchange = function(){
+          team_select.onclick = function(){
               if(request_type.value == 'player_stats'){
                   //fetch the correct route for the given sport, team, and year
                   fetch('/getPlayers?team=' + team_select.value + '&year=' + year_select.value + '&sport=' + sport_select.value).then(function(response){

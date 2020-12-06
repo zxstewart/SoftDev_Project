@@ -1,0 +1,17 @@
+boxscore_index,date,datetime,day,extra_points_attempted,extra_points_made,field_goals_attempted,field_goals_made,fourth_down_attempts,fourth_down_conversions,interceptions,location,opponent_abbr,opponent_name,overtime,pass_attempts,pass_completion_rate,pass_completions,pass_touchdowns,pass_yards,pass_yards_per_attempt,points_allowed,points_scored,punt_yards,punts,quarterback_rating,result,rush_attempts,rush_touchdowns,rush_yards,rush_yards_per_attempt,third_down_attempts,third_down_conversions,time_of_possession,times_sacked,type,week,yards_lost_from_sacks
+201709100det,September 10,2017-09-10,Sun,2,2,1,1,1,0,1,Home,CRD,Arizona Cardinals,False,41,70.7,29,4,285,7.1,23,35,189,5,112.3,Win,27,0,82,3.0,16,8,33:20,1,Reg,1,7
+201709180nyg,September 18,2017-09-18,Mon,3,3,1,1,1,0,0,Away,NYG,New York Giants,False,21,71.4,15,2,119,5.8,10,24,209,5,117.0,Win,32,0,138,4.3,15,7,32:47,3,Reg,2,3
+201709240det,September 24,2017-09-24,Sun,2,2,4,4,0,0,0,Home,ATL,Atlanta Falcons,False,45,55.6,25,1,253,5.9,30,26,239,5,79.2,Loss,19,0,71,3.7,13,3,27:25,2,Reg,3,11
+201710010min,October 1,2017-10-01,Sun,0,0,3,2,0,0,0,Away,MIN,Minnesota Vikings,False,31,61.3,19,0,154,6.7,7,14,325,7,73.9,Win,31,1,97,3.1,13,3,36:27,6,Reg,4,55
+201710080det,October 8,2017-10-08,Sun,3,3,1,1,1,0,0,Home,CAR,Carolina Panthers,False,35,65.7,23,2,192,6.5,27,24,206,5,98.7,Loss,15,1,50,3.3,13,5,24:37,6,Reg,5,37
+201710150nor,October 15,2017-10-15,Sun,5,5,2,1,1,0,3,Away,NOR,New Orleans Saints,False,52,48.1,25,3,281,6.0,52,38,243,5,59.9,Loss,19,0,66,3.5,18,9,27:49,5,Reg,6,31
+201710290det,October 29,2017-10-29,Sun,0,0,5,5,2,0,0,Home,PIT,Pittsburgh Steelers,False,45,60.0,27,0,411,9.4,20,15,119,3,90.1,Loss,22,0,71,3.2,12,2,31:37,2,Reg,8,12
+201711060gnb,November 6,2017-11-06,Mon,3,3,4,3,0,0,0,Away,GNB,Green Bay Packers,False,33,78.8,26,2,353,10.9,17,30,0,0,131.4,Win,33,1,64,1.9,13,8,36:55,1,Reg,9,8
+201711120det,November 12,2017-11-12,Sun,5,5,1,1,0,0,1,Home,CLE,Cleveland Browns,False,26,65.4,17,3,241,9.6,24,38,176,4,117.6,Win,19,1,104,5.5,11,5,25:26,4,Reg,10,8
+201711190chi,November 19,2017-11-19,Sun,3,3,2,2,0,0,0,Away,CHI,Chicago Bears,False,31,67.7,21,2,287,9.6,24,27,172,4,118.6,Win,24,0,65,2.7,10,3,30:36,3,Reg,11,12
+201711230det,November 23,2017-11-23,Thu,2,2,3,3,1,0,1,Home,MIN,Minnesota Vikings,False,35,57.1,20,2,236,7.1,30,23,180,4,84.9,Loss,15,0,53,3.5,11,3,25:03,3,Reg,12,14
+201712030rav,December 3,2017-12-03,Sun,3,2,1,0,0,0,2,Away,RAV,Baltimore Ravens,False,34,79.4,27,1,294,9.3,44,20,275,6,88.0,Loss,24,2,78,3.3,13,4,30:09,3,Reg,13,22
+201712100tam,December 10,2017-12-10,Sun,3,3,1,1,0,0,2,Away,TAM,Tampa Bay Buccaneers,False,44,81.8,36,1,381,8.7,21,24,207,5,91.4,Win,18,2,53,2.9,11,5,29:47,0,Reg,14,0
+201712160det,December 16,2017-12-16,Sat,2,2,2,2,0,0,0,Home,CHI,Chicago Bears,False,33,75.8,25,2,202,7.2,10,20,182,4,110.9,Win,20,0,91,4.6,13,6,29:05,4,Reg,15,35
+201712240cin,December 24,2017-12-24,Sun,2,2,2,1,2,1,1,Away,CIN,Cincinnati Bengals,False,35,54.3,19,1,189,5.8,26,17,202,5,67.4,Loss,22,1,87,4.0,15,6,27:31,2,Reg,16,14
+201712310det,December 31,2017-12-31,Sun,3,3,2,2,0,0,0,Home,GNB,Green Bay Packers,False,29,69.0,20,3,305,11.1,11,35,266,6,137.9,Win,23,1,51,2.2,12,4,28:13,2,Reg,17,18
