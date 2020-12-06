@@ -1,6 +1,6 @@
 ### Start of David Dayan Commits:
-5bc04db Update README.md
-4a07153 Delete ProjectMileston6_203_4.pdf
+* 5bc04db Update README.md
+* 4a07153 Delete ProjectMileston6_203_4.pdf
 f9ec9cb Add files via upload
 98fc301 Add files via upload
 70fb77b Add files via upload
