@@ -101,3 +101,23 @@ for mls_a in range(1,617):
 mls_html_code = mls_x.get_html_string()
 mls_html_file = open('/Users/quinnstone/Documents/203_4_F20/project-code/sportsapp/templates/mls_table.html', 'w')
 mls_html_file = mls_html_file.write(mls_html_code)
+
+# -----------------------------------------------------------------------------------------------------------------------------------
+
+# Creates HTML for All Players
+
+play_csv_file = open('/Users/quinnstone/downloads/allPlayers.csv', 'r', encoding = "ISO-8859-1")
+play_csv_file = play_csv_file.readlines()
+play_line_1 = play_csv_file[0]
+play_line_1 = play_line_1.split(',')
+
+play_x = PrettyTable([play_line_1[0],play_line_1[1],play_line_1[2],play_line_1[3],play_line_1[4]])
+
+for play_a in range(1,8205):
+    play_line = play_csv_file[play_a]
+    play_line = play_line.split(',')
+    play_x.add_row([play_line[0], play_line[1],play_line[2],play_line[3],play_line[4]])
+
+play_html_code = play_x.get_html_string()
+play_html_file = open('/Users/quinnstone/Documents/203_4_F20/project-code/sportsapp/templates/searchPlayers.html', 'w')
+play_html_file = play_html_file.write(play_html_code)
