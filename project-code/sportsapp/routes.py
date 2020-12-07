@@ -298,6 +298,10 @@ def soccer():
 def baseball():
     return render_template('baseball.html')
 
+@app.route('/searchPlayers')
+def searchPlayers():
+    return render_template('searchPlayers.html')
+
 @app.route('/other')
 def other():
     return render_template('other.html')
