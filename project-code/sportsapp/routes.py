@@ -166,8 +166,7 @@ def compare():
             player1stats = Player(player1id)
             player2stats = Player(player2id)
             #For the table
-            df1 = player1stats.dataframe.loc['Career']
-            df2 = player2stats.dataframe.loc['Career']
+
             #Check for NoneType *Not currently working
             if player1stats.height is None :
                 flash('Invalid Player Name', 'danger')
@@ -176,11 +175,13 @@ def compare():
                 flash('Invalid Player Name', 'danger')
                 return render_template('compare.html', title='Compare Stats', form=form)
             #For Graph
+            df1 = player1stats.dataframe.loc['Career']
+            df2 = player2stats.dataframe.loc['Career']
             player1stats('career')
             player2stats('career')
-            statnames = ["Fielding %", "% On Base", "Win %"]
-            p1data = [player1stats.fielding_percentage, player1stats.on_base_percentage, player1stats.win_percentage]
-            p2data = [player2stats.fielding_percentage, player2stats.on_base_percentage, player2stats.win_percentage]
+            statnames = ["Fielding %", "% On Base"]
+            p1data = [player1stats.fielding_percentage, player1stats.on_base_percentage]
+            p2data = [player2stats.fielding_percentage, player2stats.on_base_percentage]
             #Changes None elements to 0.0
             for i in range(0, len(p1data)):
                 if p1data[i] is None:
@@ -211,8 +212,6 @@ def compare():
             player1stats = Player(player1id)
             player2stats = Player(player2id)
             #For the table
-            df1 = player1stats.dataframe.loc['Career']
-            df2 = player2stats.dataframe.loc['Career']
             #Check for NoneType *Not currently working
             if player1stats.height is None :
                 flash('Invalid Player Name', 'danger')
@@ -220,6 +219,9 @@ def compare():
             if player2stats.height is None:
                 flash('Invalid Player Name', 'danger')
                 return render_template('compare.html', title='Compare Stats', form=form)
+
+            df1 = player1stats.dataframe.loc['Career']
+            df2 = player2stats.dataframe.loc['Career']
             #For Graph
             player1stats('career')
             player2stats('career')
@@ -244,8 +246,7 @@ def compare():
             player1stats = Player(player1id)
             player2stats = Player(player2id)
             #For the table
-            df1 = player1stats.dataframe.loc['Career']
-            df2 = player2stats.dataframe.loc['Career']
+
             #Check for NoneType *Not currently working
             if player1stats.height is None :
                 flash('Invalid Player Name', 'danger')
@@ -253,6 +254,9 @@ def compare():
             if player2stats.height is None:
                 flash('Invalid Player Name', 'danger')
                 return render_template('compare.html', title='Compare Stats', form=form)
+
+            df1 = player1stats.dataframe.loc['Career']
+            df2 = player2stats.dataframe.loc['Career']
             #For Graph
             player1stats('career')
             player2stats('career')
@@ -275,8 +279,8 @@ def compare():
 
        
     else:
-        flash('Invalid input')
-    return render_template('compare.html', title='Compare Stats', form=form)
+        #flash('Invalid input')
+        return render_template('compare.html', title='Compare Stats', form=form)
 
 @app.route('/football')
 def football():
