@@ -1,15 +1,4 @@
-**Project Team Members:**
-
-David Dayan
-Zoe Stewart
-Mitchell LaRocque
-Quinn Stone
-John Lee
-Makayla Johnson
-
----
-
-## Contributors 
+## Contributors/Project Team Members 
 - David Dayan <david.dayan@colorado.edu>
 - Zoe Stewart <zost6915@colorado.edu>
 - Mitchell LaRocque <mila9009@colorado.edu>

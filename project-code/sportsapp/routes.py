@@ -302,6 +302,10 @@ def soccer():
 def baseball():
     return render_template('baseball.html')
 
+@app.route('/searchPlayers')
+def searchPlayers():
+    return render_template('searchPlayers.html')
+
 @app.route('/other')
 def other():
     return render_template('other.html')
@@ -426,6 +430,25 @@ def download_data():
                 except FileNotFoundError:
                     abort(404)
             elif(form.sport_type.data == 'season_roster'):
+                #download the player's data in a season for a team
+                from sportsreference.mlb.roster import Player
+                player = Player(form.players_list.data)
+                playYear = player(form.season_year.data)
+                td = playYear.dataframe
+                p = Path("sportsapp").resolve()
+                f_n = "NFLRoster_" + str(form.team.data) + "_" + str(form.season_year.data) + ".csv"
+                p = str(p) + "/static/sportsStatsDownloads/" + f_n
+                td.to_csv(p, index=False)
+                #adding code to associate the downloaded file with the user
+                nameDownload = "NFL Roster: " + str(form.team.data) + " " + str(form.season_year.data)
+                post = sportsStats(title=nameDownload, downloaded_file=f_n, owner=current_user)
+                db.session.add(post)
+                db.session.commit()
+                try:
+                    return send_file(p, as_attachment=True)
+                except FileNotFoundError:
+                    abort(404)
+            else:
                 #populates dropdown of players on that teams roster: user can then download the specific forms
                 from sportsreference.nfl.roster import Roster
                 teamData = Roster(form.team.data, year=form.season_year.data)
@@ -443,7 +466,7 @@ def download_data():
                     return send_file(p, as_attachment=True)
                 except FileNotFoundError:
                     abort(404)
-            else:
+
                 #generic response: returns the csv of list of teams in league in given year
                 from sportsreference.nfl.teams import Teams
                 teamData = Teams(year=form.season_year.data)
@@ -694,8 +717,9 @@ def account():
 @app.route('/faveList', methods=['GET','POST'])
 @login_required
 def favorite_list():
-    favorite = Favorite.query.all()
-    return render_template('faveList.html', title='My Favorite Players', favorite=favorite)
+    #making a query for the user's favorite players and their favorite players only
+    queryFav = Favorite.query.filter_by(user_id=current_user.id)
+    return render_template('faveList.html', title='My Favorite Players', favorite=queryFav)
 
 @app.route('/favorites', methods=['GET','POST'])
 @login_required
@@ -708,28 +732,28 @@ def favorite():
             from sportsreference.mlb.roster import Player
             player = Player(form.p_name.data)
             teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Baseball').first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='MLB Baseball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='MLB Baseball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games, owner=current_user)
             db.session.add(favorite) 
             db.session.commit()
         elif(str(form.sport.data) == 'nba'):
             from sportsreference.nba.roster import Player
             player = Player(form.p_name.data)
             teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Basketball').first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=plyer.games_played)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NBA Basketball', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games_played, owner=current_user)
             db.session.add(favorite) 
             db.session.commit()
         elif(str(form.sport.data) == 'nhl'):
             from sportsreference.nhl.roster import Player
             player = Player(form.p_name.data)
             teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Hockey').first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NHL Hockey', weight=player.weight, height=player.height, birthday='Not Found', games_played=player.games_played)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NHL Hockey', weight=player.weight, height=player.height, birthday='Not Found', games_played=player.games_played, owner=current_user)
             db.session.add(favorite) 
             db.session.commit()
         else:
             from sportsreference.nfl.roster import Player
             player = Player(form.p_name.data)
             teamObj = teamTable.query.filter_by(team_abbr = form.team.data, sport='Football').first()
-            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NFL Football', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games)
+            favorite = Favorite(p_name=player.name, p_id=form.p_name.data, team=form.team.data, team_name=teamObj.team_name, sport=form.sport.data, sport_name='NFL Football', weight=player.weight, height=player.height, birthday=player.birth_date, games_played=player.games, owner=current_user)
             db.session.add(favorite) 
             db.session.commit()
         flash('Player has been added', 'success')

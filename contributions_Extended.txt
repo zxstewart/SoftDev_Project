@@ -1,0 +1,1864 @@
+DAVID DAYAN COMMITS: 
+
+commit 605ff857612cbf6ab6059ecd0ceb8e6f43f91697
+Author: David Dayan <davidtdayan@gmail.com>
+Date:   Sat Dec 5 21:28:47 2020 -0700
+
+    updated contribution list: correct
+
+commit f253a970609bafbcb991afbba4a2a50eb4e36195
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Sat Dec 5 21:16:35 2020 -0700
+
+    Update contributions.md
+
+commit 298375643f055dc1d57d166148a8cfb023fdf580
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Sat Dec 5 21:12:52 2020 -0700
+
+    Update contributions.md
+
+commit d78462ab2c4a2d87d29e740a0b223ff710e52d60
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Sat Dec 5 21:11:26 2020 -0700
+
+    Rename contributions.txt to contributions.md
+
+commit b1a44261c35abc28b52b48725c35c3c0557faa38
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Sat Dec 5 21:10:20 2020 -0700
+
+    added list of git contributions by member from git log
+
+commit 5bc04db0738dd9fb1e378888609b6b407b17e0eb
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Sat Dec 5 20:33:30 2020 -0700
+
+    Update README.md
+
+commit 4a07153ec6e8e1056362e6e23a5746ddeaf83e27
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Fri Dec 4 12:51:12 2020 -0700
+
+    Delete ProjectMileston6_203_4.pdf
+
+commit f9ec9cb61e8e03a970835cb26f07d3be9ad6cb52
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Fri Dec 4 12:40:34 2020 -0700
+
+    Add files via upload
+
+commit 20d916b1cc2a008ec32564e5c84eea7d2ad9e116
+Merge: 4496e8d 6914a80
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Thu Dec 3 13:30:44 2020 -0700
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+
+commit 4496e8d819d46c12a28cdb873e1e22b1a713aecc
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Thu Dec 3 13:30:09 2020 -0700
+
+    listing players in favorite player add and download data by player alphabetically
+
+commit 903b38d691555a99dfe2f064341357e669b41cf1
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 22:56:05 2020 -0700
+
+    fixed issue with incorrect team name from abbreviation
+
+commit cba23444ad676ee808075c5e0fbdfb3e722fb6d5
+Merge: 033fb41 4380973
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 22:29:23 2020 -0700
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+
+commit 033fb4122d58b625973333c418dd9fef9a77a51c
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 22:28:47 2020 -0700
+
+    working favorite player add feature for all sports: fixed control issue
+
+commit ba2e17231ad08475bf4344d879a3e4b2d15a8dc4
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 20:57:24 2020 -0700
+
+    added support for team name field in favorite player
+
+commit b1df1b71188998a0f6c2f59532740c244e0e9875
+Merge: a07baa1 cfe9a26
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 20:48:06 2020 -0700
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+
+commit a07baa106c13739aca55e3a189cb845851d173ce
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 20:47:57 2020 -0700
+
+    fixed sport type for favorite players
+
+commit 961936721f61ba67f6a6f1688e665f4eb3f4571d
+Merge: 9e1ad15 b76d369
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 18:00:46 2020 -0700
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+
+commit 9e1ad152d7d5aa9c135672a450895776644fe788
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 18:00:38 2020 -0700
+
+    formatted and added more player-specific info for favorite players
+
+commit 871cfda5ce9280746bb45180625ad5560d1dd782
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 17:48:08 2020 -0700
+
+    making favorite player page and account page more readable
+
+commit a1f081a3a13e389e32bfbb57b65c95c2eb10131a
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 16:25:11 2020 -0700
+
+    adding favorite players working for nfl players
+
+commit b24de6c7beb59179e964cc2feed21c3a4351add7
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 14:35:57 2020 -0700
+
+    updated database loading
+
+commit e422c316ea82d50f7f1164e31d5c5c6fb192cd0b
+Merge: b6ea898 2e1d823
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 14:12:33 2020 -0700
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+
+commit b6ea8980b531e679022277c26103137c9fb966f7
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 14:12:22 2020 -0700
+
+    fixing favorite player database object and compare page
+
+commit bcec7691dd7096db3536accfc83fceb38dfbda58
+Merge: b22c031 c53ae07
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 14:06:35 2020 -0700
+
+    fixed merge conflict reverting to old database
+
+commit b22c0319004f2332cbcda2428e872822e7e2d131
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 14:01:09 2020 -0700
+
+    added more fields for favorite player db model, adjusted chart function
+
+commit 0a6109f2a44fb9be6627f3ce904483ae088408f6
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Dec 2 00:15:06 2020 -0700
+
+    changed favorite player addition to dynamic selection
+
+commit 730847d0c18e91b38c93ab83531f2deca3f6d869
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Dec 1 21:49:37 2020 -0700
+
+    added route for getting all possible teams that Favorite player has played
+
+commit cd7d9297f8e6715b02534b4fdb71ede275d46535
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Dec 1 21:36:22 2020 -0700
+
+    added route for fetching JSON of players for favorite players
+
+commit e7a7b1e6095bcdf9b50829b458dbd271ab2faed0
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Dec 1 21:19:11 2020 -0700
+
+    change favorite players form to selectfield and reordered form order
+
+commit c6bb5e58919fee0596e362dfbf4077920cc2abeb
+Merge: ced1bea 7749e09
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Dec 1 21:13:11 2020 -0700
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+
+commit ced1bea5e6394f172ef9bc86064bc4b066ee4ea3
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Dec 1 21:11:40 2020 -0700
+
+    added to download data function for players
+
+commit 8de102782d57f3098257da339b61312969833605
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 23:56:46 2020 -0700
+
+    return json of players from getplayers route
+
+commit 36b5ed8d188d055140cf971b1c67ad634b12ae39
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 22:51:16 2020 -0700
+
+    expanded league-wide download to nhl, mlb, and nba
+
+commit 709bdca937283d3f80f4752bc72f8fac2ee072e2
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 22:41:01 2020 -0700
+
+    fixed broken dynamic team field
+
+commit e94b408dcaf4ab3e117900c0bc3fb9ce64be0097
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 14:30:04 2020 -0700
+
+    working league stats download for NFL
+
+commit c95c7f76ea482132523093387dea12256ee4d6f1
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 14:11:36 2020 -0700
+
+    added js to fix some form issues with download data
+
+commit 4d0c842675d84f600ca8d6f6cf81a25c9e10ebb1
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 13:39:07 2020 -0700
+
+    fixed issue with Favorite Database table in account route
+
+commit 37103b8a369549f9a302ba30ef36897545e2b203
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 13:35:38 2020 -0700
+
+    deleted old csv files: wiping database
+
+commit 6e7bda956a2b554e096f1bbdb7bf072cd433f29b
+Merge: a31570c 6d2a9c7
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 13:30:53 2020 -0700
+
+    fixed conflict in database
+
+commit a31570c5fdea9837e4dc7da49470b84d8101bc5d
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 25 13:28:35 2020 -0700
+
+    view csv as table feature and additional debugging fixes
+
+commit 427970276c5cfdc4dd2f996224fa76acf34d8feb
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sun Nov 22 15:20:23 2020 -0700
+
+    removed helper function, fixed form toggle for different data download type
+
+commit e0c85877a35f2c729d4babb07c4919019882b00d
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Fri Nov 20 03:20:25 2020 -0700
+
+    removed redundant team abbreviation check since dropdown selection is implemented
+
+commit 7d03757f2bc990dceef8e0c87d7ee6317937cf1d
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Fri Nov 20 03:02:15 2020 -0700
+
+    completed dynamic form dropdown based on sports and year
+
+commit a9497f7138722fd46956ad23709d2bf6e79e7dda
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Fri Nov 20 02:27:35 2020 -0700
+
+    added routes for querying DB to get teams and team abbreviations for dropdown
+
+commit 884e602e5c8193250d6f65a137097cf87ddf11ec
+Merge: 6edd270 c742146
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Fri Nov 20 02:00:40 2020 -0700
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+
+commit 6edd270a4296ca70e8e35e0fd146467b807635c1
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Fri Nov 20 01:59:57 2020 -0700
+
+    added code for loading database with teams used in dynamic dropdown
+
+commit f791799d1007d46cd8ff43d163954d576c72f470
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Thu Nov 19 16:10:59 2020 -0700
+
+    different home pages for logged in and non-authenticated users
+
+commit e7e9f4e92f5ad9f5f0eadc5f58a4f6badd246a70
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Thu Nov 19 15:39:21 2020 -0700
+
+    checking verification of my commit
+
+commit a8db6b92b3e46fce2f9d1d588cc064dfb598db9a
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Thu Nov 19 12:21:14 2020 -0700
+
+    fixed download data button to work with all possible app routes
+
+commit 42989fe9988a0a67424b85024a53238aed6c7fba
+Merge: 359d117 fb3bc35
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 18 17:57:17 2020 -0700
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_4_F20
+
+commit 359d1177506656227a75b332a1f4ba59f88b082b
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Nov 18 17:56:57 2020 -0700
+
+    display the previously downloaded files of user: allow user to redownload files as well
+
+commit 83b5d4d98e2ae46ea957c9eda110e25f51008c85
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 17 21:36:52 2020 -0700
+
+    dynamic home page to display previous downloaded files
+
+commit 43bdb4d3b847e6f91c2c2017ebdf9f8080050aa7
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 17 17:11:25 2020 -0700
+
+    add downloaded data object to database associated with user
+
+commit 97e289806dfd5cbcf4b47449c45609be46b398d9
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 17 17:02:37 2020 -0700
+
+    fixed interests DB field, added feature for associating downloaded data csv to user in database
+
+commit a53d40d8c3a19c53cb0d2892861d42a94103f771
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 17 14:31:28 2020 -0700
+
+    removed profile.html depracated page
+
+commit 661626e353e7fc550864880d12424b02145c6310
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 17 14:27:27 2020 -0700
+
+    fixed bug with account update: email verification
+
+commit f7dea66d787862ce91e645bb41c5a164e1dfd071
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 17 14:19:32 2020 -0700
+
+    removed register.html, updated form registration. Also added file for helper function etc
+
+commit 98fc301b1a1bc308f65ee82a98d374a2f8f20534
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Fri Nov 13 23:38:40 2020 -0700
+
+    Add files via upload
+
+commit 7a4d0cc78c1c198bcc035dec241f3caa1fdcfe74
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 3 15:54:53 2020 -0700
+
+    added team abbreviation validation for download data form
+
+commit efde25bc57c3d2c73239b599e2e03d5ca8938383
+Merge: e24d74e e1d77e6
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 3 15:37:14 2020 -0700
+
+    solved imported libraries merge conflict
+
+commit e24d74ea025aa79b93c87349e89e9c3b7f9a6c1c
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 3 15:28:43 2020 -0700
+
+    added download schedule stats for all available professional sports
+
+commit d39e1c9d776a74e451f4fee6480d923e1cd9c4ac
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Nov 3 12:26:59 2020 -0700
+
+    completed download data by team for NFL
+
+commit 70fb77b040a468719876c531f259540dec20809b
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Fri Oct 30 22:31:47 2020 -0600
+
+    Add files via upload
+
+commit 8c5967f8a1ec62aa9b43f747cb716d6e794d5fa9
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 28 01:57:12 2020 -0600
+
+    fixed validation for season year and team abbreviation fields in download data
+
+commit b5c1f9d0ad63ff49941ed20a9f0eb01c89d1e434
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 28 01:47:52 2020 -0600
+
+    implemented download data template to accept form and post
+
+commit c04a5aabf99c8e20e10b4170b5a121be29e799fe
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 28 01:10:23 2020 -0600
+
+    added form routing and definition for downloadData feature
+
+commit a533d383582591ea581660fa1e896572572651c6
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 23:17:53 2020 -0600
+
+    begin implementation of download data feature
+
+commit f43bd59dc5497feb4741722b3a92b2118a009639
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 22:23:26 2020 -0600
+
+    user can login then redirect back to page that required login
+
+commit 5fb8e7fb68a7aa6d32f939b5648e801f43eea8c8
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 21:43:24 2020 -0600
+
+    updated account page: now only accessible while logged in
+
+commit 3f4a306b6a801fba7fdaf0a7dedb63424a45d4d6
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 20:56:12 2020 -0600
+
+    added logout and dynamic nav bar functionality
+
+commit 1fd2c1772d36b845a2fd3f7c7002886b5f73e1ff
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 18:31:23 2020 -0600
+
+    updated login to check users from database
+
+commit f60fa95b377cef56ea83a8c281afd54f788e4087
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 17:49:46 2020 -0600
+
+    updated dependencies list
+
+commit 2140b96b403c1945098b9e0e7c8432a15d3b3d9e
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 17:38:59 2020 -0600
+
+    updated registration forms backend to prevent accounts with same username/email from being created and added to db
+
+commit 54f839e59ddf417f1a113a8370d0bc596d0d8d6c
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 17:13:41 2020 -0600
+
+    updated user registration to add users to database
+
+commit 32f4be39d6d1f69fb0882d04a654a15913a3ee5b
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 16:53:34 2020 -0600
+
+    updated registration to add user info to database
+
+commit a9fb5f80527e443156922c122520d5abe40d5b6e
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Tue Oct 27 16:04:32 2020 -0600
+
+    updated structure to handle app as package: USE runsportsApp.py instead of sportsApp.py to run application
+
+commit d5cd275f4231168d59b7f77f0c4ea7524664bc42
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sat Oct 24 04:33:50 2020 -0600
+
+    updated basic forms for database
+
+commit cac476e00d225f48e10827a729e946cb74c71b42
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sat Oct 24 03:42:01 2020 -0600
+
+    updated routing for navbar in layout template
+
+commit e6001bd648a3530c8195ad748778dbdcaccbb9f8
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sat Oct 24 03:36:46 2020 -0600
+
+    updated routes for login page
+
+commit 089d589108796d3960e20a03546e2dfc92ffccfb
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sat Oct 24 03:31:53 2020 -0600
+
+    updated login page to work with boostrap and flask POST
+
+commit e745f1d8cdde6421e304460536c5c24d95742574
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sat Oct 24 03:12:39 2020 -0600
+
+    update register page to accept GET and POST requests
+
+commit 8a40c8742ab05000d05b3a3f46819797acd65c33
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sat Oct 24 03:08:48 2020 -0600
+
+    updated routing and added file to indicate dependency files
+
+commit 61ca7c3e8b22490b3a0563a5558e593e229a4b93
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Fri Oct 16 23:11:47 2020 -0600
+
+    Pushed Project Milestone 3
+
+commit 5f6d1a6e50d2a37e0b06c5d820339213750ba007
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Fri Oct 16 23:11:21 2020 -0600
+
+    Delete README.md
+
+commit 16298fb776f7eb3ba1d5c0e0e79c52d355b02dc4
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 17:47:00 2020 -0600
+
+    fixed register page: now working!
+
+commit df0f30e9bf89b8078a4127f8b838fb6177be2ddc
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 17:45:53 2020 -0600
+
+    added images and routing for images of sports from static folder
+
+commit 0d2cf06327d8faad2d727b26e0121434c7cbaf86
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 17:32:31 2020 -0600
+
+    updated routing for register page, fixed locally hosted images (they now show up)
+
+commit a1ea583e1b856d5872cb1f4c871404371467e84d
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 16:54:30 2020 -0600
+
+    updated css for card images and added images to browse page
+
+commit 7cf0ed202a8f43d97e66a3e6b0da0fa71648e010
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 16:43:49 2020 -0600
+
+    added images for NFL
+
+commit 3a09f43c57bb05fa8a6f8b99d30b94f8ac66e5e0
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 16:35:42 2020 -0600
+
+    added routing to browse.html in flask backend
+
+commit 26ee28791e90fa5c52cc19ca28d381d23cf91493
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 16:22:45 2020 -0600
+
+    verified that ssh key is working
+
+commit 9169dd9e6dab42c878c295b317d77ba5037accbb
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 16:21:43 2020 -0600
+
+    testing if my ssh for github works
+
+commit 775365dacc7c4dc45874f7a8a7b2f4688fa998a5
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Oct 7 15:42:48 2020 -0600
+
+    updated browse page search and sport slection to work with layout.html
+
+commit a371986f890d0fe8d9fc32a749a10646e6d066c4
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 15:23:31 2020 -0600
+
+    added intermediate file to reorganize browse.html to work with templates
+
+commit 08763ec111302a4d6dd843878dcdf06133bb1821
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Oct 7 15:12:21 2020 -0600
+
+    additional test data gathering from API
+
+commit 9416654ad41108bd6ec6d1dd0c328c7ba1a89785
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Tue Oct 6 11:52:26 2020 -0600
+
+    Update README.md
+
+commit 72b5bde84fafe9db6e58ee878728ee6cf1e6e729
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Tue Oct 6 11:51:58 2020 -0600
+
+    Update README.md
+
+commit 88529981806b7decf0555ec8349d74d0d528ad12
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Tue Oct 6 11:51:34 2020 -0600
+
+    Update README.md
+
+commit f295e3ad6f3d32d5fd6c4753c781257f7436c94e
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 30 17:46:19 2020 -0600
+
+    removed local Package Lock files
+
+commit 1eac21a014206e180a65e1861f9b3f5e7d574e5b
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 30 17:43:22 2020 -0600
+
+    added new testing
+
+commit c33bc10d8ee92060484690434cbd6a05ecc6a269
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 30 17:29:31 2020 -0600
+
+    updated readme with instructions for how to install sportsreference package
+
+commit e0c1c46db4736d44e00e4c122ed2e9c75e680cf3
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 30 17:24:25 2020 -0600
+
+    removed redundant script for running site
+
+commit 59103383e21000274e6750ef69530b11a7bcf8cc
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 30 17:21:44 2020 -0600
+
+    updated packages and testing dynamic visualizations
+
+commit c79ea5dbc0d19392d29e7dc96222209bd5c04b8a
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Wed Sep 30 17:16:21 2020 -0600
+
+    Update README.md
+
+commit bed846785d721a9a7d7f09e7305b210a1d0609a3
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 30 16:37:27 2020 -0600
+
+    updated README with instructions to run site locally
+
+commit 0a79e1b85ccabf6f076f0c5f5836f6f02e1cf0c9
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 30 16:33:06 2020 -0600
+
+    added more style with Boostrap and pages, navbar
+
+commit 775915e8091f1453ff4a067f2b7d276ca99de938
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 30 16:15:49 2020 -0600
+
+    created static folder to hold JS and CSS files
+
+commit 80b2a35724c3f80d870e346fc50aaba0596739b4
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 30 16:10:13 2020 -0600
+
+    added boostrap support to layout.html that adds Bootstrap functionality to all html files
+
+commit ebd857156f5998a9f51716f4f7a7b528ce44f302
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 30 16:03:24 2020 -0600
+
+    adding templates to support passing python info from DB
+
+commit 16ba9b530c0381f0910490d085fe36c8bd87e03d
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Fri Sep 25 17:40:05 2020 -0600
+
+    Testing Sports-reference api
+    
+    Used this file as a proof of concept for using the sports-reference API to fetch data and manipulate data using Python Pandas.
+
+commit 9544cd5fe4be39f6335a20bae69baed1d95eb733
+Merge: 7b747d3 c247278
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Fri Sep 25 17:21:02 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+    Merging to get index.html in
+
+commit 7b747d3a8749b88aa261cf3b2b440747bd7547a6
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Fri Sep 25 17:19:11 2020 -0600
+
+    added index.html
+
+commit f853fcf9b4dda1771d6f700e84e3e07a5f8ff9d1
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 23 17:31:52 2020 -0600
+
+    created basic routs between pages in flask python file
+
+commit 445588276218ea044feb37ed406bb15391a3c025
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 23 17:18:00 2020 -0600
+
+    first flask application and script to run
+
+commit ce89b882dea009f50911c2d0ec0fddeb73b6aab7
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 16:41:58 2020 -0600
+
+    formatting
+
+commit c2b842dd21f434f249151a9ab4212064eea7e758
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 16:07:24 2020 -0600
+
+    formatting
+
+commit a9bff5b89fadb0438dec0881bb159bf9f0f2e5b5
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 15:50:26 2020 -0600
+
+    completed documentation for installing pipenv
+
+commit 7cb15480f90ff8de1cfbe00865e483708ec19659
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 15:44:45 2020 -0600
+
+    updated instructions for installing pipenv
+
+commit b7ac019edbc3ef6b98ef728f524c5b0b7b184080
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 15:13:48 2020 -0600
+
+    updated README for pipenv
+
+commit 9b4ade5a720de8dba1c8f88d311cb91ad14d4aaa
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 01:53:20 2020 -0600
+
+    more documentation
+
+commit 23da203359017462a2b7afa976bceece5191b5c9
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 01:41:55 2020 -0600
+
+    added contributors
+
+commit 7b41061fc491c2e31904401a9308243bc420180c
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 01:27:02 2020 -0600
+
+    updated README.md
+
+commit 3c0313e7307445b3733df03297c0ec6fd6de2250
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Wed Sep 23 01:25:37 2020 -0600
+
+    updated README with instructions on how to set up virtual python environments
+
+commit 98071f9c2ad0de9e447e50b4175218a9afcdd3d1
+Merge: 011efd2 3406636
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 23 01:10:25 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+    Deleted django project, switching to flask project due to project constraints
+
+commit 011efd2c717de9dfd08851af82168a32a2c32b77
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Wed Sep 23 01:09:46 2020 -0600
+
+    deleted django project switching to flask
+
+commit 3406636f53e1abb14b15f710f42d80b85e90b11c
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Wed Sep 23 01:07:35 2020 -0600
+
+    Update README.md
+
+commit cb1744498616cb942a192fb1c929c104e964f49e
+Merge: f2219cf 17bd492
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Sun Sep 20 23:49:43 2020 -0600
+
+    Merge pull request #5 from CSCI-3308-CU-Boulder/makayla
+    
+    I made some changes
+
+commit f2219cfd9d3bbd4d8b3ffef51d7f1b906d2d09ef
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sun Sep 20 17:27:53 2020 -0600
+
+    added home landing functions in views.py
+
+commit 5ad37a721332defe7f5afe604114b8acbc9075cd
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sun Sep 20 17:17:49 2020 -0600
+
+    created sportsApp
+
+commit 674a048097676ace42a1d838ace82ab824edaa01
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sun Sep 20 17:12:52 2020 -0600
+
+    created runlocal.sh script to be used to run the local host website
+
+commit 8f8bf5af1cee3f623a81fe7a05774807b0917d44
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Sun Sep 20 16:55:13 2020 -0600
+
+    created sports_stats_master django project
+
+commit 8146052c10a7895d16005c306c537d12814b54eb
+Author: David Dayan <davdayan@Davids-XPS13.localdomain>
+Date:   Sun Sep 20 16:39:45 2020 -0600
+
+    updated README.md with basic description
+
+commit 85aae4a4d06fa01eab2f342cdfcd85195a881609
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Thu Sep 17 22:05:14 2020 -0600
+
+    Deleted redundant ReadMe.md file
+
+commit cd57a65e6a48e1457f67ffb4509c0ae5808485b0
+Merge: ce73801 3576d68
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Thu Sep 17 19:07:24 2020 -0600
+
+    Merge pull request #4 from CSCI-3308-CU-Boulder/zoe
+    
+    edited README to work with Zoe Branch
+
+commit 3576d682c9c8370a19d682f2438e936785066355
+Merge: 9bd8462 ce73801
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Thu Sep 17 19:07:04 2020 -0600
+
+    Merge branch 'master' into zoe
+
+commit 6b16022d176fbe274c3bf8ce030352410221d1b4
+Merge: 90405ea c4a7a4e
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Thu Sep 17 18:59:25 2020 -0600
+
+    Merge pull request #2 from CSCI-3308-CU-Boulder/Mitch_Branch
+    
+    Merge with master from Mitch Branch
+
+commit c4a7a4e1a7cbe16d16321dd33a20d0551a1b4da5
+Merge: 47f3a9b 90405ea
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Thu Sep 17 18:59:06 2020 -0600
+
+    Merge branch 'master' into Mitch_Branch
+
+commit 47f3a9b40a2c5dbed4600379963458c4e80c263a
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Thu Sep 17 18:57:30 2020 -0600
+
+    Updated README
+
+commit 46ae04f7d55d57be76c541134b86c02bf5b46fb8
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Thu Sep 17 18:26:44 2020 -0600
+
+    made changes by adding header on branch David
+
+commit 8ce770b65bd914e25c8fdee4f9edee089fba200b
+Author: davidtdayan <davidtdayan@gmail.com>
+Date:   Thu Sep 17 18:17:28 2020 -0600
+
+    Added name David Dayan
+
+commit dd32ab64c8a5cb69936ac26149bee4b8e4ec6866
+Author: David Dayan <49462643+davidtdayan@users.noreply.github.com>
+Date:   Thu Sep 17 18:13:24 2020 -0600
+
+    Create README.md
+
+------------------------------------------------------
+ZOE STEWART COMMITS:
+
+commit b0731b7e5043a3f44dc189665a740cf3224e54bc
+Merge: d268598 20d916b
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Thu Dec 3 14:50:47 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit d2685987f39ed91cc8c4912a6a9674f180bbefb7
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Thu Dec 3 14:49:43 2020 -0700
+
+    got rid of update player button
+
+commit 6914a8079c0c58dc929a42d5dd5462aee0bcb493
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Thu Dec 3 13:18:11 2020 -0700
+
+    fixed add favorite redirect
+
+commit 8fe76dd13966762ba19f35bb6d7d3e3c87b94806
+Merge: b1c31f1 0ce080b
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Dec 2 17:54:22 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit b1c31f10befbb0a163bcd57b51beab5530da9a85
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Dec 2 17:53:36 2020 -0700
+
+    separate favorites page
+
+commit 2e1d823bc62e6b460ac4de137c324048dd25328a
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Dec 2 14:12:01 2020 -0700
+
+    video page styling
+
+commit c53ae074c624dc69b353542d61c14dd3f6880127
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Dec 2 13:43:04 2020 -0700
+
+    fPlayer styling
+
+commit 491b7354ab7dded700b3eff309a7b1c45825458a
+Merge: c1a7bff dc3c2ee
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Dec 2 13:00:47 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit c1a7bfff14e0a2b6b76a8e7036098a801abe47f4
+Merge: 3eaca4b 0a6109f
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Dec 2 13:00:04 2020 -0700
+
+    nothing useful, fixing github problem
+
+commit 3eaca4b6644136268786f179279c3159d4d3aae5
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Dec 2 12:05:14 2020 -0700
+
+    fixing merge problem i think
+
+commit f98054ba2b644e8bf05865e31142b93d34d86612
+Merge: b5c0467 af656f7
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Dec 1 18:18:49 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit b5c04677d598c890fd83265c0e3fc43adf91b349
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Dec 1 18:18:37 2020 -0700
+
+    can delete players from favorites
+
+commit 1494a3fb903c65fb4f1ec1ebf044881f83b44958
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Thu Nov 26 17:39:52 2020 -0700
+
+    add to favorite works now
+
+commit 09122f14105aa9ee4b74077a335d388c05e52481
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 24 21:57:45 2020 -0700
+
+    added favorite page, db part not yet
+
+commit ccc36f11673fd13b5e1745c1503707847ffaec64
+Merge: 99e9302 3aa4cdd
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 24 21:57:02 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit 99e9302146c05ae49ddcd946d5baa6d6bed980e9
+Merge: 1e9f508 f321554
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 24 16:48:49 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit 1e9f508fb617004d53d829121e3837a5c4337233
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 24 16:42:09 2020 -0700
+
+    hopefully adding to my branch
+
+commit c742146030f0a536c38e6b4deb2d9be6e0e0dc63
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Thu Nov 19 18:16:25 2020 -0700
+
+    just made the profile image round w shadow
+
+commit 375a6960619889673b173ce93922b8e9913c4ab8
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Nov 18 16:56:45 2020 -0700
+
+    forgot to update route for settings page
+
+commit 02e53cfcbdbc62ca17b03b45aa85e855778bf44c
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Nov 18 16:19:29 2020 -0700
+
+    added settings page, edited some formatting:
+
+commit 6986594f133048db8c38e1ffd3c98ae68513a24e
+Merge: f20ed5a 83b5d4d
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Nov 18 12:51:18 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit f20ed5a502412395edcd6c909c217cd79a182f55
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 17 13:17:10 2020 -0700
+
+    layout changes
+
+commit 23300df1cdc2367e450a7ba423842530238d8e07
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Nov 11 11:11:49 2020 -0700
+
+    fixed some video styling, card columns don't work idk
+
+commit 28a76e1812c2bba409ff6a3eb99ae04919c4abe0
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Sun Nov 8 14:19:54 2020 -0700
+
+    account page viewable, modifications not quite
+
+commit a9c522354ac6cf260c7fcdbd717aec2a39d5720c
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 3 16:28:04 2020 -0700
+
+    fixed embed on video page and changed layout
+
+commit e1d77e6eef6de9029815091fdcaf0211f4018186
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 3 15:14:51 2020 -0700
+
+    more account updates
+
+commit c3f9c90ab896d15ba890ba1196ef759e6078946d
+Merge: 610604a d39e1c9
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 3 13:33:34 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+    merge to pull updates
+
+commit 610604a7bd5bd0947e5dc941e2eb95a11e6b8057
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Tue Nov 3 13:31:45 2020 -0700
+
+    updating account page
+
+commit 9ec47faa6723c0cebe0d197eb2f8c085361a6a92
+Merge: e770d09 70fb77b
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Mon Nov 2 19:36:29 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+    updating stuff
+
+commit e770d09d274e3c88a6229e53e4913c83d6ed9f5f
+Merge: 543346f 8c5967f
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Oct 28 18:25:44 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+    merging to pull, idk why i have to keep doing this
+
+commit 543346f3ec3de2edd57b796e6e58c36a947c46fa
+Merge: 7bcf617 d5cd275
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Sun Oct 25 18:56:02 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+    merging to pull new stuff
+
+commit 7bcf61738a905f7056d076eaa17c7aee2264fab8
+Merge: bfa6c2b 30cf4f0
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Sun Oct 25 18:55:32 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit bfa6c2b087bda17aee4edc21ace58dd6ba8d2349
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Sun Oct 18 18:36:35 2020 -0600
+
+    have to commit before i can pull i guess
+
+commit 63137c43f89966ddbd040e53fe134d277a62b1ab
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Thu Oct 15 18:01:18 2020 -0600
+
+    fixed some video formatting
+
+commit 5e17f1d6833301a461e0a3a1a459d8762c9f54d2
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Thu Oct 15 16:54:35 2020 -0600
+
+    added a rough video page
+
+commit 3444196ade4309e402a3aa873c85108d265a12ac
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Oct 14 16:29:27 2020 -0600
+
+    added profile page, connected search
+
+commit 3fffb196ef15ebdc39ca28bc2f16ef21f0d1acdc
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Oct 7 16:19:59 2020 -0600
+
+    fixed layout integration, still need to include flask link
+
+commit c5aa957996c73de841675c7cc9e87a12cae35f89
+Merge: 4315235 775365d
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Oct 7 16:17:43 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+    idk had to merge again...
+
+commit 43152359db1d10e978db88dad2305dc9c6b97767
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Oct 7 16:15:54 2020 -0600
+
+    fixed layout integration for browse and registration form
+
+commit 4ec672655c228caec32606ee4dbd50be70547666
+Merge: a6a8560 9416654
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Oct 7 14:04:26 2020 -0600
+
+    Merge https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+    um merging because i had to pull before letting me push changes?
+
+commit a6a856007377812eed96d0aebff07a08c6af18af
+Author: Zoe Stewart <zost6915@colorado.edu>
+Date:   Wed Oct 7 14:01:38 2020 -0600
+
+    browse page outline?
+
+commit 9bd8462dac48c9f54943d79e9fb4524f783bf3b7
+Author: zxstewart <zost6915@colorado.edu>
+Date:   Thu Sep 17 18:53:11 2020 -0600
+
+    edited README
+
+commit 7939676f944970aefb6574dbf6d08e5d7c249711
+Merge: 9c03a32 14ca0d9
+Author: zxstewart <zost6915@colorado.edu>
+Date:   Thu Sep 17 18:47:42 2020 -0600
+
+    adding README.md?
+
+commit 9c03a32494801ff5fc816c847cbe24f4d1b39a40
+Author: zxstewart <zost6915@colorado.edu>
+Date:   Thu Sep 17 18:41:13 2020 -0600
+
+    um adding ReadMe.md and names
+
+commit 90d660a24a871c26c41d9632f42ae038b7984188
+Author: zxstewart <zost6915@colorado.edu>
+Date:   Thu Sep 17 18:36:31 2020 -0600
+
+    Added name Zoe Stewart
+
+
+------------------------------------------------------
+JOHN LEE COMMITS:
+
+commit 4f720bf7ac37a03ba2ab6d8962c6366fc6983689
+Merge: eae2d08 b0731b7
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Dec 3 17:02:03 2020 -0700
+
+    merge
+
+commit eae2d08f62545db539a998c52f007cfabeb4626a
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Dec 3 15:29:59 2020 -0700
+
+    check invalid player and regex form
+
+commit 7749e09d2deb4aeecaaf5d85e38cc37a9ec8cb17
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Tue Dec 1 20:49:17 2020 -0700
+
+    added graph and table to favorite player
+
+commit af656f770b55aabd89ac3f6ae3503029cd9de5f1
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Mon Nov 30 02:57:49 2020 -0700
+
+    added table to compare
+
+commit 58783c0928efec967105d829343d7b2ae59ec606
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Sun Nov 29 12:08:22 2020 -0700
+
+    finishing  up graphs
+
+commit 6d2a9c7b894d5a323ab9a42b7805fb5945441a74
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Wed Nov 25 11:58:56 2020 -0700
+
+    chartjs multiple graphs
+
+commit 4736f9220385353581bdab5f614e1e3cc06656b9
+Merge: ff87090 09122f1
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Wed Nov 25 03:25:10 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20 into master
+
+commit ff870901f79f58f9cb2badf6d258c8fc1e21e097
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Wed Nov 25 03:25:01 2020 -0700
+
+    minor compare changes
+
+commit 3aa4cdd811086f9c0d12d6a2083b055b81b7640b
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Tue Nov 24 17:52:11 2020 -0700
+
+    compare changes
+
+commit f3215548c3df9c205498ab85c62126b39f4df775
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Tue Nov 24 04:43:32 2020 -0700
+
+    ran into chart.js problems
+
+commit 24a22fc8b7b6889326d6160f238112bf2b69ad9a
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Tue Nov 24 04:16:00 2020 -0700
+
+    compare
+
+commit 5a57b125944c0e23b5a5c5d91d2947ff80f339da
+Merge: d7bdc2c 4279702
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Mon Nov 23 03:49:24 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20 into master
+
+commit d7bdc2cb41424a27a6ccc975000d5a50931d4d2c
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Mon Nov 23 03:49:17 2020 -0700
+
+    commit for pull
+
+commit bc54e26517684d53643c66a85a2a349092a54004
+Merge: 744e5d2 f791799
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Nov 19 16:16:26 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20 into master
+
+commit 744e5d2284ba9cf75fb869f957387117df4fd000
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Nov 19 16:16:20 2020 -0700
+
+    commit compare
+
+commit 4e645e47637250aebade2f0f48f2336d402c39df
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Nov 19 16:13:51 2020 -0700
+
+    small changes
+
+commit f100893d8d1917992de7f08b00cb92c349a9fb7f
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 23:23:03 2020 -0700
+
+    minor changes to compare function
+
+commit ec8fdb8f8db3c59153909433f7164d728eb87fea
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 23:17:39 2020 -0700
+
+    Made python function to get data from API
+
+commit 8080719a34dca0430f371cb4df4b2b68bdffdf52
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 22:34:06 2020 -0700
+
+    added sample bar graph to compare
+
+commit fc1d9523c9a36321908eedbf2b6b28a4737766f6
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 22:03:56 2020 -0700
+
+    trying to fix compare errors
+
+commit 3b49cf5b010c846694b0ca530701eed38e56c9ff
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 21:54:12 2020 -0700
+
+    updates to compare
+
+commit 20e57ead08d8db4c0526bb39aca380023d28b224
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 21:33:39 2020 -0700
+
+    compare.html update
+
+commit b2da2c2170e6a7ffc7969a867bdd15d782783daf
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 16:35:33 2020 -0700
+
+    add compare link to layout sidebar
+
+commit 7b91294e442911c70deec461575fb1f12fe991e2
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 16:28:23 2020 -0700
+
+    minor compare fixes
+
+commit d457d408529c3d2e35f0d93672a5faa06fc2c33d
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Fri Nov 13 16:24:49 2020 -0700
+
+    adding compare route
+
+commit 48bb26e1be0231d01c12123248c8d655553b3cbc
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Wed Oct 21 17:49:28 2020 -0600
+
+    new register
+
+commit 69bcee80a4a7d2a7e6d08d485363839a25a78848
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Wed Oct 21 17:42:01 2020 -0600
+
+    minor changes
+
+commit 9382766c4d09573673c9769a871213bce8d9709f
+Merge: 4f99c8e 63137c4
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Oct 15 18:19:42 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20 into master
+
+commit 4f99c8e5e80434481e7efc92d692f084a4cee194
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Oct 15 18:09:06 2020 -0600
+
+    undo changes
+
+commit 07d0f4d51e90c387fb7189fb107049cc2b940445
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Oct 15 12:36:57 2020 -0600
+
+    added forms.py, no frontend yet
+
+commit 166de1a626c68cbfae01f2fd4c827f2678fa0133
+Merge: 158312b 8bec23f
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Oct 15 12:15:18 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20 into master
+
+commit 158312b833ef44f53b6728fbfeca183d01c0caff
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Oct 15 12:15:05 2020 -0600
+
+    merging with local
+
+commit 106b50fec615e8854554af550efb865367698a0d
+Merge: 4956147 3444196
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Oct 15 12:12:06 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20 into master
+
+commit 4956147368fa9b9f51f01642966cbe447fb7d924
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Wed Oct 14 18:13:03 2020 -0600
+
+    Update navbar links
+
+commit 6a10d02da44a82b6d95358b64bf5782f1c3166ef
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Sun Oct 11 20:24:34 2020 -0600
+
+    Added About page
+
+commit ff4b300c0a1bc9b95ff10526aafc1a47a90c632e
+Author: jule8198 <59934313+jule8198@users.noreply.github.com>
+Date:   Wed Sep 23 18:26:17 2020 -0600
+
+    Add files via upload
+    
+    Wireframe for home page, sports page, and profile page.
+    Need to add to Milestone 2 document.
+
+commit 0e1bc34a631ad5dea17604f501784dfff4173470
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Sep 17 18:53:16 2020 -0600
+
+    Lab4 3.9
+
+commit 90405ea0746b9531a33f31c11586cb075a708376
+Merge: d0129b2 7939676
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Sep 17 18:51:45 2020 -0600
+
+    Lab4 3.6
+
+commit d0129b2abc31de82b4639422421f3f076d6e0676
+Author: jule8198 <jule8198@colorado.edu>
+Date:   Thu Sep 17 18:47:53 2020 -0600
+
+    Lab4 3.4
+
+------------------------------------------------------
+QUINN STONE COMMITS:
+
+commit cfe9a26dcc3c4bcb01be7003721d76450c2a8512
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 18:17:12 2020 -0700
+
+    Update baseball.html
+
+commit 887ce532659b012e00d5fbbfb1c4256b67fc1bab
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 18:10:10 2020 -0700
+
+    Update soccer.html
+
+commit 00acfa93d0fe27894e500a41eb50cbacdec9738f
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 18:04:49 2020 -0700
+
+    Update basketball.html
+
+commit 1c1819532643bf2ac83fbb7442ce8b041ba58014
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 18:03:42 2020 -0700
+
+    Update football.html
+
+commit f10e018793520c8e9c8c0dc8dec4f39078c3959a
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 18:02:46 2020 -0700
+
+    Update hockey.html
+
+commit b76d369bd270504c225a020b2bde43bd9806098a
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 17:55:22 2020 -0700
+
+    Update basketball.html
+
+commit 0ce080b400a96bfa8a13cdb05907ab6736f646f4
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 17:50:22 2020 -0700
+
+    Update basketball.html
+
+commit a8f6366efbd4e2058c82a46f39c2fd7355bbab22
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 17:49:24 2020 -0700
+
+    Update football.html
+
+commit dc3c2ee1cacac16cce1185f986af64d2826a4c54
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Dec 2 12:47:00 2020 -0700
+
+    Update htmltable.py
+
+commit a0bbc55a9e31075a9bf64631fd27d892d6fc702e
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sun Nov 29 12:47:48 2020 -0700
+
+    Centered text
+
+commit 74e52378a69ed7e4cee57359e88f2825ab0ca5fe
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sun Nov 29 12:47:19 2020 -0700
+
+    Centered text
+
+commit c1f7a0a4093a1ed5401c29d11d9a7637ce600c22
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sun Nov 29 12:46:46 2020 -0700
+
+    Update football.html
+
+commit d6cf426f486b01fc84910a368edb633fd0e6622f
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sun Nov 29 12:46:18 2020 -0700
+
+    Centered text
+
+commit 244704f63bfd5a5bd994b2e4061fbb0c6be43c4f
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sun Nov 29 12:45:50 2020 -0700
+
+    Centered text
+
+commit f1b5ac6b375cdd555127c159682c0c5db4644465
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sun Nov 29 12:42:09 2020 -0700
+
+    Update routes.py
+
+commit 596b27e3fb62e121ad8773db7ff1123f17c4d999
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sun Nov 29 12:41:16 2020 -0700
+
+    Update browse.html
+
+commit f090bddb058c4d3bac74e75f2eda028bc3860cb0
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sun Nov 29 12:40:33 2020 -0700
+
+    Create other.html
+
+commit 9c07c5381210b987184c1225bbda1008ea466d8e
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sat Nov 28 19:47:09 2020 -0700
+
+    Update htmltable.py
+
+commit 45a55a3ae660f2702679bfe3f1fae9ede5c4416b
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sat Nov 28 19:46:53 2020 -0700
+
+    Update htmltable.py
+
+commit 59ed88955459bbbd85e6d0777c2ecf1b94988c97
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Sat Nov 28 16:48:51 2020 -0700
+
+    Create htmltable.py
+
+commit 35ac992a2b0f079bafd39faa880041b7e0e3bead
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Nov 13 13:26:47 2020 -0700
+
+    Create db_helper.py
+
+commit 4b003ed01c77c5f4ec0f8890b63af3f874ed8cc4
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Oct 30 13:16:00 2020 -0600
+
+    Update hockey.html
+
+commit 6bf5e4f2757df8ced821c0ce0324116865f2430d
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Oct 30 13:15:40 2020 -0600
+
+    Update basketball.html
+
+commit 0043201c2f3ed5421afc5c7cf638402ad78dbcac
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Oct 30 13:15:00 2020 -0600
+
+    Update hockey.html
+
+commit 401adf8d0fa1efc20cf756c531e1fe1d48ae0e4f
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Oct 30 13:14:39 2020 -0600
+
+    Update soccer.html
+
+commit 638b7e0dc5f821f8525835974c4c1d7a5e1db235
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Oct 30 13:14:14 2020 -0600
+
+    Update hockey.html
+
+commit 8722c21527fbbc9a3d68ab8b39d5fa85e64d5dc9
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Oct 30 13:13:48 2020 -0600
+
+    Update football.html
+
+commit a8e0e5700788c19d5667b52aad54e3e929dd17e3
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Oct 30 13:13:06 2020 -0600
+
+    Update baseball.html
+
+commit 4161f71bbb29240591fbf914d698aefa0cf6dfa2
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Fri Oct 30 13:12:31 2020 -0600
+
+    Update about.html
+
+commit d13d3849e098d6c419079e4600eaf606d44e8c92
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Oct 21 12:44:23 2020 -0600
+
+    Update baseball.html
+
+commit 62e5c9a181d6b1c4cf967485998248045d3a0c20
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Oct 21 12:41:51 2020 -0600
+
+    Add files via upload
+
+commit 95a6b0bf4cf580a370150abcd54fd32a396a652c
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Oct 21 12:40:50 2020 -0600
+
+    Update browse.html
+
+commit 639fcbb176049ab61a2938c908fbf7c000fb9660
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Oct 21 12:39:44 2020 -0600
+
+    Update sportsApp.py
+
+commit 8bec23f2aa2399e743e4e01386a0ea86c6c1337b
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Oct 14 19:02:44 2020 -0600
+
+    Update sportsApp.py
+
+commit 5dfbdc0272b65e3a93936b455f34deb63ae06b52
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Tue Oct 13 21:28:55 2020 -0600
+
+    Update sportsApp.py
+
+commit 1e44712fd104b6fab7a25d28c88b66f2dc784c9a
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Tue Oct 13 21:28:09 2020 -0600
+
+    Add files via upload
+
+commit 3c19a618b0dbb1769548d5d216d3c8588cb19812
+Author: quinnstone <quinnstone99@gmail.com>
+Date:   Thu Sep 24 13:02:24 2020 -0600
+
+    I added my name
+
+commit cab41d51c4d38dc5e6ef322fa960d62729cdf0bd
+Author: quinnstone <quinnstone99@gmail.com>
+Date:   Thu Sep 24 13:00:27 2020 -0600
+
+    I added my name
+
+commit a54e51b5cf2dc3481dbf9a0ec79abffee79ca3fa
+Author: quinnstone <quinnstone99@gmail.com>
+Date:   Thu Sep 24 12:56:01 2020 -0600
+
+    I added my name
+
+commit 6cfd91a6604c295766dbb054355de6507fb6b205
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Thu Sep 24 12:52:56 2020 -0600
+
+    Update README.md
+
+commit 08d9d68f6331791dd033f5009c40a5b1fa1b4491
+Author: quinnstone <60612999+quinnstone@users.noreply.github.com>
+Date:   Wed Sep 23 18:11:25 2020 -0600
+
+    Update README.md
+
+------------------------------------------------------
+MITCH LACROQUE COMMITS:
+
+commit 9055c4414a6de6b6cc0a1e80468f791c82915d09
+Merge: 380dbbf 4f720bf
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Thu Dec 3 17:24:50 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit 380dbbfc73f755bba859d91ca4bdd589f6baf271
+Merge: 95aec9c b0731b7
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Thu Dec 3 16:09:45 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit 95aec9cd9071af80f9333c98ab9b9c94dfb0d3af
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Thu Dec 3 13:00:34 2020 -0700
+
+    more attempts
+
+commit 996f7cfeac202688fa3e45a93396f216697940c1
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Thu Dec 3 12:58:44 2020 -0700
+
+    More procfile attempts
+
+commit fe69a423b14cc5ca432ac3662f30a04468d9d238
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Thu Dec 3 12:51:36 2020 -0700
+
+    more changes
+
+commit 2a35f2ea1cf2e2c1902ad42a4d9c117bc914296d
+Merge: 0e03433 903b38d
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Thu Dec 3 12:45:18 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit 0e0343310cee01f26d18a2d126f8270e39a8ec52
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Thu Dec 3 12:45:10 2020 -0700
+
+    Procfile attempts
+
+commit 4380973ca449b078f503a20c156a20a13aeaba10
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Wed Dec 2 22:26:43 2020 -0700
+
+    Heroku Gunicorn addition
+
+commit 16b7241d05a892e062149b930c42177548ad7531
+Merge: 56248f9 ba2e172
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Wed Dec 2 22:06:35 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_4_F20
+
+commit 56248f9b3daba663b46b898369ca6511535dc40c
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Wed Dec 2 22:06:30 2020 -0700
+
+    more testing
+
+commit a068cae23e7089e9ad1c11d4b0b2da46eaca5719
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Wed Dec 2 20:33:56 2020 -0700
+
+    heroku hosting attempts
+
+commit fb3bc350c430b281306b6da63e216c4959c2ebf1
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Wed Nov 18 17:23:42 2020 -0700
+
+    Changed Compare Graph to prepare for Sports Reference API calls
+
+commit f0fe8fb4a5248b7fafff89bd593a1481c0e51be7
+Author: mitchelllarocque <mitchell.larocque@colorado.edu>
+Date:   Tue Nov 17 13:55:07 2020 -0700
+
+    Attempting to fix db errors
+
+commit 6730260f87e5cd586e14aaed4dd60c6c6d5e1d8e
+Merge: cab41d5 3c19a61
+Author: mitchelllarocque <64155048+mitchelllarocque@users.noreply.github.com>
+Date:   Thu Sep 24 13:16:23 2020 -0600
+
+    Merge pull request #6 from CSCI-3308-CU-Boulder/quinn
+    
+    I added my name
+
+commit fa2c7c5ed5756ed23a9e696c6c840da0029a4aec
+Author: mitchelllarocque <mila9009@colorado.edu>
+Date:   Thu Sep 17 18:47:16 2020 -0600
+
+    Mitch's Branch
+
+commit 14ca0d94037d17a6fe31b610503cb97ac9884dbd
+Author: mitchelllarocque <mila9009@colorado.edu>
+Date:   Thu Sep 17 18:31:28 2020 -0600
+
+    updated README
+
+commit 75ca1446ced755e6711a3a9c34af9f3a51b1441a
+Author: mitchelllarocque <64155048+mitchelllarocque@users.noreply.github.com>
+Date:   Thu Sep 10 18:36:23 2020 -0600
+
+    Create README.md
+
+commit 832ceb2d4731f69bc776588da532d3792b048080
+Author: mitchelllarocque <64155048+mitchelllarocque@users.noreply.github.com>
+Date:   Thu Sep 10 18:35:31 2020 -0600
+
+    Create README.md
+
+commit 8434c2d05f89d7e4389c1f8876ceffcc2090858f
+Author: mitchelllarocque <64155048+mitchelllarocque@users.noreply.github.com>
+Date:   Thu Sep 10 18:34:44 2020 -0600
+
+    Create README.md
+
+
+------------------------------------------------------
+MAKAYLA JOHNSON COMMITS:
+
+commit 0599e1ea0bf96aec76737a5e540ee3e634802489
+Author: majo9858 <70109331+majo9858@users.noreply.github.com>
+Date:   Thu Dec 3 20:04:29 2020 -0700
+
+    Add files via upload
+
+commit 8a84e1ef09a945d531477276ddb4e426700eed7c
+Author: majo9858 <majo9858@colorado.edu>
+Date:   Thu Nov 19 17:52:07 2020 -0700
+
+    adding live stream
+
+commit ea3188af810bca1a5315d19ab27bd38193898d9a
+Author: majo9858 <majo9858@colorado.edu>
+Date:   Tue Nov 10 20:59:16 2020 -0700
+
+    adding styling
+
+commit 229998f8e31198487bed8137fb136f217cc0d5f6
+Author: majo9858 <majo9858@colorado.edu>
+Date:   Sun Nov 8 15:43:23 2020 -0700
+
+    adding links to sports pages
+
+commit 30cf4f0b7e3e637c049738585bea80f53a81bc44
+Author: majo9858 <70109331+majo9858@users.noreply.github.com>
+Date:   Sat Oct 17 22:23:27 2020 -0600
+
+    Update layout.html
+    
+    allowing the flash messages
+
+commit fe7677c5398cbe8e626939d3470e584ed97078f0
+Author: majo9858 <70109331+majo9858@users.noreply.github.com>
+Date:   Sat Oct 17 22:16:13 2020 -0600
+
+    Add files via upload
+    
+    added new registration page that will work with flask
+
+commit ac26e96b0a1ff5e45d6ab30054d4e45bb48d1a74
+Merge: 74dd65d e8bd149
+Author: majo9858 <70109331+majo9858@users.noreply.github.com>
+Date:   Sat Sep 19 19:51:13 2020 -0600
+
+    Merge pull request #3 from CSCI-3308-CU-Boulder/John
+    
+    Lab4 3.9
+
+commit e8bd14912e744850990e2b1117e5f1b4bcb8e257
+Merge: 0e1bc34 74dd65d
+Author: majo9858 <70109331+majo9858@users.noreply.github.com>
+Date:   Sat Sep 19 19:50:55 2020 -0600
+
+    Merge branch 'master' into John
+
+commit 17bd49299dc033a4451833954abfa33cef20beea
+Author: majo9858 <majo9858@colorado.edu>
+Date:   Sat Sep 19 19:38:36 2020 -0600
+
+    message
+
+commit 74dd65dded0e774823c7a2343f3da71f557b0479
+Author: majo9858 <majo9858@colorado.edu>
+Date:   Sat Sep 19 15:21:59 2020 -0600
+
+    message
