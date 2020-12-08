@@ -1,19 +1,37 @@
-# Sports Stats Master
-A sports analytics application that allows the user to analyze sports statistics. Useful for fantasy sports or just generally curious sports fans.
+# Development Process and Setup
+## Setting up Sports Reference API calls
+To begin using the sports reference API and fetch data from the sports reference site:
 
-## Application Description
- Sports Stats Master is for (fantasy) sports fanatics who want to learn more about the granular player details in an intuitive format. Sports Stats Master is a database analytical tool where users can discern who the best players are via position/team/age, compare player stats, build a custom list of favorite players, and much more! Unlike ESPN Fantasy Sports, we have a unique algorithm to rank players and make it seamless to share player profiles/stats.
+### Installing ```sportsreference``` API through pipenv
+Navigate to your your project and start your `pipenv` shell with the command `pipenv shell`. Once you have done this you can install the packages easily. Install `sportsreference` by using pipenv: `pipenv install sportsreference`
 
-## Application Functions
-### A list and description of functions/analysis that can be performed in Sports Stats Master
-### Function 1
-### Function 2
+## Setting up virtual python environment for development
+We will be using virtual python environments (pipenv) to separate python dev environment from other environments
+### Installing pipenv and setting up virtual environment
+Navigate to your directory that you will be using as a development environment then run: `pip3 install --user pipenv` to install pipenv package used to create virtual python environments
 
- ## Instructions for project development
- Development will generally be done in linux environments prescribed in class to simplify the development process and limit issues.
+### See what version all of your python packages are at
+`pipenv lock -r`
 
- ## Running Locally
-To run the flask application on you local machine, you must have `pipenv` installed so you can manage your installed packages. Once this is done you should start your virtual environment with `pipenv shell`. Then you can naviagate to the directory with `sportsApp.py` where you can launch the site with Flask: `python sportsApp.py`
+### Activate your pipenv environment.
+`pipenv shell` You will install your packages from here. To quit the virtual environment pipenv: `exit` You can also run code in here too! (you should run code in here)
 
- ## URL
- This will be update once an application is functioning and hosted
+### Installing other python packages needed for the project development
+Within your pipenv shell: we can now easily manage what versions/what packages we are using: numpy, flask, sports_referenceAPI, etc.
+We can specify what versions we are using for this project and document that. These packages can be installed with a simple pip command: `pipenv install flask` or whatever package you want to install. If we want to install packages that are only used for development like test packages: `pipenv install nose --dev`. If you want to install packages from a requirements file: `pipenv install -r ./requirements.txt`
+
+### Uninstalling python packages that were used in the pipenv
+Run the command `pipenv uninstall flask`. To uninstall an instance of pipenv virtual environment: `pipenv --rm`
+
+### Running project in pipenv
+In (in pipenv shell) command line run `pipenv run python3 -m flask run`: this will run a flask project in pipenv
+
+### Deploying code and ensuring web server uses correct version:
+Make the server use the pipfile.lock to install the correct versions of packages. `pipenv lock` and then `pipenv install --ignore-pipfile`
+
+### Other resources on virtual environments:
+* [Youtube Video Tutorial for Pipenv and checking security/version vulnerabilities](https://www.youtube.com/watch?v=6Qmnh5C4Pmo)
+* [Documentation for installing pipenv](https://docs.python-guide.org/dev/virtualenvs/)
+* [Pipenv commmand cheatsheet](https://gist.github.com/bradtraversy/c70a93d6536ed63786c434707b898d55)
+
+NOTE: We don't need to keep track of our dependency and package version ourselves. Pipenv automatically takes care of that for us and stores it on Pipfile and Pipfile.lock
